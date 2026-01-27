@@ -1,0 +1,386 @@
+/* ========================================
+   Reset & Base Styles
+   ======================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    background-color: #ffffff;
+    color: #333;
+    line-height: 1.6;
+    font-size: 16px;
+}
+
+a {
+    color: #0066cc;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #0052a3;
+    text-decoration: underline;
+}
+
+/* ========================================
+   Navigation Bar
+   ======================================== */
+.navbar {
+    position: sticky;
+    top: 0;
+    background-color: #f9f9f9;
+    border-bottom: 1px solid #e0e0e0;
+    z-index: 100;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    height: 60px;
+    gap: 30px;
+}
+
+.nav-link {
+    color: #666;
+    font-weight: 500;
+    font-size: 15px;
+    padding: 5px 0;
+    border-bottom: 3px solid transparent;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.nav-link:hover {
+    color: #0066cc;
+}
+
+.nav-link.active {
+    color: #0066cc;
+    border-bottom-color: #0066cc;
+}
+
+/* ========================================
+   Main Layout (Desktop: 2 columns)
+   ======================================== */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 40px;
+    padding: 40px 20px;
+}
+
+/* ========================================
+   Sidebar Profile Card
+   ======================================== */
+.sidebar {
+    grid-column: 1;
+}
+
+.profile-card {
+    position: sticky;
+    top: 100px;
+    background-color: #ffffff;
+    padding: 0;
+}
+
+.avatar {
+    width: 100%;
+    max-width: 250px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    display: block;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.name {
+    font-size: 24px;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 8px;
+}
+
+.affiliation {
+    font-size: 15px;
+    color: #666;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.bio {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 25px;
+    line-height: 1.5;
+}
+
+.contact-info {
+    margin-bottom: 25px;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    padding: 15px 0;
+}
+
+.contact-info p {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+.contact-info p:last-child {
+    margin-bottom: 0;
+}
+
+.contact-info a {
+    word-break: break-all;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-link {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    color: #0066cc;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    transition: all 0.3s ease;
+    flex: 1;
+}
+
+.social-link:hover {
+    background-color: #0066cc;
+    color: #ffffff;
+    border-color: #0066cc;
+    text-decoration: none;
+}
+
+/* ========================================
+   Main Content Area
+   ======================================== */
+.content {
+    grid-column: 2;
+}
+
+.section-home,
+.section-papers,
+.section-experience,
+.section-honors,
+.section-publications {
+    margin-bottom: 50px;
+    scroll-margin-top: 80px;
+}
+
+.content h2 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.content p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+/* ========================================
+   Timeline List Styles
+   ======================================== */
+.timeline {
+    list-style: none;
+    padding: 0;
+}
+
+.timeline-item {
+    display: flex;
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.timeline-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.date {
+    min-width: 100px;
+    color: #999;
+    font-weight: 600;
+    font-size: 14px;
+    margin-right: 20px;
+    flex-shrink: 0;
+}
+
+.content .timeline-item .content {
+    flex: 1;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #555;
+}
+
+.timeline-item em {
+    color: #999;
+    font-style: italic;
+    display: block;
+    margin-top: 5px;
+    font-size: 14px;
+}
+
+.timeline-item a {
+    display: inline-block;
+    margin-right: 15px;
+    font-size: 14px;
+}
+
+/* ========================================
+   Mobile Responsive (< 768px)
+   ======================================== */
+@media (max-width: 768px) {
+    .nav-container {
+        flex-wrap: wrap;
+        height: auto;
+        padding: 12px 20px;
+        gap: 15px;
+    }
+
+    .nav-link {
+        font-size: 13px;
+        padding: 8px 12px;
+    }
+
+    .container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 30px 16px;
+    }
+
+    .sidebar {
+        grid-column: 1;
+    }
+
+    .profile-card {
+        position: static;
+        background-color: #f9f9f9;
+        padding: 25px 20px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        border: 1px solid #f0f0f0;
+    }
+
+    .avatar {
+        max-width: 150px;
+        margin-bottom: 15px;
+    }
+
+    .name {
+        font-size: 22px;
+    }
+
+    .content {
+        grid-column: 1;
+    }
+
+    .content h2 {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    .timeline-item {
+        flex-direction: column;
+    }
+
+    .date {
+        min-width: auto;
+        margin-right: 0;
+        margin-bottom: 8px;
+        color: #666;
+    }
+
+    .content p {
+        font-size: 14px;
+    }
+
+    .social-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .social-link {
+        width: 100%;
+    }
+}
+
+/* ========================================
+   Tablet Responsive (768px - 1024px)
+   ======================================== */
+@media (max-width: 1024px) and (min-width: 769px) {
+    .container {
+        grid-template-columns: 240px 1fr;
+        gap: 30px;
+        padding: 30px 20px;
+    }
+
+    .sidebar {
+        grid-column: 1;
+    }
+
+    .avatar {
+        max-width: 100%;
+    }
+
+    .profile-card {
+        position: sticky;
+        top: 100px;
+    }
+
+    .nav-container {
+        gap: 20px;
+    }
+
+    .nav-link {
+        font-size: 14px;
+    }
+}
+
+/* ========================================
+   Print Styles
+   ======================================== */
+@media print {
+    .navbar {
+        display: none;
+    }
+
+    .container {
+        max-width: 100%;
+        padding: 0;
+    }
+
+    a {
+        color: #000;
+    }
+}
