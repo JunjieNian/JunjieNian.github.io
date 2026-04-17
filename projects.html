@@ -47,6 +47,22 @@
             </div>
 
             <div class="project-card">
+                <img src="assets/80-20-rule-entropy.png" alt="Entropy distribution analysis" class="project-img">
+                <img src="assets/80-20-rule-selfcert.png" alt="Self-certification metric analysis" class="project-img">
+                <h3>80/20 Rule of Token Entropy in LLM Reasoning</h3>
+                <p>Independent reproduction and extension of the Qwen team's work <a href="https://arxiv.org/abs/2506.01939" target="_blank"><em>Beyond the 80/20 Rule</em></a> (<a href="https://shenzhi-wang.github.io/high-entropy-minority-tokens-rlvr/" target="_blank">project page</a>, NeurIPS 2025), which discovers that token entropy in LLM reasoning chains follows an 80/20 distribution -- only ~20% of tokens carry high entropy and drive effective reasoning, while the remaining ~80% are low-entropy structural tokens. Extends the original analysis with five-metric comparison (Entropy, Confidence, Gini, LogProb, SelfCert), bimodal word analysis, multilingual CoT analysis (Chinese, Japanese, Korean), and entropy-frequency correlation study across 539K+ samples and 70M+ token instances.</p>
+                <div class="project-tags">
+                    <span class="project-tag">Interpretability</span>
+                    <span class="project-tag">Entropy</span>
+                    <span class="project-tag">LLM Reasoning</span>
+                    <span class="project-tag">Python</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/JunjieNian/80-20-rule-analysis" target="_blank">[GitHub]</a>
+                </div>
+            </div>
+
+            <div class="project-card">
                 <img src="assets/paper-assistant.png" alt="Paper Assistant System Screenshot" class="project-img">
                 <h3>Paper Assistant System</h3>
                 <p>A full-stack intelligent academic paper platform with two integrated subsystems: a <strong>Paper Writing Assistant</strong> for uploading, editing, compiling, and scoring LaTeX papers with AI-powered feedback (GLM-4), featuring real-time compilation, Monaco editor with SyncTeX bidirectional sync, and multi-dimensional scoring; and an <strong>ArXiv Paper Agent</strong> for automated daily ArXiv paper fetching with six-dimensional scoring and personalized recommendations.</p>
