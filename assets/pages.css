@@ -1,0 +1,288 @@
+/* ========================================
+   Sub-Page Layout (Experience, Projects)
+   ======================================== */
+.page-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 48px 32px 96px;
+}
+
+/* ========================================
+   Page Header
+   ======================================== */
+.page-header {
+    margin-bottom: 48px;
+    animation: pageFadeUp 0.7s var(--ease-out) 0.1s both;
+}
+
+.page-header h1 {
+    font-family: var(--font-display);
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 8px;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+    padding-left: 16px;
+    border-left: 3px solid var(--color-accent);
+}
+
+.page-header p {
+    font-size: 15px;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    padding-left: 19px;
+}
+
+@keyframes pageFadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ========================================
+   Timeline (reused from academic)
+   ======================================== */
+.timeline {
+    list-style: none;
+    padding: 0;
+}
+
+.timeline-item {
+    display: flex;
+    padding: 18px 12px;
+    margin: 0 -12px;
+    border-bottom: 1px solid var(--color-border-light);
+    border-radius: 6px;
+    transition: background-color var(--transition-fast);
+}
+
+.timeline-item:last-child {
+    border-bottom: none;
+}
+
+.timeline-item:hover {
+    background-color: var(--color-accent-soft);
+}
+
+.date {
+    min-width: 110px;
+    color: var(--color-accent);
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-right: 24px;
+    flex-shrink: 0;
+    padding-top: 3px;
+}
+
+.timeline-item em {
+    color: var(--color-text-muted);
+    font-style: italic;
+    display: block;
+    margin-top: 4px;
+    font-size: 13.5px;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+/* ========================================
+   Section Styling
+   ======================================== */
+.page-section {
+    margin-bottom: 56px;
+}
+
+.page-section h2 {
+    font-family: var(--font-display);
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 24px;
+    padding-left: 16px;
+    border-left: 3px solid var(--color-accent);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+}
+
+/* ========================================
+   Project Cards
+   ======================================== */
+.project-card {
+    padding: 28px 24px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 1px solid var(--color-border-light);
+    border-radius: 12px;
+    box-shadow: var(--shadow-sm);
+    margin-bottom: 20px;
+    transition: box-shadow var(--transition-normal),
+                border-color var(--transition-normal);
+}
+
+.project-card:hover {
+    box-shadow: var(--shadow-md);
+    border-color: var(--color-accent);
+}
+
+.project-card h3 {
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 8px;
+}
+
+.project-card p {
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--color-text-secondary);
+    margin-bottom: 12px;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 12px;
+}
+
+.project-tag {
+    font-size: 11.5px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    padding: 4px 10px;
+    border-radius: 4px;
+    background-color: var(--color-accent-soft);
+    color: var(--color-accent);
+}
+
+.project-links a {
+    display: inline-block;
+    margin-right: 10px;
+    font-size: 12.5px;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    padding: 3px 10px;
+    border-radius: 4px;
+    background-color: var(--color-accent-soft);
+    color: var(--color-accent);
+    transition: all var(--transition-fast);
+}
+
+.project-links a:hover {
+    background-color: var(--color-accent);
+    color: #fff;
+    text-decoration: none;
+}
+
+/* ========================================
+   Page Footer
+   ======================================== */
+.page-footer {
+    text-align: center;
+    padding: 40px 0;
+    border-top: 1px solid var(--color-border-light);
+    margin-top: 24px;
+}
+
+.page-footer p {
+    font-size: 13px;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+}
+
+.page-footer a {
+    font-weight: 600;
+}
+
+/* ========================================
+   Scroll Reveal - Timeline Items
+   ======================================== */
+.reveal .timeline-item {
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.5s var(--ease-out), transform 0.5s var(--ease-out);
+}
+
+.reveal.revealed .timeline-item {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.reveal.revealed .timeline-item:nth-child(1) { transition-delay: 0.06s; }
+.reveal.revealed .timeline-item:nth-child(2) { transition-delay: 0.12s; }
+.reveal.revealed .timeline-item:nth-child(3) { transition-delay: 0.18s; }
+.reveal.revealed .timeline-item:nth-child(4) { transition-delay: 0.24s; }
+
+/* Scroll Reveal - Project Cards */
+.reveal .project-card {
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.5s var(--ease-out), transform 0.5s var(--ease-out),
+                box-shadow var(--transition-normal), border-color var(--transition-normal);
+}
+
+.reveal.revealed .project-card {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.reveal.revealed .project-card:nth-child(1) { transition-delay: 0.06s; }
+.reveal.revealed .project-card:nth-child(2) { transition-delay: 0.14s; }
+.reveal.revealed .project-card:nth-child(3) { transition-delay: 0.22s; }
+
+.reveal.revealed .project-card:hover {
+    transform: none;
+}
+
+/* ========================================
+   Responsive - Mobile (< 768px)
+   ======================================== */
+@media (max-width: 768px) {
+    .page-container {
+        padding: 24px 16px 60px;
+    }
+
+    .page-header h1 {
+        font-size: 28px;
+    }
+
+    .page-section h2 {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    .timeline-item {
+        flex-direction: column;
+        padding: 14px 8px;
+        margin: 0 -8px;
+    }
+
+    .date {
+        min-width: auto;
+        margin-right: 0;
+        margin-bottom: 4px;
+    }
+
+    .project-card {
+        padding: 20px 16px;
+    }
+}
+
+/* ========================================
+   Reduced Motion
+   ======================================== */
+@media (prefers-reduced-motion: reduce) {
+    .page-header,
+    .reveal .timeline-item,
+    .reveal .project-card {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}
