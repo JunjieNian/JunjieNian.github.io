@@ -123,5 +123,38 @@
     </div>
 
     <script src="assets/main.js"></script>
+    <script>
+    (function () {
+        var overlay = document.createElement('div');
+        overlay.className = 'lightbox-overlay';
+        var img = document.createElement('img');
+        overlay.appendChild(img);
+        document.body.appendChild(overlay);
+
+        document.querySelectorAll('.project-img').forEach(function (el) {
+            el.addEventListener('click', function () {
+                img.src = this.src;
+                img.alt = this.alt;
+                overlay.style.display = 'flex';
+                requestAnimationFrame(function () {
+                    overlay.classList.add('active');
+                });
+            });
+        });
+
+        overlay.addEventListener('click', function () {
+            overlay.classList.remove('active');
+            setTimeout(function () { overlay.style.display = 'none'; }, 300);
+        });
+
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && overlay.classList.contains('active')) {
+                overlay.click();
+            }
+        });
+
+        overlay.style.display = 'none';
+    })();
+    </script>
 </body>
 </html>
