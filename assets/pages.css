@@ -164,6 +164,44 @@
     opacity: 0.9;
 }
 
+/* Portrait image + horizontal card layout */
+.project-card-horizontal {
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+}
+
+.project-img-portrait {
+    width: 180px;
+    flex-shrink: 0;
+    border-radius: 8px;
+    border: 1px solid var(--color-border-light);
+    cursor: zoom-in;
+    transition: opacity var(--transition-fast);
+}
+
+.project-img-portrait:hover {
+    opacity: 0.9;
+}
+
+.project-card-body {
+    flex: 1;
+    min-width: 0;
+}
+
+@media (max-width: 768px) {
+    .project-card-horizontal {
+        flex-direction: column;
+    }
+
+    .project-img-portrait {
+        width: 50%;
+        max-width: 200px;
+        margin: 0 auto 16px;
+        display: block;
+    }
+}
+
 /* ========================================
    Image Lightbox
    ======================================== */

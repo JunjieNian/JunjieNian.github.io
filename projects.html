@@ -82,6 +82,24 @@
         <section class="page-section reveal">
             <h2>Technical Work</h2>
 
+            <div id="zeroth-bot" class="project-card project-card-horizontal">
+                <img src="assets/zeroth_bot.jpg" alt="Zeroth Bot humanoid robot" class="project-img-portrait">
+                <div class="project-card-body">
+                    <h3>Zeroth Bot: Humanoid Robot Assembly, Sim-to-Real Training &amp; Deployment</h3>
+                    <p>Built and deployed a <a href="https://docs.kscale.dev/category/zeroth-01" target="_blank">Zeroth-01</a> humanoid robot as part of the Tengfei Innovation Program (advised by Prof. Li Shang). Assembled the full hardware platform including 3D-printed chassis, servo motors, and embedded controller. Performed sim-to-real locomotion training using an <a href="https://github.com/BigJohnn/sim" target="_blank">open-source simulation framework</a>, then transferred the learned policy to the physical robot for real-world walking deployment.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Embodied AI</span>
+                        <span class="project-tag">Sim-to-Real</span>
+                        <span class="project-tag">Robotics</span>
+                        <span class="project-tag">Python</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://docs.kscale.dev/category/zeroth-01" target="_blank">[Zeroth-01 Docs]</a>
+                        <a href="https://github.com/BigJohnn/sim" target="_blank">[Sim Repo]</a>
+                    </div>
+                </div>
+            </div>
+
             <div class="project-card">
                 <img src="assets/paper-assistant.png" alt="Paper Assistant System Screenshot" class="project-img">
                 <h3>Paper Assistant System</h3>
@@ -131,7 +149,7 @@
         overlay.appendChild(img);
         document.body.appendChild(overlay);
 
-        document.querySelectorAll('.project-img').forEach(function (el) {
+        document.querySelectorAll('.project-img, .project-img-portrait').forEach(function (el) {
             el.addEventListener('click', function () {
                 img.src = this.src;
                 img.alt = this.alt;
