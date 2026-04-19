@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Junjie Nian - CV</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 16mm 18mm;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Palatino Linotype", "Book Antiqua", Palatino, Georgia, "Times New Roman", serif;
+            font-size: 13px;
+            line-height: 1.55;
+            color: #1a1a1a;
+            background: #f5f5f5;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .cv-page {
+            max-width: 210mm;
+            margin: 20px auto;
+            background: #fff;
+            padding: 40px 44px;
+            box-shadow: 0 2px 24px rgba(0,0,0,0.1);
+        }
+
+        @media print {
+            body { background: #fff; }
+            .cv-page {
+                max-width: 100%;
+                margin: 0;
+                padding: 0;
+                box-shadow: none;
+            }
+            a {
+                color: #9b2335;
+                text-decoration: underline;
+            }
+            .cv-meta a {
+                text-decoration: none;
+            }
+        }
+
+        /* ── Header ── */
+        .cv-top {
+            display: flex;
+            gap: 28px;
+            margin-bottom: 20px;
+            padding-bottom: 16px;
+            border-bottom: 2px solid #9b2335;
+        }
+
+        .cv-avatar {
+            width: 100px;
+            height: 132px;
+            object-fit: cover;
+            border-radius: 5px;
+            flex-shrink: 0;
+            border: 1px solid #ddd;
+        }
+
+        .cv-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .cv-name {
+            font-size: 26px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 4px;
+        }
+
+        .cv-name-cn {
+            font-size: 15px;
+            font-weight: 400;
+            color: #666;
+            margin-left: 6px;
+        }
+
+        .cv-subtitle {
+            font-size: 13.5px;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        .cv-meta {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3px 28px;
+            font-size: 12.5px;
+            color: #333;
+        }
+
+        .cv-meta span {
+            display: flex;
+            align-items: baseline;
+            gap: 6px;
+        }
+
+        .cv-meta .label {
+            color: #888;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            min-width: 48px;
+            flex-shrink: 0;
+        }
+
+        .cv-meta a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        /* ── Section ── */
+        .section {
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: #9b2335;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            border-bottom: 1.5px solid #9b2335;
+            padding-bottom: 3px;
+            margin-bottom: 8px;
+        }
+
+        /* ── About ── */
+        .about p {
+            font-size: 12.5px;
+            line-height: 1.7;
+            color: #333;
+            margin-bottom: 3px;
+        }
+
+        /* ── Timeline rows ── */
+        .row {
+            display: flex;
+            gap: 14px;
+            padding: 4px 0;
+            border-bottom: 1px solid #f0ede8;
+        }
+
+        .row:last-child {
+            border-bottom: none;
+        }
+
+        .row .date {
+            min-width: 118px;
+            font-size: 11.5px;
+            color: #9b2335;
+            font-weight: 600;
+            flex-shrink: 0;
+            padding-top: 1px;
+        }
+
+        .row .desc {
+            flex: 1;
+            font-size: 12.5px;
+            color: #333;
+        }
+
+        .row .desc strong {
+            color: #1a1a1a;
+            font-size: 13px;
+        }
+
+        .row .desc .detail {
+            color: #555;
+            font-size: 12px;
+            margin-top: 1px;
+            line-height: 1.55;
+        }
+
+        /* ── Publications ── */
+        .pub {
+            font-size: 12px;
+            line-height: 1.6;
+            color: #333;
+            margin-bottom: 7px;
+            padding-left: 14px;
+            text-indent: -14px;
+        }
+
+        .pub strong { color: #1a1a1a; }
+
+        .pub .venue {
+            color: #9b2335;
+            font-weight: 600;
+        }
+
+        .pub a {
+            color: #9b2335;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 11px;
+        }
+
+        /* ── Awards ── */
+        .award-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding: 3px 0;
+            border-bottom: 1px solid #f0ede8;
+            font-size: 12.5px;
+            color: #333;
+        }
+
+        .award-row:last-child { border-bottom: none; }
+
+        .award-row .date {
+            font-size: 11.5px;
+            color: #9b2335;
+            font-weight: 600;
+            white-space: nowrap;
+            margin-left: 16px;
+        }
+
+        /* ── Skills ── */
+        .skill-row {
+            font-size: 12.5px;
+            color: #333;
+            line-height: 1.6;
+            margin-bottom: 2px;
+        }
+
+        .skill-row .skill-label {
+            font-weight: 700;
+            color: #1a1a1a;
+        }
+
+        /* ── Scores ── */
+        .scores {
+            display: flex;
+            gap: 28px;
+            font-size: 12.5px;
+            color: #333;
+        }
+
+        .scores .score-label {
+            color: #888;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            margin-right: 4px;
+        }
+
+        .scores .score-val {
+            font-weight: 700;
+            color: #1a1a1a;
+        }
+
+        /* ── Projects ── */
+        .project-item {
+            margin-bottom: 6px;
+        }
+
+        .project-item .proj-title {
+            font-size: 12.5px;
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+
+        .project-item .proj-desc {
+            font-size: 11.5px;
+            color: #555;
+            line-height: 1.5;
+            margin-top: 1px;
+        }
+    </style>
+</head>
+<body>
+<div class="cv-page">
+
+    <!-- ════ Header ════ -->
+    <div class="cv-top">
+        <img src="me.jpg" alt="Junjie Nian" class="cv-avatar">
+        <div class="cv-info">
+            <div class="cv-name">Junjie Nian <span class="cv-name-cn">年骏杰</span></div>
+            <div class="cv-subtitle">B.Eng. in Artificial Intelligence, Fudan University</div>
+            <div class="cv-meta">
+                <span><span class="label">Email</span> 24307140012@m.fudan.edu.cn</span>
+                <span><span class="label">Phone</span> (+86) 19370555931</span>
+                <span><span class="label">GitHub</span> <a href="https://github.com/JunjieNian" target="_blank">github.com/JunjieNian</a></span>
+                <span><span class="label">Website</span> <a href="https://junjienian.github.io" target="_blank">junjienian.github.io</a></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ════ About ════ -->
+    <div class="section about">
+        <div class="section-title">About</div>
+        <p>Undergraduate researcher at Fudan University majoring in Artificial Intelligence (ranked 1st in class, GPA 3.93/4.0). Currently conducting research on large reasoning models, agents, and interpretability at FudanNLP ALEX Lab, advised by Prof. Yixin Cao. Published at ACL 2026 and contributed to multiple preprints. Will be an exchange student at UC San Diego in Fall 2026. Passionate about advancing the frontiers of AI reasoning and committed to a career in AI research.</p>
+    </div>
+
+    <!-- ════ Education ════ -->
+    <div class="section">
+        <div class="section-title">Education</div>
+        <div class="row">
+            <span class="date">2024.9 &ndash; Present</span>
+            <div class="desc">
+                <strong>Fudan University</strong> &mdash; B.Eng. in Artificial Intelligence
+                <div class="detail">School of Computer Science (Honors Track). GPA 3.93/4.0, ranked 1st in major. Full marks in Mathematical Analysis I/II, Linear Algebra, Physics I/II, Circuit Fundamentals.</div>
+            </div>
+        </div>
+        <div class="row">
+            <span class="date">2026.9 &ndash; 2027.6</span>
+            <div class="desc">
+                <strong>UC San Diego</strong> &mdash; Exchange Student
+                <div class="detail">Computer Science & Engineering. Selected through university-wide competitive process.</div>
+            </div>
+        </div>
+        <div class="row">
+            <span class="date">2021.9 &ndash; 2024.6</span>
+            <div class="desc">
+                <strong>The High School Affiliated to Fudan University</strong> &mdash; Buqing Honors Class
+            </div>
+        </div>
+    </div>
+
+    <!-- ════ Research Experience ════ -->
+    <div class="section">
+        <div class="section-title">Research Experience</div>
+        <div class="row">
+            <span class="date">2025.10 &ndash; Present</span>
+            <div class="desc">
+                <strong>FudanNLP ALEX Lab</strong> &mdash; Undergraduate Researcher
+                <div class="detail">Advised by Prof. Yixin Cao. Research on Large Reasoning Model capabilities, agent systems, and mechanistic interpretability. Produced 3 papers (including 1 ACL 2026 Findings). Independently explored on CoT Folding and Multilingual Neuron Analysis projects. Currently leading a project on multi-run process level agreement and interpretability.</div>
+            </div>
+        </div>
+        <div class="row">
+            <span class="date">2025.3 &ndash; 2025.6</span>
+            <div class="desc">
+                <strong>Embodied Intelligence Research Project</strong> &mdash; Tengfei Innovation Program
+                <div class="detail">Advised by Prof. Shang Li. Built small-scale robots with asynchronous servo motor control and embedded development board integration.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ════ Publications ════ -->
+    <div class="section">
+        <div class="section-title">Publications</div>
+        <p class="pub">
+            Kang Chen, Zhuoka Feng, Sihan Zhao, Kai Xiong, <strong>Junjie Nian</strong>, Yaoning Wang, Changyi Xiao, Yixin Cao.
+            &ldquo;NEX: Neuron Explore-Exploit Scoring for Label-Free Chain-of-Thought Selection and Model Ranking.&rdquo;
+            <a href="https://arxiv.org/abs/2602.05805" target="_blank">[arXiv]</a>
+        </p>
+        <p class="pub">
+            Kang Chen, Fan Yu, <strong>Junjie Nian</strong>, Shihan Zhao, Zhuoka Feng, Zijun Yao, Heng Wang, Minshen Yu, Yixin Cao.
+            &ldquo;Thinking Traps in Long Chain-of-Thought: A Measurable Study and Trap-Aware Adaptive Restart.&rdquo;
+            <span class="venue">Findings of ACL, 2026.</span>
+            <a href="https://arxiv.org/abs/2601.11940" target="_blank">[arXiv]</a>
+        </p>
+        <p class="pub">
+            Zhuoka Feng, Kang Chen, Sihan Zhao, Kai Xiong, Yaoning Wang, Minshen Yu, <strong>Junjie Nian</strong>, Changyi Xiao, Yixin Cao, Yugang Jiang.
+            &ldquo;ARM: Role-Conditioned Neuron Transplantation for Training-Free Generalist LLM Agent Merging.&rdquo;
+            <a href="https://arxiv.org/abs/2601.07309" target="_blank">[arXiv]</a>
+        </p>
+    </div>
+
+    <!-- ════ Honors & Awards ════ -->
+    <div class="section">
+        <div class="section-title">Honors &amp; Awards</div>
+        <div class="award-row">Duckbill Special Scholarship, Fudan University (equivalent to First-Class Outstanding Student Scholarship) <span class="date">2025</span></div>
+        <div class="award-row">Third Prize, China Undergraduate Mathematical Contest in Modelling, Shanghai <span class="date">2025</span></div>
+        <div class="award-row">Third Prize, The Chinese Mathematics Competitions for College Students, Shanghai <span class="date">2025</span></div>
+        <div class="award-row">Freshman Scholarship, Fudan University (New Engineering Discipline) <span class="date">2025</span></div>
+        <div class="award-row">First Prize, Tengfei College Entrance Exam Freshman Scholarship, Fudan University <span class="date">2024</span></div>
+    </div>
+
+    <!-- ════ Selected Projects ════ -->
+    <div class="section">
+        <div class="section-title">Selected Projects</div>
+        <div class="project-item">
+            <div class="proj-title">CoT Folding: Structural Analysis of LLM Reasoning Trajectories</div>
+            <div class="proj-desc">Framework treating Chain-of-Thought as analogous to protein folding. Measures pairwise similarity between token segments using neuron activation patterns. Proposes Native Fold Score (NFS), a fully unsupervised, parameter-free quality metric for CoT reasoning.</div>
+        </div>
+        <div class="project-item">
+            <div class="proj-title">Multilingual Neuron Analysis for LLM Reasoning</div>
+            <div class="proj-desc">Extended NAD framework to multilingual settings across 18 languages and 2,250 math reasoning samples. Found that quality reasoning neurons are 99.8% language-agnostic; moderate code-switching outperforms monolingual reasoning by +68.8%.</div>
+        </div>
+        <div class="project-item">
+            <div class="proj-title">80/20 Rule of Token Entropy in LLM Reasoning</div>
+            <div class="proj-desc">Independent reproduction and extension of Qwen team's NeurIPS 2025 work with five-metric comparison, multilingual CoT analysis, and entropy-frequency correlation study across 539K+ samples and 70M+ tokens.</div>
+        </div>
+        <div class="project-item">
+            <div class="proj-title">Paper Assistant System</div>
+            <div class="proj-desc">Full-stack academic platform: AI-powered LaTeX editor (GLM-4 feedback, real-time compilation, Monaco with SyncTeX) and ArXiv Paper Agent with automated daily scoring. React + FastAPI.</div>
+        </div>
+    </div>
+
+    <!-- ════ Skills ════ -->
+    <div class="section">
+        <div class="section-title">Skills</div>
+        <div class="skill-row"><span class="skill-label">Programming: </span>Python, C/C++</div>
+        <div class="skill-row"><span class="skill-label">AI / Research: </span>PyTorch, NumPy/SciPy, neuron-level interpretability analysis, data analysis & visualization</div>
+        <div class="skill-row"><span class="skill-label">Engineering: </span>React, FastAPI, Three.js, Docker, LaTeX</div>
+        <div class="skill-row"><span class="skill-label">Math & Physics: </span>National Physics Olympiad Second Prize (x2); full marks in all core math & physics courses</div>
+    </div>
+
+    <!-- ════ English Proficiency ════ -->
+    <div class="section">
+        <div class="section-title">English Proficiency</div>
+        <div class="scores">
+            <div><span class="score-label">TOEFL</span> <span class="score-val">111</span></div>
+            <div><span class="score-label">CET-6</span> <span class="score-val">619</span></div>
+            <div><span class="score-label">CET-4</span> <span class="score-val">636</span></div>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

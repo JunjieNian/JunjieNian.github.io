@@ -92,11 +92,40 @@
     line-height: 1.5;
 }
 
+.timeline-item > .content {
+    flex: 1;
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--color-text);
+    font-weight: 500;
+}
+
+.timeline-item a {
+    display: inline-block;
+    margin-right: 10px;
+    margin-top: 6px;
+    font-size: 12.5px;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    padding: 3px 10px;
+    border-radius: 4px;
+    background-color: var(--color-accent-soft);
+    color: var(--color-accent);
+    transition: all var(--transition-fast);
+}
+
+.timeline-item a:hover {
+    background-color: var(--color-accent);
+    color: #fff;
+    text-decoration: none;
+}
+
 /* ========================================
    Section Styling
    ======================================== */
 .page-section {
     margin-bottom: 56px;
+    scroll-margin-top: 76px;
 }
 
 .page-section h2 {
@@ -109,6 +138,14 @@
     border-left: 3px solid var(--color-accent);
     line-height: 1.2;
     letter-spacing: -0.01em;
+}
+
+.page-section > p {
+    font-size: 15px;
+    line-height: 1.78;
+    color: var(--color-text-secondary);
+    margin-bottom: 12px;
+    max-width: 620px;
 }
 
 /* ========================================
@@ -267,6 +304,8 @@
 .reveal.revealed .timeline-item:nth-child(2) { transition-delay: 0.12s; }
 .reveal.revealed .timeline-item:nth-child(3) { transition-delay: 0.18s; }
 .reveal.revealed .timeline-item:nth-child(4) { transition-delay: 0.24s; }
+.reveal.revealed .timeline-item:nth-child(5) { transition-delay: 0.30s; }
+.reveal.revealed .timeline-item:nth-child(6) { transition-delay: 0.36s; }
 
 /* Scroll Reveal - Project Cards */
 .reveal .project-card {
@@ -320,6 +359,222 @@
 
     .project-card {
         padding: 20px 16px;
+    }
+}
+
+/* ========================================
+   CV Page — Header
+   ======================================== */
+.cv-header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding-bottom: 24px;
+    border-bottom: 2px solid var(--color-text);
+}
+
+.cv-header h1 {
+    font-family: var(--font-display);
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 8px;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+}
+
+.cv-header .cv-contact {
+    font-size: 13.5px;
+    color: var(--color-text-secondary);
+    line-height: 1.8;
+}
+
+.cv-header .cv-contact a {
+    font-weight: 500;
+}
+
+.cv-header .cv-contact .sep {
+    margin: 0 6px;
+    color: var(--color-text-muted);
+}
+
+/* ========================================
+   CV Page — Sections
+   ======================================== */
+.cv-section {
+    margin-bottom: 36px;
+}
+
+.cv-section h2 {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 14px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--color-border);
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+}
+
+.cv-section .cv-item {
+    margin-bottom: 14px;
+}
+
+.cv-section .cv-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 4px 16px;
+}
+
+.cv-section .cv-item-header strong {
+    font-size: 15px;
+    color: var(--color-text);
+}
+
+.cv-section .cv-item-header .cv-date {
+    font-size: 13px;
+    color: var(--color-accent);
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.cv-section .cv-item-detail {
+    font-size: 14px;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin-top: 2px;
+}
+
+.cv-section .cv-item-detail em {
+    color: var(--color-text-muted);
+}
+
+/* CV — Publication list */
+.cv-section .cv-pub {
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--color-text-secondary);
+    margin-bottom: 10px;
+    padding-left: 18px;
+    text-indent: -18px;
+}
+
+.cv-section .cv-pub strong {
+    color: var(--color-text);
+}
+
+.cv-section .cv-pub a {
+    font-size: 12.5px;
+    font-weight: 600;
+}
+
+/* CV — Skills */
+.cv-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.cv-skills span {
+    font-size: 12.5px;
+    font-weight: 500;
+    padding: 4px 12px;
+    border-radius: 4px;
+    background-color: var(--color-accent-soft);
+    color: var(--color-text-secondary);
+}
+
+/* CV — Awards list */
+.cv-section ul.cv-awards {
+    list-style: none;
+    padding: 0;
+}
+
+.cv-section ul.cv-awards li {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+    padding: 6px 0;
+    font-size: 14px;
+    color: var(--color-text-secondary);
+    border-bottom: 1px solid var(--color-border-light);
+}
+
+.cv-section ul.cv-awards li:last-child {
+    border-bottom: none;
+}
+
+.cv-section ul.cv-awards .cv-date {
+    font-size: 12px;
+    color: var(--color-accent);
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+/* CV — Project list */
+.cv-section ul.cv-projects {
+    list-style: none;
+    padding: 0;
+}
+
+.cv-section ul.cv-projects li {
+    margin-bottom: 10px;
+}
+
+.cv-section ul.cv-projects li strong {
+    font-size: 14px;
+    color: var(--color-text);
+}
+
+.cv-section ul.cv-projects li p {
+    font-size: 13px;
+    color: var(--color-text-muted);
+    line-height: 1.55;
+    margin-top: 2px;
+}
+
+/* ========================================
+   CV Print Styles
+   ======================================== */
+@media print {
+    .cv-header {
+        margin-bottom: 24px;
+        padding-bottom: 16px;
+    }
+
+    .cv-section {
+        margin-bottom: 20px;
+        break-inside: avoid;
+    }
+
+    .cv-section h2 {
+        margin-bottom: 8px;
+    }
+
+    .cv-skills span {
+        border: 1px solid var(--color-border);
+        background: none;
+    }
+
+    .page-container {
+        padding: 0;
+        max-width: 100%;
+    }
+
+    .page-footer {
+        display: none;
+    }
+
+    /* Force all reveal elements visible for print */
+    .reveal,
+    .reveal .timeline-item,
+    .reveal .project-card {
+        opacity: 1 !important;
+        transform: none !important;
+        animation: none !important;
     }
 }
 
