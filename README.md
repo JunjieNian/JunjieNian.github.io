@@ -1,266 +1,155 @@
-# Personal Academic Homepage
+# Junjie Nian Personal Homepage
 
-A clean, academic-style personal homepage built with pure HTML, CSS, and vanilla JavaScript. No frameworks required. Perfect for researchers, academics, and professionals who want a modern, responsive personal website.
+This repository contains the source code for Junjie Nian's personal academic homepage. It is a fully static website built with plain HTML, CSS, and vanilla JavaScript, and is designed to be hosted directly on GitHub Pages without any build step.
 
-## Features
+## Overview
 
-✨ **Clean & Academic Design** - Minimalist white background with professional layout
-📱 **Fully Responsive** - Two-column layout on desktop, single column on mobile
-⚡ **No Dependencies** - Pure HTML, CSS, and vanilla JavaScript
-🎯 **Smart Navigation** - Automatic section highlighting using IntersectionObserver
-🔗 **Easy Customization** - Simple placeholder system for quick personalization
-📄 **GitHub Pages Ready** - Works out of the box with GitHub Pages
+The site is organized as a small multi-page portfolio:
 
-## Directory Structure
+- `index.html` – landing page with hero section and navigation cards
+- `academic.html` – publications, new papers, and honors
+- `projects.html` – research projects, technical work, and side explorations
+- `experience.html` – research experience and education background
 
+## Tech Stack
+
+- **HTML5** for page structure
+- **CSS3** for layout, typography, and responsive design
+- **Vanilla JavaScript** for page interactions
+- **Google Fonts** (`Cormorant Garamond`, `Karla`) for typography
+- **GitHub Pages** for deployment
+
+## Repository Structure
+
+```text
+.
+├── README.md
+├── index.html
+├── academic.html
+├── projects.html
+├── experience.html
+└── assets/
+    ├── avatar.jpg
+    ├── cv.html
+    ├── cv.pdf
+    ├── landing.css
+    ├── landing.js
+    ├── main.js
+    ├── pages.css
+    ├── shared.css
+    └── *.png / *.jpg / *.gif
 ```
-your-username.github.io/
-├── index.html           # Main HTML file
-├── .nojekyll           # Tells GitHub Pages to not use Jekyll
-├── README.md           # This file
-├── assets/
-│   ├── style.css       # All styling (responsive, no dependencies)
-│   ├── main.js         # Navigation highlighting with IntersectionObserver
-│   ├── avatar.jpg      # Your profile picture (replace this!)
-│   └── cv.pdf          # Your CV file (optional, replace this!)
-```
 
-## Setup Instructions
+## Styling and Behavior
 
-### Step 1: Create Your GitHub Pages Repository
+- `assets/shared.css` contains shared styles used across all pages
+- `assets/landing.css` styles the homepage hero and navigation cards
+- `assets/pages.css` styles the internal content pages
+- `assets/landing.js` controls landing-page interactions
+- `assets/main.js` powers scroll/reveal behaviors on the content pages
 
-1. Go to [GitHub](https://github.com) and sign in
-2. Click the "+" icon in the top right → "New repository"
-3. **Repository name:** `<your-username>.github.io` (replace `<your-username>` with your actual GitHub username)
-   - For example: if your username is `john-doe`, the repo should be named `john-doe.github.io`
-4. Make sure the repository is **Public**
-5. Click "Create repository"
+In addition, `projects.html` includes a small inline lightbox script for enlarging project images.
 
-### Step 2: Clone Your Repository
+## Local Preview
+
+Because the site is fully static, you can preview it with any simple local server.
+
+### Python
 
 ```bash
-git clone https://github.com/<your-username>/<your-username>.github.io.git
-cd <your-username>.github.io
-```
-
-### Step 3: Add the Homepage Files
-
-Copy all the files from this template:
-- `index.html`
-- `.nojekyll`
-- `README.md`
-- `assets/` directory (with `style.css`, `main.js`, `avatar.jpg`, `cv.pdf`)
-
-### Step 4: Add Your Profile Picture
-
-1. Prepare your profile picture (JPG or PNG format, recommended size: 200x200px or larger, preferably square)
-2. Save it as `avatar.jpg` in the `assets/` folder
-3. If you use a different filename or format (e.g., `avatar.png`), update line in `index.html`:
-   ```html
-   <img src="assets/avatar.jpg" alt="Profile Picture" class="avatar">
-   ```
-
-### Step 5: Add Your CV (Optional)
-
-1. Prepare your CV as a PDF file
-2. Save it as `cv.pdf` in the `assets/` folder
-3. If you use a different filename, update the link in `index.html`:
-   ```html
-   <a href="assets/cv.pdf" target="_blank" class="social-link">CV</a>
-   ```
-
-### Step 6: Customize Your Content
-
-Edit `index.html` and replace all placeholder text:
-
-#### Profile Section (Left Sidebar):
-```html
-<h1 class="name">YOUR_NAME</h1>                    <!-- Replace with your name -->
-<p class="affiliation">YOUR_AFFILIATION</p>        <!-- Replace with your university/organization -->
-<p class="bio">A brief one-line introduction about yourself.</p>  <!-- Your tagline -->
-
-<p><strong>Location:</strong> Your_City, Country</p>
-<p><strong>Email:</strong> <a href="mailto:your.email@example.com">your.email@example.com</a></p>
-
-<a href="https://github.com/yourname" target="_blank" class="social-link">GitHub</a>
-```
-
-#### Content Sections:
-Replace the placeholder content in each section:
-- **About Me** - `<section id="home" class="section-home">`
-- **New Papers** - `<section id="papers" class="section-papers">`
-- **Experience** - `<section id="experience" class="section-experience">`
-- **Honors and Awards** - `<section id="honors" class="section-honors">`
-- **Publications** - `<section id="publications" class="section-publications">`
-
-**Timeline Item Example:**
-```html
-<li class="timeline-item">
-    <span class="date">2024</span>
-    <span class="content">
-        Your achievement or position title
-        <br>
-        <em>Organization or Company Name</em>
-    </span>
-</li>
-```
-
-### Step 7: Push to GitHub
-
-```bash
-git add .
-git commit -m "Initial commit: Set up personal homepage"
-git push -u origin main
-```
-
-### Step 8: Enable GitHub Pages
-
-1. Go to your repository on GitHub: `https://github.com/<your-username>/<your-username>.github.io`
-2. Click the **Settings** tab
-3. In the left sidebar, click **Pages**
-4. Under "Build and deployment":
-   - **Source**: Select "Deploy from a branch"
-   - **Branch**: Select `main` and `/(root)`
-   - Click **Save**
-5. Wait a few minutes for GitHub to build and deploy your site
-6. Your homepage will be live at: `https://<your-username>.github.io`
-
-## Local Development
-
-To test your homepage locally before pushing to GitHub:
-
-### Option 1: Using Python (Recommended)
-
-```bash
-cd <your-username>.github.io
-
-# Python 3.x
 python -m http.server 8000
-
-# Python 2.x
-python -m SimpleHTTPServer 8000
 ```
 
-Then open your browser to `http://localhost:8000`
+Then open `http://localhost:8000`.
 
-### Option 2: Using Node.js
+### VS Code
 
-```bash
-# Install http-server globally (one-time)
-npm install -g http-server
+You can also use the **Live Server** extension and open `index.html` from the workspace root.
 
-# Run in your project directory
-http-server
-```
+## Content Maintenance
 
-### Option 3: Using VS Code
+### Update profile information
 
-Install the "Live Server" extension and right-click `index.html` → "Open with Live Server"
+Edit `index.html` to update:
 
-## Customization Tips
+- name and Chinese name
+- affiliation and short bio
+- contact links such as GitHub, email, and CV
+- hero text and homepage entry points
 
-### Change Colors
+### Update academic content
 
-Edit `assets/style.css` and modify:
-```css
-a {
-    color: #0066cc;      /* Link color */
-}
+Edit `academic.html` to maintain:
 
-.nav-link.active {
-    color: #0066cc;      /* Active nav color */
-    border-bottom-color: #0066cc;
-}
-```
+- new papers
+- honors and awards
+- publication list
+- advisor and lab information
 
-### Add More Sections
+### Update projects
 
-1. Add a new navigation link in the navbar:
+Edit `projects.html` to maintain:
+
+- project descriptions
+- screenshots and media under `assets/`
+- tags and external links
+
+### Update experience
+
+Edit `experience.html` to maintain:
+
+- research experience
+- education timeline
+- cross-links to publications and projects
+
+### Update images and files
+
+Store static assets in `assets/`, then reference them with relative paths such as:
+
 ```html
-<a href="#mysection" class="nav-link" data-section="mysection">My Section</a>
+<img src="assets/avatar.jpg" alt="Junjie Nian">
+<a href="assets/cv.pdf" download>CV</a>
 ```
 
-2. Add a new section in the main content:
-```html
-<section id="mysection" class="section-mysection">
-    <h2>My Section</h2>
-    <!-- Your content here -->
-</section>
-```
+## Deployment
 
-3. Add CSS for the new section if needed:
-```css
-.section-mysection {
-    margin-bottom: 50px;
-    scroll-margin-top: 80px;
-}
-```
+This repository is suitable for direct deployment on GitHub Pages:
 
-### Adjust Layout Width
+1. Push changes to the default branch
+2. Open the repository on GitHub
+3. Go to **Settings** → **Pages**
+4. Set the source to **Deploy from a branch**
+5. Select the default branch and the repository root
 
-Edit `assets/style.css`, find `.container`:
-```css
-.container {
-    max-width: 1200px;  /* Change this value */
-}
-```
+No bundler, package manager, or static-site generator is required.
 
-### Change Font
+## Customization Notes
 
-Edit `assets/style.css`, find the `body` selector:
-```css
-body {
-    font-family: 'Your Font Name', sans-serif;
-}
-```
-
-## Browser Support
-
-- Chrome/Edge (all modern versions)
-- Firefox (all modern versions)
-- Safari 12+
-- Mobile browsers (iOS Safari, Chrome Android)
-
-## Performance
-
-- No external dependencies or CDNs
-- Minimal CSS and JavaScript
-- Fast loading time
-- Mobile-optimized
-
-## Navigation Highlighting
-
-The homepage uses the **Intersection Observer API** to automatically highlight the navigation item corresponding to the section currently in view. The `main.js` file handles this automatically—no configuration needed!
+- Keep all asset references relative so the site works correctly on GitHub Pages
+- If you rename files in `assets/`, update every related reference in the HTML files
+- Shared layout changes should usually go into `assets/shared.css`
+- Page-specific tweaks should stay in `assets/landing.css` or `assets/pages.css`
+- If you add a new page, remember to update the navbar links on the internal pages
 
 ## Troubleshooting
 
-### Styles not loading on GitHub Pages?
-- Make sure you're using relative paths (e.g., `assets/style.css`)
-- Clear your browser cache (Ctrl+Shift+Delete or Cmd+Shift+Delete)
-- Check that all files are committed and pushed to GitHub
+### Images not showing
 
-### Images not showing?
-- Verify the image path is correct: `assets/avatar.jpg`
-- Ensure the image file exists in the `assets/` folder
-- Use relative paths, not absolute URLs
+- Verify the referenced path matches the actual file under `assets/`
+- Keep image paths relative instead of using local absolute paths
+- Make sure the filename case matches exactly, especially on GitHub Pages
 
-### Navigation not highlighting?
-- Make sure `main.js` is loaded correctly
-- Open browser DevTools (F12) and check for JavaScript errors in the Console tab
+### Interactions not working
 
-### GitHub Pages not deploying?
-- Make sure you pushed to the `main` branch (or your default branch)
-- Check Settings → Pages for deployment status
-- Verify that `.nojekyll` file exists in the root directory
+- Confirm `assets/landing.js` or `assets/main.js` is loaded on the relevant page
+- Open browser DevTools and check for JavaScript errors
+
+### GitHub Pages not updating
+
+- Make sure the latest changes are pushed to the published branch
+- Check **Settings** → **Pages** for the deployment status
+- Wait a minute or two for GitHub Pages to finish rebuilding
 
 ## License
 
-Free to use and modify for personal use.
-
-## Questions or Issues?
-
-For detailed GitHub Pages setup, visit: https://docs.github.com/en/pages
-
----
-
-**Happy blogging! 🚀**
+This repository is intended for personal homepage source management. Reuse the structure if helpful, but please replace personal content, publications, and assets with your own before publishing.
