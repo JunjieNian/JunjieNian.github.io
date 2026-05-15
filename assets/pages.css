@@ -92,6 +92,37 @@
     line-height: 1.5;
 }
 
+.timeline-item .pub-authors,
+.timeline-item .pub-venue {
+    display: block;
+    margin-top: 4px;
+    font-size: 13.5px;
+    line-height: 1.5;
+}
+
+.timeline-item .pub-authors {
+    color: var(--color-text-secondary);
+    font-style: normal;
+    font-weight: 500;
+}
+
+.timeline-item .pub-authors strong {
+    color: var(--color-text);
+    font-weight: 600;
+}
+
+.timeline-item .pub-venue {
+    color: var(--color-text-muted);
+    font-style: normal;
+    font-weight: 600;
+    margin-top: 6px;
+}
+
+.timeline-item .pub-venue strong {
+    color: inherit;
+    font-weight: inherit;
+}
+
 .timeline-item > .content {
     flex: 1;
     font-size: 15px;
