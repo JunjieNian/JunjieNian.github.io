@@ -102,7 +102,7 @@
 
 .timeline-item em .eq-mark {
     color: var(--color-accent);
-    font-weight: 700;
+    font-weight: 1000;
     font-size: 0.85em;
 }
 
