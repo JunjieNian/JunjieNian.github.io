@@ -1,4 +1,149 @@
 /* ========================================
+   Envelope Intro Animation
+   ======================================== */
+
+/* Lock scroll while envelope is visible */
+body.envelope-sealed {
+    overflow: hidden;
+}
+
+/* Suppress hero animations while sealed */
+body.envelope-sealed .hero-inner > * {
+    animation: none !important;
+    opacity: 0 !important;
+    transform: translateY(20px) !important;
+}
+
+body.envelope-sealed .cards-section,
+body.envelope-sealed .landing-footer {
+    opacity: 0;
+}
+
+/* --- Overlay Container --- */
+.envelope-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+}
+
+body:not(.envelope-sealed) .envelope-overlay {
+    display: none;
+}
+
+/* --- Four Triangular Flaps (meet at center like a real envelope) --- */
+.envelope-flap {
+    position: absolute;
+    inset: 0;
+    will-change: transform, opacity;
+    transition: transform 0.88s cubic-bezier(0.76, 0, 0.24, 1),
+                opacity 0.88s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.envelope-flap--top {
+    background: linear-gradient(180deg, #f5f1ea, #f0eae0);
+    clip-path: polygon(0 0, 100% 0, 50% 50%);
+}
+
+.envelope-flap--right {
+    background: linear-gradient(270deg, #f1ece3, #ebe4d9);
+    clip-path: polygon(100% 0, 100% 100%, 50% 50%);
+}
+
+.envelope-flap--bottom {
+    background: linear-gradient(0deg, #f5f1ea, #f0eae0);
+    clip-path: polygon(0 100%, 100% 100%, 50% 50%);
+}
+
+.envelope-flap--left {
+    background: linear-gradient(90deg, #f1ece3, #ebe4d9);
+    clip-path: polygon(0 0, 0 100%, 50% 50%);
+}
+
+/* Flaps fly outward on open */
+.envelope-overlay.opening .envelope-flap--top {
+    transform: translateY(-105%);
+    opacity: 0;
+}
+
+.envelope-overlay.opening .envelope-flap--right {
+    transform: translateX(105%);
+    opacity: 0;
+}
+
+.envelope-overlay.opening .envelope-flap--bottom {
+    transform: translateY(105%);
+    opacity: 0;
+}
+
+.envelope-overlay.opening .envelope-flap--left {
+    transform: translateX(-105%);
+    opacity: 0;
+}
+
+/* --- Wax Seal (avatar + hint) --- */
+.envelope-seal {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.seal-avatar {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow:
+        0 0 0 5px #f2ede5,
+        0 0 0 9px var(--color-accent),
+        0 0 0 13px rgba(155, 35, 53, 0.1),
+        0 10px 40px rgba(30, 20, 15, 0.18);
+    animation: sealBreath 3s ease-in-out infinite;
+    will-change: transform;
+    transition: box-shadow 0.3s var(--ease-out);
+}
+
+.seal-avatar:hover {
+    box-shadow:
+        0 0 0 5px #f2ede5,
+        0 0 0 9px var(--color-accent-hover),
+        0 0 0 15px rgba(155, 35, 53, 0.15),
+        0 14px 48px rgba(30, 20, 15, 0.22);
+}
+
+@keyframes sealBreath {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.03); }
+}
+
+.seal-hint {
+    margin-top: 28px;
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--color-text-muted);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    opacity: 0;
+    animation: hintFadeIn 0.6s ease-out 1s forwards;
+}
+
+@keyframes hintFadeIn {
+    to { opacity: 0.6; }
+}
+
+.envelope-overlay.opening .seal-hint {
+    opacity: 0 !important;
+    animation: none;
+    transition: opacity 0.15s ease-out;
+}
+
+/* ========================================
    Hero Section
    ======================================== */
 .hero {
@@ -368,5 +513,14 @@
 
     .scroll-indicator-arrow {
         animation: none;
+    }
+
+    .seal-avatar {
+        animation: none;
+    }
+
+    .seal-hint {
+        animation: none;
+        opacity: 0.6;
     }
 }

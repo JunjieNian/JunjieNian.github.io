@@ -10,7 +10,21 @@
     <link rel="stylesheet" href="assets/shared.css">
     <link rel="stylesheet" href="assets/landing.css">
 </head>
-<body>
+<body class="envelope-sealed">
+    <script>if(sessionStorage.getItem('envelope-opened')){document.body.classList.remove('envelope-sealed');}</script>
+
+    <!-- Envelope Intro Overlay -->
+    <div id="envelope-overlay" class="envelope-overlay">
+        <div class="envelope-flap envelope-flap--top"></div>
+        <div class="envelope-flap envelope-flap--right"></div>
+        <div class="envelope-flap envelope-flap--bottom"></div>
+        <div class="envelope-flap envelope-flap--left"></div>
+        <div class="envelope-seal" id="envelope-seal">
+            <img src="assets/avatar.jpg" alt="Click to open" class="seal-avatar">
+            <span class="seal-hint">Click to Open</span>
+        </div>
+    </div>
+
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-inner">
