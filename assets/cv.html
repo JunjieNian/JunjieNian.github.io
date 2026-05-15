@@ -282,6 +282,18 @@
             line-height: 1.5;
             margin-top: 1px;
         }
+
+        .project-item .proj-desc a,
+        .project-item .proj-links a {
+            color: #9b2335;
+            text-decoration: none;
+        }
+
+        .project-item .proj-links {
+            margin-top: 1px;
+            font-size: 11px;
+            font-weight: 600;
+        }
     </style>
 </head>
 <body>
@@ -340,7 +352,7 @@
             <span class="date">2025.10 &ndash; Present</span>
             <div class="desc">
                 <strong>FudanNLP ALEX Lab</strong> &mdash; Undergraduate Researcher
-                <div class="detail">Advised by Prof. Yixin Cao. Research on Large Reasoning Model capabilities, agent systems, and mechanistic interpretability. Produced 4 papers (including 1 ACL 2026 Findings). Independently explored on CoT Folding and Multilingual Neuron Analysis projects. Currently leading a project on agent interpretability.</div>
+                <div class="detail">Advised by Prof. Yixin Cao. Research on Large Reasoning Model capabilities, agent systems, and mechanistic interpretability. Produced 4 papers (including 1 ACL 2026 Findings). Currently leading a project on agent interpretability.</div>
             </div>
         </div>
         <div class="row">
@@ -393,20 +405,29 @@
     <div class="section">
         <div class="section-title">Selected Projects</div>
         <div class="project-item">
+            <div class="proj-title">SliceGraph: Mapping Process Isomers in Multi-Run Chain-of-Thought Reasoning</div>
+            <div class="proj-desc">Post-hoc graph view of multi-run Chain-of-Thought reasoning built from similarity between reasoning slices. Shows that runs reaching the same final answer often travel through distinct process families and shared intermediate reasoning states, revealing process geometry missed by final-answer aggregation.</div>
+            <div class="proj-links"><a href="https://github.com/JunjieNian/SliceGraph" target="_blank">[GitHub]</a></div>
+        </div>
+        <div class="project-item">
             <div class="proj-title">CoT Folding: Structural Analysis of LLM Reasoning Trajectories</div>
-            <div class="proj-desc">Framework treating Chain-of-Thought as analogous to protein folding. Measures pairwise similarity between token segments using neuron activation patterns. Proposes Native Fold Score (NFS), a fully unsupervised, parameter-free quality metric for CoT reasoning.</div>
+            <div class="proj-desc">Framework treating Chain-of-Thought as analogous to protein folding. Measures pairwise similarity between token segments using neuron activation patterns to reveal compact cores, long-range return connections, and drifting branches. Proposes Native Fold Score (NFS), a fully unsupervised, parameter-free quality metric for CoT reasoning.</div>
+            <div class="proj-links"><a href="https://github.com/JunjieNian/cot_folding_demo" target="_blank">[GitHub]</a></div>
         </div>
         <div class="project-item">
             <div class="proj-title">Multilingual Neuron Analysis for LLM Reasoning</div>
-            <div class="proj-desc">Extended NAD framework to multilingual settings across 18 languages and 2,250 math reasoning samples. Found that quality reasoning neurons are 99.8% language-agnostic; moderate code-switching outperforms monolingual reasoning by +68.8%.</div>
+            <div class="proj-desc">Extended the <a href="https://arxiv.org/abs/2510.26277" target="_blank">NAD</a> framework to multilingual settings across 18 languages and 2,250 math reasoning samples. Found that quality reasoning neurons are 99.8% language-agnostic; moderate code-switching outperforms monolingual reasoning by +68.8%.</div>
+            <div class="proj-links"><a href="https://github.com/JunjieNian/multilingual_neuron_analysis" target="_blank">[GitHub]</a></div>
         </div>
         <div class="project-item">
             <div class="proj-title">80/20 Rule of Token Entropy in LLM Reasoning</div>
-            <div class="proj-desc">Independent reproduction and extension of Qwen team's NeurIPS 2025 work with five-metric comparison, multilingual CoT analysis, and entropy-frequency correlation study across 539K+ samples and 70M+ tokens.</div>
+            <div class="proj-desc">Independent reproduction and extension of <a href="https://shenzhi-wang.github.io/high-entropy-minority-tokens-rlvr/" target="_blank">Qwen team's NeurIPS 2025 work</a> with five-metric comparison, multilingual CoT analysis, and entropy-frequency correlation study across 539K+ samples and 70M+ tokens.</div>
+            <div class="proj-links"><a href="https://github.com/JunjieNian/80-20-rule-analysis" target="_blank">[GitHub]</a></div>
         </div>
         <div class="project-item">
             <div class="proj-title">Paper Assistant System</div>
             <div class="proj-desc">Full-stack academic platform: AI-powered LaTeX editor (GLM-4 feedback, real-time compilation, Monaco with SyncTeX) and ArXiv Paper Agent with automated daily scoring. React + FastAPI.</div>
+            <div class="proj-links"><a href="https://github.com/JunjieNian/paper_assistant_system" target="_blank">[GitHub]</a></div>
         </div>
     </div>
 
