@@ -210,6 +210,13 @@
             font-size: 11px;
         }
 
+        .pub .coming-soon,
+        .project-item .proj-links .coming-soon {
+            color: #888;
+            font-weight: 600;
+            font-size: 11px;
+        }
+
         /* ── Awards ── */
         .award-row {
             display: flex;
@@ -317,7 +324,7 @@
     <!-- ════ About ════ -->
     <div class="section about">
         <div class="section-title">About</div>
-        <p>Undergraduate researcher at Fudan University majoring in Artificial Intelligence (ranked 1st in class, GPA 3.93/4.0). Currently conducting research on large reasoning models, agents, and interpretability at FudanNLP ALEX Lab, advised by Prof. Yixin Cao. Published 4 papers, including 1 ACL 2026 Findings paper and 3 arXiv preprints. Will be an exchange student at UC San Diego in Fall 2026. Passionate about advancing the frontiers of AI reasoning and committed to a career in AI research.</p>
+        <p>Undergraduate researcher at Fudan University majoring in Artificial Intelligence (ranked 1st in class, GPA 3.93/4.0). Currently conducting research on large reasoning models, agents, and interpretability at FudanNLP ALEX Lab, advised by Prof. Yixin Cao. Published 5 papers, including 1 ACL 2026 Findings paper and 4 arXiv preprints. Will be an exchange student at UC San Diego in Fall 2026. Passionate about advancing the frontiers of AI reasoning and committed to a career in AI research.</p>
     </div>
 
     <!-- ════ Education ════ -->
@@ -352,7 +359,7 @@
             <span class="date">2025.10 &ndash; Present</span>
             <div class="desc">
                 <strong>FudanNLP ALEX Lab</strong> &mdash; Undergraduate Researcher
-                <div class="detail">Advised by Prof. Yixin Cao. Research on Large Reasoning Model capabilities, agent systems, and mechanistic interpretability. Produced 4 papers (including 1 ACL 2026 Findings). Currently leading a project on agent interpretability.</div>
+                <div class="detail">Advised by Prof. Yixin Cao. Research on Large Reasoning Model capabilities, agent systems, and mechanistic interpretability. Produced 5 papers (including 1 ACL 2026 Findings).</div>
             </div>
         </div>
         <div class="row">
@@ -368,6 +375,11 @@
     <div class="section">
         <div class="section-title">Publications</div>
         <p class="pub">
+            <strong>Junjie Nian</strong><sup>*</sup>, Kang Chen<sup>*</sup>, Ge Zhang, Yixin Cao, Yugang Jiang.
+            &ldquo;TraceGraph: Shared Decision Landscapes for Diagnosing and Improving Agent Trajectories.&rdquo;
+            <a href="https://arxiv.org/abs/2605.31308" target="_blank">[arXiv]</a>
+        </p>
+        <p class="pub">
             Kang Chen<sup>*</sup>, <strong>Junjie Nian</strong><sup>*</sup>, Yixin Cao, Yugang Jiang.
             &ldquo;SliceGraph: Mapping Process Isomers in Multi-Run Chain-of-Thought Reasoning.&rdquo;
             <a href="https://arxiv.org/abs/2605.14619" target="_blank">[arXiv]</a>
@@ -380,7 +392,7 @@
         <p class="pub">
             Kang Chen<sup>*</sup>, Fan Yu<sup>*</sup>, <strong>Junjie Nian</strong>, Shihan Zhao, Zhuoka Feng, Zijun Yao, Heng Wang, Minshen Yu, Yixin Cao.
             &ldquo;Thinking Traps in Long Chain-of-Thought: A Measurable Study and Trap-Aware Adaptive Restart.&rdquo;
-            <span class="venue">Findings of ACL, 2026.</span>
+            <span class="venue">Findings of ACL, ACL 2026.</span>
             <a href="https://arxiv.org/abs/2601.11940" target="_blank">[arXiv]</a>
         </p>
         <p class="pub">
@@ -405,9 +417,14 @@
     <div class="section">
         <div class="section-title">Selected Projects</div>
         <div class="project-item">
+            <div class="proj-title">TraceGraph: Shared Decision Landscapes for Diagnosing and Improving Agent Trajectories</div>
+            <div class="proj-desc">Graph-based framework that converts multi-model agent rollouts into a shared decision landscape with productive cores, trap regions, and repair events. Uses this process view to diagnose benchmark behavior and support trap-aware recovery strategies for improving agent trajectories.</div>
+            <div class="proj-links"><a href="https://arxiv.org/abs/2605.31308" target="_blank">[arXiv]</a> <span class="coming-soon">[Code Coming Soon]</span></div>
+        </div>
+        <div class="project-item">
             <div class="proj-title">SliceGraph: Mapping Process Isomers in Multi-Run Chain-of-Thought Reasoning</div>
             <div class="proj-desc">Post-hoc graph view of multi-run Chain-of-Thought reasoning built from similarity between reasoning slices. Shows that runs reaching the same final answer often travel through distinct process families and shared intermediate reasoning states, revealing process geometry missed by final-answer aggregation.</div>
-            <div class="proj-links"><a href="https://github.com/JunjieNian/SliceGraph" target="_blank">[GitHub]</a></div>
+            <div class="proj-links"><a href="https://arxiv.org/abs/2605.14619" target="_blank">[arXiv]</a> <span class="proj-links"><a href="https://github.com/JunjieNian/SliceGraph" target="_blank">[GitHub]</a></span>
         </div>
         <div class="project-item">
             <div class="proj-title">CoT Folding: Structural Analysis of LLM Reasoning Trajectories</div>
