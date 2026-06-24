@@ -10,21 +10,7 @@
     <link rel="stylesheet" href="assets/shared.css">
     <link rel="stylesheet" href="assets/landing.css">
 </head>
-<body class="envelope-sealed">
-    <script>if(sessionStorage.getItem('envelope-opened')){document.body.classList.remove('envelope-sealed');}</script>
-
-    <!-- Envelope Intro Overlay -->
-    <div id="envelope-overlay" class="envelope-overlay">
-        <div class="envelope-flap envelope-flap--top"></div>
-        <div class="envelope-flap envelope-flap--right"></div>
-        <div class="envelope-flap envelope-flap--bottom"></div>
-        <div class="envelope-flap envelope-flap--left"></div>
-        <div class="envelope-seal" id="envelope-seal">
-            <img src="assets/avatar.jpg" alt="Click to open" class="seal-avatar">
-            <span class="seal-hint">Click to Open</span>
-        </div>
-    </div>
-
+<body>
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-inner">
@@ -57,17 +43,14 @@
         <h2 class="cards-section-title">Explore</h2>
         <div class="cards-grid">
             <a href="academic.html" class="nav-card">
-                <span class="nav-card-icon">&#x1F4DA;</span>
                 <h3 class="nav-card-title">Academic</h3>
                 <p class="nav-card-desc">Publications, awards, and research papers in AI reasoning, agents, and interpretability.</p>
             </a>
             <a href="projects.html" class="nav-card">
-                <span class="nav-card-icon">&#x1F6E0;</span>
                 <h3 class="nav-card-title">Projects</h3>
                 <p class="nav-card-desc">Research projects and technical work in progress.</p>
             </a>
             <a href="experience.html" class="nav-card">
-                <span class="nav-card-icon">&#x1F393;</span>
                 <h3 class="nav-card-title">Experience</h3>
                 <p class="nav-card-desc">Education background and professional experience.</p>
             </a>
