@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
        Navigation Highlighting (IntersectionObserver)
        Only runs on pages with .content > section elements (academic page)
        ====================================== */
-    if (sections.length > 0) {
+    if (sections.length > 0 && 'IntersectionObserver' in window) {
         const navObserver = new IntersectionObserver(
             (entries) => {
                 entries.forEach((entry) => {
@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function () {
        ====================================== */
     const revealElements = document.querySelectorAll('.reveal');
 
-    if (revealElements.length > 0) {
+    if (revealElements.length > 0 && 'IntersectionObserver' in window) {
         const revealObserver = new IntersectionObserver(
             (entries) => {
                 entries.forEach((entry) => {
@@ -73,5 +73,56 @@ document.addEventListener('DOMContentLoaded', function () {
         );
 
         revealElements.forEach((el) => revealObserver.observe(el));
+    } else {
+        revealElements.forEach((el) => el.classList.add('revealed'));
     }
+
+    /* ======================================
+       Accessible project image lightbox
+       ====================================== */
+    const projectImages = document.querySelectorAll('.project-img, .project-img-portrait');
+    let previousFocus = null;
+
+    function closeLightbox(overlay) {
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+        window.setTimeout(() => overlay.remove(), 220);
+        if (previousFocus) previousFocus.focus();
+    }
+
+    function openLightbox(sourceImage) {
+        previousFocus = sourceImage;
+        const overlay = document.createElement('div');
+        const image = document.createElement('img');
+        overlay.className = 'lightbox-overlay';
+        overlay.setAttribute('role', 'dialog');
+        overlay.setAttribute('aria-modal', 'true');
+        overlay.setAttribute('aria-label', sourceImage.alt || 'Project image preview');
+        overlay.tabIndex = -1;
+        image.src = sourceImage.src;
+        image.alt = sourceImage.alt;
+        overlay.appendChild(image);
+        document.body.appendChild(overlay);
+        document.body.style.overflow = 'hidden';
+        requestAnimationFrame(() => overlay.classList.add('active'));
+        overlay.focus();
+
+        overlay.addEventListener('click', () => closeLightbox(overlay));
+        overlay.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') closeLightbox(overlay);
+        });
+    }
+
+    projectImages.forEach((image) => {
+        image.tabIndex = 0;
+        image.setAttribute('role', 'button');
+        image.setAttribute('aria-label', `Open larger view: ${image.alt}`);
+        image.addEventListener('click', () => openLightbox(image));
+        image.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                openLightbox(image);
+            }
+        });
+    });
 });

@@ -1,169 +1,145 @@
-/* ========================================
-   Design Tokens
-   ======================================== */
 :root {
-    --font-display: 'Cormorant Garamond', 'Georgia', 'Times New Roman', serif;
-    --font-body: 'Karla', -apple-system, BlinkMacSystemFont, sans-serif;
-
-    --color-bg: #f8f6f1;
-    --color-bg-nav: rgba(248, 246, 241, 0.88);
-
-    --color-text: #1a1a1a;
-    --color-text-secondary: #4a4a4a;
-    --color-text-muted: #8c8c8c;
-
-    --color-accent: #9b2335;
-    --color-accent-hover: #7d1c2b;
-    --color-accent-soft: rgba(155, 35, 53, 0.05);
-
-    --color-border: #e4dfd6;
-    --color-border-light: #eeebe5;
-
-    --shadow-sm: 0 2px 8px rgba(30, 20, 15, 0.06);
-    --shadow-md: 0 4px 20px rgba(30, 20, 15, 0.08);
-
-    --ease-out: cubic-bezier(0.0, 0.0, 0.2, 1);
-    --transition-fast: 0.2s cubic-bezier(0.0, 0.0, 0.2, 1);
-    --transition-normal: 0.35s cubic-bezier(0.0, 0.0, 0.2, 1);
+    --font-display: 'Newsreader', Georgia, 'Times New Roman', serif;
+    --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --color-bg: #f7f5ef;
+    --color-bg-raised: #fffefa;
+    --color-bg-nav: rgba(247, 245, 239, 0.9);
+    --color-text: #191918;
+    --color-text-secondary: #51504c;
+    --color-text-muted: #77736b;
+    --color-accent: #8f1d2c;
+    --color-accent-hover: #68131f;
+    --color-accent-soft: rgba(143, 29, 44, 0.07);
+    --color-border: #dcd7cd;
+    --color-border-light: #e9e5dd;
+    --shadow-sm: 0 1px 2px rgba(28, 24, 18, 0.04), 0 8px 24px rgba(28, 24, 18, 0.04);
+    --shadow-md: 0 2px 4px rgba(28, 24, 18, 0.05), 0 18px 48px rgba(28, 24, 18, 0.08);
+    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+    --transition-fast: 180ms ease;
+    --transition-normal: 360ms var(--ease-out);
 }
 
-/* ========================================
-   Reset & Base
-   ======================================== */
-*,
-*::before,
-*::after {
+*, *::before, *::after {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
 html {
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
     scrollbar-width: thin;
     scrollbar-color: var(--color-border) var(--color-bg);
 }
 
 body {
-    font-family: var(--font-body);
-    background-color: var(--color-bg);
-    background-image:
-        radial-gradient(ellipse at 15% 0%, rgba(155, 35, 53, 0.025) 0%, transparent 50%),
-        radial-gradient(ellipse at 85% 100%, rgba(155, 35, 53, 0.015) 0%, transparent 50%);
-    color: var(--color-text);
-    line-height: 1.65;
-    font-size: 15px;
     min-height: 100vh;
+    font-family: var(--font-body);
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--color-text);
+    background:
+        radial-gradient(circle at 7% 0%, rgba(143, 29, 44, 0.035), transparent 28rem),
+        var(--color-bg);
 }
 
 ::selection {
-    background-color: rgba(155, 35, 53, 0.12);
     color: var(--color-text);
+    background: rgba(143, 29, 44, 0.14);
 }
 
 a {
     color: var(--color-accent);
     text-decoration: none;
+    text-underline-offset: 3px;
     transition: color var(--transition-fast);
 }
 
-a:hover {
-    color: var(--color-accent-hover);
+a:hover { color: var(--color-accent-hover); }
+
+img { max-width: 100%; }
+
+button, a { -webkit-tap-highlight-color: transparent; }
+
+:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 4px;
+    border-radius: 2px;
 }
 
-/* Scrollbar (Webkit) */
-::-webkit-scrollbar {
-    width: 7px;
-}
-
-::-webkit-scrollbar-track {
-    background: var(--color-bg);
-}
-
-::-webkit-scrollbar-thumb {
-    background: var(--color-border);
-    border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: var(--color-text-muted);
-}
-
-/* ========================================
-   Navigation Bar
-   ======================================== */
 .navbar {
     position: sticky;
     top: 0;
-    background-color: var(--color-bg-nav);
-    backdrop-filter: blur(16px) saturate(180%);
-    -webkit-backdrop-filter: blur(16px) saturate(180%);
-    border-bottom: 1px solid var(--color-border-light);
     z-index: 100;
+    border-bottom: 1px solid rgba(220, 215, 205, 0.8);
+    background: var(--color-bg-nav);
+    backdrop-filter: blur(18px) saturate(140%);
+    -webkit-backdrop-filter: blur(18px) saturate(140%);
 }
 
 .nav-container {
-    max-width: 1100px;
+    width: min(1120px, calc(100% - 48px));
+    height: 68px;
     margin: 0 auto;
-    padding: 0 32px;
     display: flex;
     align-items: center;
-    height: 54px;
-    gap: 32px;
+    justify-content: space-between;
+}
+
+.nav-brand {
+    font-family: var(--font-display);
+    font-size: 25px;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    color: var(--color-text);
+}
+
+.nav-brand span { color: var(--color-accent); }
+.nav-brand:hover { color: var(--color-text); }
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
 }
 
 .nav-link {
     position: relative;
+    padding: 23px 0 20px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
     color: var(--color-text-muted);
-    font-family: var(--font-body);
-    font-weight: 500;
-    font-size: 13.5px;
-    letter-spacing: 0.015em;
-    padding: 4px 0;
-    text-decoration: none;
-    transition: color var(--transition-fast);
-    cursor: pointer;
 }
 
 .nav-link::after {
     content: '';
     position: absolute;
-    bottom: -2px;
+    bottom: -1px;
     left: 0;
-    width: 0;
+    width: 100%;
     height: 2px;
-    background-color: var(--color-accent);
-    border-radius: 1px;
-    transition: width var(--transition-normal);
+    background: var(--color-accent);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform var(--transition-fast);
 }
 
-.nav-link:hover {
-    color: var(--color-text-secondary);
-    text-decoration: none;
-}
+.nav-link:hover,
+.nav-link.active { color: var(--color-text); }
 
-.nav-link:hover::after {
-    width: 100%;
-}
-
-.nav-link.active {
-    color: var(--color-accent);
-    font-weight: 600;
-}
-
+.nav-link:hover::after,
 .nav-link.active::after {
-    width: 100%;
+    transform: scaleX(1);
+    transform-origin: left;
 }
 
-/* ========================================
-   Scroll Reveal (shared across pages)
-   ======================================== */
 .reveal {
     opacity: 0;
-    transform: translateY(24px);
-    transition: opacity 0.65s var(--ease-out), transform 0.65s var(--ease-out);
+    transform: translateY(18px);
+    transition: opacity 650ms var(--ease-out), transform 650ms var(--ease-out);
 }
 
 .reveal.revealed {
@@ -171,74 +147,34 @@ a:hover {
     transform: translateY(0);
 }
 
-/* ========================================
-   Reduced Motion
-   ======================================== */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--color-bg); }
+::-webkit-scrollbar-thumb { border-radius: 99px; background: var(--color-border); }
+
+@media (max-width: 640px) {
+    .nav-container {
+        width: min(100% - 32px, 1120px);
+        height: 60px;
+    }
+
+    .nav-links { gap: 16px; }
+    .nav-link { padding: 20px 0 17px; font-size: 11.5px; }
+    .nav-brand { font-size: 22px; }
+}
+
 @media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
     }
-
-    .reveal {
-        opacity: 1 !important;
-        transform: none !important;
-    }
+    .reveal { opacity: 1 !important; transform: none !important; }
 }
 
-/* ========================================
-   Responsive - Mobile Nav (< 768px)
-   ======================================== */
-@media (max-width: 768px) {
-    .nav-container {
-        flex-wrap: wrap;
-        height: auto;
-        padding: 10px 16px;
-        gap: 4px 14px;
-    }
-
-    .nav-link {
-        font-size: 12.5px;
-        padding: 6px 0;
-    }
-}
-
-/* ========================================
-   Responsive - Tablet Nav (768px - 1024px)
-   ======================================== */
-@media (max-width: 1024px) and (min-width: 769px) {
-    .nav-container {
-        gap: 24px;
-    }
-
-    .nav-link {
-        font-size: 13px;
-    }
-}
-
-/* ========================================
-   Print
-   ======================================== */
 @media print {
-    .navbar {
-        display: none;
-    }
-
-    body {
-        background: #fff;
-        background-image: none;
-    }
-
-    .reveal {
-        opacity: 1 !important;
-        transform: none !important;
-        animation: none !important;
-    }
-
-    a {
-        color: #000;
-    }
+    .navbar { display: none; }
+    body { background: #fff; }
+    .reveal { opacity: 1 !important; transform: none !important; }
+    a { color: #000; }
 }

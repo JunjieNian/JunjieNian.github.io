@@ -1,38 +1,23 @@
-/**
- * Landing Page Interactions
- */
-
-/* ======================================
-   Card Grid Scroll Reveal
-   ====================================== */
 document.addEventListener('DOMContentLoaded', function () {
-    var cardsGrid = document.querySelector('.cards-grid');
+    var revealElements = document.querySelectorAll('.reveal');
 
-    if (cardsGrid) {
-        var cardsObserver = new IntersectionObserver(
-            function (entries) {
-                entries.forEach(function (entry) {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('revealed');
-                        cardsObserver.unobserve(entry.target);
-                    }
-                });
-            },
-            { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
-        );
-
-        cardsObserver.observe(cardsGrid);
-    }
-
-    /* ======================================
-       Scroll Indicator → Cards Section
-       ====================================== */
-    var scrollIndicator = document.querySelector('.scroll-indicator');
-    var cardsSection = document.querySelector('.cards-section');
-
-    if (scrollIndicator && cardsSection) {
-        scrollIndicator.addEventListener('click', function () {
-            cardsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (!('IntersectionObserver' in window)) {
+        revealElements.forEach(function (element) {
+            element.classList.add('revealed');
         });
+        return;
     }
+
+    var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('revealed');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.08, rootMargin: '0px 0px -36px 0px' });
+
+    revealElements.forEach(function (element) {
+        observer.observe(element);
+    });
 });
