@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CoT Folding measures structural coherence in language-model reasoning trajectories with neuron-activation geometry and the Native Fold Score.">
+    <title>CoT Folding | Junjie Nian</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Newsreader:opsz,wght@6..72,500;6..72,600&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/shared.css">
+    <link rel="stylesheet" href="../assets/research.css">
+</head>
+<body>
+    <nav class="navbar" aria-label="Primary navigation">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-brand" aria-label="Junjie Nian — Home">JN<span>.</span></a>
+            <div class="nav-links">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="../academic.html" class="nav-link">Academic</a>
+                <a href="../projects.html" class="nav-link active" aria-current="page">Projects</a>
+                <a href="../experience.html" class="nav-link">Experience</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="research-page">
+        <a class="back-link" href="../projects.html">← All research projects</a>
+
+        <header class="research-hero reveal">
+            <p class="research-kicker">Reasoning interpretability · 2026</p>
+            <h1>CoT Folding</h1>
+            <p class="research-deck">A structural view of chain-of-thought trajectories that uses sparse neuron activations to locate compact backbones, long-range returns, and unresolved drift.</p>
+            <div class="research-actions">
+                <a class="primary-action" href="../assets/cot-folding.pdf" target="_blank" rel="noopener">Read the paper ↗</a>
+                <a class="secondary-action" href="https://github.com/JunjieNian/cot_folding_demo" target="_blank" rel="noopener">View code ↗</a>
+                <a class="secondary-action" href="http://demo.cot-folding.top" target="_blank" rel="noopener">Open demo ↗</a>
+            </div>
+        </header>
+
+        <figure class="research-figure reveal">
+            <img src="../assets/demo.png" alt="Interactive CoT Folding visualization with trajectory structure and contact maps">
+            <figcaption>The interactive demo exposes the reasoning fold through arc diagrams, contact maps, low-dimensional projections, phase views, and correct–incorrect comparisons.</figcaption>
+        </figure>
+
+        <section class="research-facts reveal" aria-label="Project highlights">
+            <div class="research-fact"><strong>1,920</strong><span>AIME 2024 trajectories</span></div>
+            <div class="research-fact"><strong>12,672</strong><span>GPQA trajectories</span></div>
+            <div class="research-fact"><strong>0.765</strong><span>AIME slice-level NFS AUROC</span></div>
+            <div class="research-fact"><strong>0.829</strong><span>AIME segment-average AUROC</span></div>
+        </section>
+
+        <div class="research-content">
+            <article class="research-copy">
+                <section id="idea">
+                    <h2>The folding analogy</h2>
+                    <p>A chain of thought is divided into 32-token slices. Each slice is represented by a sparse neuron-activation key set, and pairwise Jaccard similarity forms a contact geometry. The analogy to protein folding is operational rather than biological: sequentially distant slices can return to similar internal states, compact regions can form a backbone, and exploratory branches can remain unresolved.</p>
+                    <div class="finding-callout">
+                        <p>High structural quality combines a dense backbone core, useful long-range return connections, and limited unresolved drift.</p>
+                    </div>
+                </section>
+
+                <section id="score">
+                    <h2>Native Fold Score</h2>
+                    <p>The parameter-free, unsupervised Native Fold Score (NFS) combines three structural components with a geometric mean:</p>
+                    <p><strong>NFS = 100 × (Backbone × Return × (1 − Adjusted Drift))<sup>1/3</sup>.</strong></p>
+                    <p>A two-state hidden Markov model separates exploratory and exploitative phases. The analysis extracts a dense exploit core, long-range return edges, drift branches, and final closure; it then repeats the construction at the level of contiguous phase segments.</p>
+                </section>
+
+                <section id="findings">
+                    <h2>What NFS measures well</h2>
+                    <p>Without correctness labels, slice-level NFS separates correct from incorrect runs with AUROC <strong>0.7646</strong> on AIME 2024 and <strong>0.6857</strong> on GPQA. Aggregating contiguous phases improves AIME discrimination: the segment-average variant reaches <strong>0.8290 AUROC</strong>, <strong>0.9295 AUPRC</strong>, and <strong>0.8000 Hit@1</strong>.</p>
+                    <p>Across 11 reinforcement-learning checkpoints, label-free structural components also track checkpoint accuracy: the strongest reported ranking signal reaches Spearman <strong>ρ = 0.8273</strong>. Independent semantic comparisons support that the activation geometry contains meaningful information rather than only positional proximity.</p>
+                </section>
+
+                <section id="boundaries">
+                    <h2>What NFS does not guarantee</h2>
+                    <ul>
+                        <li>Structural coherence is not semantic correctness. A trajectory can be compact and internally consistent around a wrong intermediate result.</li>
+                        <li>The folding analogy is a visualization and measurement framework, not a mechanistic claim that reasoning literally follows protein physics.</li>
+                        <li>Reported discrimination is dataset- and model-specific; NFS should be recalibrated and validated before use as a universal quality score.</li>
+                        <li>The strongest segment-level results are post-hoc analyses and do not establish that optimizing NFS will improve reasoning accuracy.</li>
+                    </ul>
+                </section>
+            </article>
+
+            <aside class="research-aside" aria-label="Project details">
+                <h2>Project details</h2>
+                <ul class="project-meta">
+                    <li><strong>Core representation</strong>Sparse neuron activation keys</li>
+                    <li><strong>Granularity</strong>32-token slices and HMM segments</li>
+                    <li><strong>Metric</strong>Native Fold Score</li>
+                    <li><strong>Benchmarks</strong>AIME 2024 and GPQA</li>
+                    <li><strong>Interface</strong>React visualization with Python analysis</li>
+                    <li><strong>Artifacts</strong>Paper, code, and live demo</li>
+                </ul>
+            </aside>
+        </div>
+
+        <nav class="research-next" aria-label="More research projects">
+            <a href="iclr-review-analysis.html"><small>Previous project</small><strong>From Fluency to Accountability</strong></a>
+            <a href="multilingual-neuron-analysis.html"><small>Next project</small><strong>Reasoning Across Languages</strong></a>
+        </nav>
+    </main>
+
+    <footer class="research-footer">
+        Junjie Nian · <a href="mailto:jjnian24@m.fudan.edu.cn">Email</a> · <a href="https://github.com/JunjieNian" target="_blank" rel="noopener">GitHub</a> · <a href="https://orcid.org/0009-0001-4407-6336" target="_blank" rel="noopener">ORCID</a>
+    </footer>
+    <script src="../assets/main.js"></script>
+</body>
+</html>

@@ -7,7 +7,7 @@
     <title>Projects | Junjie Nian</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Newsreader:opsz,wght@6..72,500;6..72,600&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/shared.css">
     <link rel="stylesheet" href="assets/pages.css">
 </head>
@@ -36,8 +36,10 @@
             <h2>Research Projects</h2>
 
             <div id="tracegraph" class="project-card">
-                <img src="assets/tracegraph_pipeline.png" alt="TraceGraph pipeline overview" class="project-img">
-                <h3>TraceGraph: Shared Decision Landscapes for Diagnosing and Improving Agent Trajectories</h3>
+                <a class="project-cover" href="research/tracegraph.html" aria-label="Read the TraceGraph project story">
+                    <img src="assets/tracegraph_pipeline.png" alt="TraceGraph pipeline overview">
+                </a>
+                <h3><a class="project-title-link" href="research/tracegraph.html">TraceGraph: Shared Decision Landscapes for Diagnosing and Improving Agent Trajectories</a></h3>
                 <p>Introduces <a href="https://arxiv.org/abs/2605.31308" target="_blank"><em>TraceGraph</em></a>, a graph-based framework that turns multi-model agent trajectories into a shared decision landscape. It identifies productive cores, trap regions, and rollout-level events such as access, trap exposure, and repair, making it possible to compare how agents navigate the same task process and to design trap-aware recovery strategies for downstream improvement.</p>
                 <div class="project-tags">
                     <span class="project-tag">Agents</span>
@@ -46,14 +48,17 @@
                     <span class="project-tag">Python</span>
                 </div>
                 <div class="project-links">
+                    <a href="research/tracegraph.html">[Details]</a>
                     <a href="https://arxiv.org/abs/2605.31308" target="_blank" rel="noopener">[Paper]</a>
                     <a href="https://github.com/JunjieNian/TraceGraph" target="_blank" rel="noopener">[Code]</a>
                 </div>
             </div>
 
             <div id="slicegraph" class="project-card">
-                <img src="assets/slicegraph_pipeline.png" alt="SliceGraph pipeline overview" class="project-img">
-                <h3>SliceGraph: Mapping Process Isomers in Multi-Run Chain-of-Thought Reasoning</h3>
+                <a class="project-cover" href="research/slicegraph.html" aria-label="Read the SliceGraph project story">
+                    <img src="assets/slicegraph_pipeline.png" alt="SliceGraph pipeline overview">
+                </a>
+                <h3><a class="project-title-link" href="research/slicegraph.html">SliceGraph: Mapping Process Isomers in Multi-Run Chain-of-Thought Reasoning</a></h3>
                 <p>Introduces <a href="https://arxiv.org/abs/2605.14619" target="_blank"><em>SliceGraph</em></a>, a post-hoc graph view of multi-run Chain-of-Thought reasoning built from similarity between reasoning slices. The paper shows that even when multiple runs reach the same final answer, they often travel through distinct process families and shared intermediate reasoning states, revealing rich process geometry that final-answer aggregation misses.</p>
                 <div class="project-tags">
                     <span class="project-tag">Interpretability</span>
@@ -62,14 +67,17 @@
                     <span class="project-tag">Python</span>
                 </div>
                 <div class="project-links">
+                    <a href="research/slicegraph.html">[Details]</a>
                     <a href="https://arxiv.org/abs/2605.14619" target="_blank" rel="noopener">[Paper]</a>
                     <a href="https://github.com/JunjieNian/SliceGraph" target="_blank" rel="noopener">[Code]</a>
                 </div>
             </div>
 
             <div id="iclr26-review-analysis" class="project-card">
-                <img src="assets/iclr26-claim-lifecycle.svg" alt="Claim-lifecycle analysis from review claims to institutional uptake" class="project-img">
-                <h3>From Fluency to Accountability: A Claim-Lifecycle Analysis of AI-Like Peer Reviews at ICLR 2026</h3>
+                <a class="project-cover" href="research/iclr-review-analysis.html" aria-label="Read the From Fluency to Accountability project story">
+                    <img src="assets/iclr26-claim-lifecycle.svg" alt="Claim-lifecycle analysis from review claims to institutional uptake">
+                </a>
+                <h3><a class="project-title-link" href="research/iclr-review-analysis.html">From Fluency to Accountability: A Claim-Lifecycle Analysis of AI-Like Peer Reviews at ICLR 2026</a></h3>
                 <p>Analyzes 53,463 public ICLR 2026 reviews and 416,862 extracted claims to study how review concerns move through author responses, reviewer follow-up, and meta-review uptake. Rather than labeling individual reviews as AI-generated, the project uses a continuous, unsupervised AI-likeness style proxy. The results show no broad collapse in surface quality or evidence support; the clearer difference appears downstream, where more AI-like claims are less likely to be answered by authors or incorporated into meta-review rationales. The study proposes claim-level traceability as a framework for evaluating accountability in AI-assisted peer review.</p>
                 <div class="project-tags">
                     <span class="project-tag">Social Computing</span>
@@ -78,14 +86,17 @@
                     <span class="project-tag">Python</span>
                 </div>
                 <div class="project-links">
+                    <a href="research/iclr-review-analysis.html">[Details]</a>
                     <a href="assets/from-fluency-to-accountability.pdf" target="_blank" rel="noopener">[Paper]</a>
                     <a href="https://github.com/JunjieNian/ICLR26-review-analysis" target="_blank" rel="noopener">[Code]</a>
                 </div>
             </div>
 
-            <div class="project-card">
-                <img src="assets/demo.png" alt="CoT Folding Demo Screenshot" class="project-img">
-                <h3>CoT Folding: Structural Analysis of LLM Reasoning Trajectories</h3>
+            <div id="cot-folding" class="project-card">
+                <a class="project-cover" href="research/cot-folding.html" aria-label="Read the CoT Folding project story">
+                    <img src="assets/demo.png" alt="CoT Folding demo screenshot">
+                </a>
+                <h3><a class="project-title-link" href="research/cot-folding.html">CoT Folding: Structural Analysis of LLM Reasoning Trajectories</a></h3>
                 <p>Treating Chain-of-Thought reasoning as analogous to protein folding. The framework measures pairwise similarity between token segments using neuron activation patterns (NAD) to reveal how reasoning "folds" in activation space, forming compact cores, long-range return connections, and drifting branches. Proposes <strong>Native Fold Score (NFS)</strong>, a fully unsupervised, parameter-free quality metric for CoT reasoning that requires no correctness labels.</p>
                 <div class="project-tags">
                     <span class="project-tag">Interpretability</span>
@@ -94,16 +105,19 @@
                     <span class="project-tag">Python</span>
                 </div>
                 <div class="project-links">
+                    <a href="research/cot-folding.html">[Details]</a>
                     <a href="assets/cot-folding.pdf" target="_blank" rel="noopener">[Paper]</a>
                     <a href="https://github.com/JunjieNian/cot_folding_demo" target="_blank" rel="noopener">[Code]</a>
                     <a href="http://demo.cot-folding.top" target="_blank" rel="noopener">[Demo]</a>
                 </div>
             </div>
 
-            <div class="project-card">
-                <img src="assets/language_neuron.png" alt="Multilingual neuron activation analysis" class="project-img">
-                <h3>Multilingual Neuron Analysis for LLM Reasoning</h3>
-                <p>Building on the <a href="https://arxiv.org/abs/2510.26277" target="_blank"><em>NAD (Neuron Agreement Decoding)</em></a> framework, this project extends neuron-level analysis to multilingual settings. Analyzes 2,250 math reasoning samples across 18 languages from the Polymath-Top dataset to investigate cross-language neural activation patterns. Key findings include: quality reasoning neurons are 99.8% language-agnostic across all 18 languages; moderate language mixing (middle Shannon entropy) outperforms both monolingual and highly mixed reasoning by +68.8%; and code-switching exhibits an inverted-U relationship with accuracy.</p>
+            <div id="multilingual-neuron-analysis" class="project-card">
+                <a class="project-cover" href="research/multilingual-neuron-analysis.html" aria-label="Read the multilingual neuron analysis project story">
+                    <img src="assets/language_neuron.png" alt="Multilingual neuron activation analysis">
+                </a>
+                <h3><a class="project-title-link" href="research/multilingual-neuron-analysis.html">Reasoning Across Languages: Activation Agreement and Language Heuristics</a></h3>
+                <p>Evaluates whether sparse activation agreement can select stronger mathematical reasoning trajectories when candidates solve the same problem in 18 languages. Across 2,250 trajectories from 125 PolyMath-Top problems, activation-based ConsensusMin reaches 25.6% accuracy, compared with 20.8% for a fixed-first baseline and 22.4% for the best individual language. The project also documents where language identity, entropy preferences, and code-switching diagnostics fail as reliable correctness proxies.</p>
                 <div class="project-tags">
                     <span class="project-tag">Interpretability</span>
                     <span class="project-tag">Multilingual</span>
@@ -111,15 +125,23 @@
                     <span class="project-tag">Python</span>
                 </div>
                 <div class="project-links">
+                    <a href="research/multilingual-neuron-analysis.html">[Details]</a>
+                    <a href="assets/reasoning-across-languages.pdf" target="_blank" rel="noopener">[Paper]</a>
                     <a href="https://github.com/JunjieNian/multilingual_neuron_analysis" target="_blank" rel="noopener">[Code]</a>
                 </div>
             </div>
 
-            <div class="project-card">
-                <img src="assets/80-20-rule-entropy.png" alt="Entropy distribution analysis" class="project-img">
-                <img src="assets/80-20-rule-selfcert.png" alt="Self-certification metric analysis" class="project-img">
-                <h3>80/20 Rule of Token Entropy in LLM Reasoning</h3>
-                <p>Independent reproduction and extension of the Qwen team's work <a href="https://arxiv.org/abs/2506.01939" target="_blank"><em>Beyond the 80/20 Rule</em></a> (<a href="https://shenzhi-wang.github.io/high-entropy-minority-tokens-rlvr/" target="_blank">project page</a>, NeurIPS 2025), which discovers that token entropy in LLM reasoning chains follows an 80/20 distribution -- only ~20% of tokens carry high entropy and drive effective reasoning, while the remaining ~80% are low-entropy structural tokens. Extends the original analysis with five-metric comparison (Entropy, Confidence, Gini, LogProb, SelfCert), bimodal word analysis, multilingual CoT analysis (Chinese, Japanese, Korean), and entropy-frequency correlation study across 539K+ samples and 70M+ token instances.</p>
+            <div id="entropy-80-20" class="project-card">
+                <div class="project-cover-grid">
+                    <a class="project-cover" href="research/entropy-80-20.html" aria-label="Read the entropy audit project story">
+                        <img src="assets/80-20-rule-entropy.png" alt="Entropy distribution analysis">
+                    </a>
+                    <a class="project-cover" href="research/entropy-80-20.html" aria-label="Read the entropy audit project story">
+                        <img src="assets/80-20-rule-selfcert.png" alt="Self-certification metric analysis">
+                    </a>
+                </div>
+                <h3><a class="project-title-link" href="research/entropy-80-20.html">Entropy Is Not Frequency: Auditing the 80/20 Structure of Reasoning Tokens</a></h3>
+                <p>Independently audits the observational claims behind <a href="https://arxiv.org/abs/2506.01939" target="_blank"><em>Beyond the 80/20 Rule</em></a> across 51 uncertainty caches, 539,466 trajectories, and 1.116 billion token positions. The minority high-entropy pattern is robust, but its numerical cutoff depends on the model, task, metric, and unit of aggregation. Five uncertainty metrics agree substantially rather than perfectly, and frequency remains only a weak proxy for entropy. This project does not reproduce the original reinforcement-learning intervention or claim a causal effect.</p>
                 <div class="project-tags">
                     <span class="project-tag">Interpretability</span>
                     <span class="project-tag">Entropy</span>
@@ -127,6 +149,8 @@
                     <span class="project-tag">Python</span>
                 </div>
                 <div class="project-links">
+                    <a href="research/entropy-80-20.html">[Details]</a>
+                    <a href="assets/entropy-is-not-frequency.pdf" target="_blank" rel="noopener">[Paper]</a>
                     <a href="https://github.com/JunjieNian/80-20-rule-analysis" target="_blank" rel="noopener">[Code]</a>
                 </div>
             </div>
@@ -175,38 +199,5 @@
     </div>
 
     <script src="assets/main.js"></script>
-    <script>
-    (function () {
-        var overlay = document.createElement('div');
-        overlay.className = 'lightbox-overlay';
-        var img = document.createElement('img');
-        overlay.appendChild(img);
-        document.body.appendChild(overlay);
-
-        document.querySelectorAll('.project-img, .project-img-portrait').forEach(function (el) {
-            el.addEventListener('click', function () {
-                img.src = this.src;
-                img.alt = this.alt;
-                overlay.style.display = 'flex';
-                requestAnimationFrame(function () {
-                    overlay.classList.add('active');
-                });
-            });
-        });
-
-        overlay.addEventListener('click', function () {
-            overlay.classList.remove('active');
-            setTimeout(function () { overlay.style.display = 'none'; }, 300);
-        });
-
-        document.addEventListener('keydown', function (e) {
-            if (e.key === 'Escape' && overlay.classList.contains('active')) {
-                overlay.click();
-            }
-        });
-
-        overlay.style.display = 'none';
-    })();
-    </script>
 </body>
 </html>

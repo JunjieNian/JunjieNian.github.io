@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SliceGraph maps process isomers and shared reasoning-state geometry across multiple chain-of-thought runs.">
+    <title>SliceGraph | Junjie Nian</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Newsreader:opsz,wght@6..72,500;6..72,600&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/shared.css">
+    <link rel="stylesheet" href="../assets/research.css">
+</head>
+<body>
+    <nav class="navbar" aria-label="Primary navigation">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-brand" aria-label="Junjie Nian — Home">JN<span>.</span></a>
+            <div class="nav-links">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="../academic.html" class="nav-link">Academic</a>
+                <a href="../projects.html" class="nav-link active" aria-current="page">Projects</a>
+                <a href="../experience.html" class="nav-link">Experience</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="research-page">
+        <a class="back-link" href="../projects.html">← All research projects</a>
+
+        <header class="research-hero reveal">
+            <p class="research-kicker">Reasoning process geometry · 2026</p>
+            <h1>SliceGraph</h1>
+            <p class="research-deck">A post-hoc graph for comparing multiple chains of thought as routes through shared intermediate states—and for identifying process isomers that reach the same answer differently.</p>
+            <div class="research-actions">
+                <a class="primary-action" href="https://arxiv.org/abs/2605.14619" target="_blank" rel="noopener">Read the paper ↗</a>
+                <a class="secondary-action" href="https://github.com/JunjieNian/SliceGraph" target="_blank" rel="noopener">View code ↗</a>
+            </div>
+        </header>
+
+        <figure class="research-figure reveal">
+            <img src="../assets/slicegraph_pipeline.png" alt="SliceGraph pipeline for building a process atlas from multiple chain-of-thought trajectories">
+            <figcaption>Reasoning trajectories are partitioned into slices, represented by sparse activation keys, and connected into a shared process atlas whose regions and routes can be analyzed separately from final answers.</figcaption>
+        </figure>
+
+        <section class="research-facts reveal" aria-label="Project highlights">
+            <div class="research-fact"><strong>954</strong><span>problem–model cells analyzed</span></div>
+            <div class="research-fact"><strong>85.5%</strong><span>cells with multiple same-answer process families</span></div>
+            <div class="research-fact"><strong>76.6%</strong><span>same-answer run pairs crossing families</span></div>
+            <div class="research-fact"><strong>3</strong><span>primary 4B/8B models</span></div>
+        </section>
+
+        <div class="research-content">
+            <article class="research-copy">
+                <section id="question">
+                    <h2>Why final answers are not enough</h2>
+                    <p>Multi-run reasoning is commonly summarized with majority vote, pass@k, or another answer-level aggregate. These metrics are useful, but they discard whether trajectories share intermediate computation, split into alternative strategies, or rejoin later.</p>
+                    <div class="finding-callout">
+                        <p>Two correct runs can be answer-equivalent and still be process-distinct. SliceGraph calls these trajectories <em>process isomers</em>.</p>
+                    </div>
+                </section>
+
+                <section id="method">
+                    <h2>A graph of reasoning slices</h2>
+                    <p>SliceGraph constructs a separate problem–model-cell graph. Chain-of-thought traces are divided into slices and represented by sparse activation keys. Mutual-kNN edges connect slices with high Jaccard similarity, while biconnected components serve as candidate shared reasoning-state units.</p>
+                    <p>Routes through this atlas are grouped into process families. A label-seeded reward field is analyzed separately, so the graph scaffold describes process geometry without silently baking correctness into its construction. Typed-state transitions then compare how route families navigate the same atlas.</p>
+                </section>
+
+                <section id="findings">
+                    <h2>Process isomers are the norm</h2>
+                    <p>Across 954 problem–model cells, <strong>85.5%</strong> contain correct trajectories with the same normalized answer that split into multiple process families. Among cells with at least two such runs, an average of <strong>76.6%</strong> of run pairs cross family boundaries.</p>
+                    <p>Success-associated regions also tend to split into disconnected high-value cores. Route families specialize over different core footprints and exhibit distinct typed-state transition kernels under matched null controls. Representation ablations, cross-architecture replication, and two cross-scale replications support the stability of the route-family scaffold.</p>
+                </section>
+
+                <section id="boundaries">
+                    <h2>Interpretive boundaries</h2>
+                    <ul>
+                        <li>SliceGraph is a measurement object for post-hoc analysis, not a decoding algorithm or a guarantee of faithful verbalized reasoning.</li>
+                        <li>Process families depend on slice construction, representation, and graph hyperparameters, even though the reported ablations support robustness.</li>
+                        <li>Activation similarity indicates representational proximity; it does not by itself prove semantic or causal equivalence.</li>
+                        <li>Correctness labels enter the value-landscape layer, not the graph scaffold, and should be interpreted as an overlay rather than a structural ground truth.</li>
+                    </ul>
+                </section>
+            </article>
+
+            <aside class="research-aside" aria-label="Project details">
+                <h2>Project details</h2>
+                <ul class="project-meta">
+                    <li><strong>Role</strong>Co-author</li>
+                    <li><strong>Collaborators</strong>Kang Chen, Yixin Cao, Yugang Jiang</li>
+                    <li><strong>Benchmarks</strong>Math and science reasoning</li>
+                    <li><strong>Representation</strong>Sparse activation-key sets</li>
+                    <li><strong>Core object</strong>Problem–model-cell mutual-kNN graph</li>
+                    <li><strong>Released</strong>May 2026 · arXiv:2605.14619</li>
+                </ul>
+            </aside>
+        </div>
+
+        <nav class="research-next" aria-label="More research projects">
+            <a href="tracegraph.html"><small>Previous project</small><strong>TraceGraph</strong></a>
+            <a href="iclr-review-analysis.html"><small>Next project</small><strong>From Fluency to Accountability</strong></a>
+        </nav>
+    </main>
+
+    <footer class="research-footer">
+        Junjie Nian · <a href="mailto:jjnian24@m.fudan.edu.cn">Email</a> · <a href="https://github.com/JunjieNian" target="_blank" rel="noopener">GitHub</a> · <a href="https://orcid.org/0009-0001-4407-6336" target="_blank" rel="noopener">ORCID</a>
+    </footer>
+    <script src="../assets/main.js"></script>
+</body>
+</html>

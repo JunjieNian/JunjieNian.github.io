@@ -814,6 +814,47 @@
 .project-img { margin-bottom: 22px; }
 .project-card-horizontal { gap: 28px; }
 
+.project-cover {
+    display: block;
+    margin-bottom: 22px;
+    border: 1px solid var(--color-border);
+    overflow: hidden;
+    background: #f2f1ed;
+}
+
+.project-cover img {
+    display: block;
+    width: 100%;
+    transition: transform var(--transition-normal), opacity var(--transition-fast);
+}
+
+.project-cover:hover img {
+    opacity: 0.94;
+    transform: scale(1.012);
+}
+
+.project-title-link {
+    color: var(--color-text);
+}
+
+.project-title-link:hover {
+    color: var(--color-accent);
+}
+
+.project-cover-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    margin-bottom: 22px;
+    border: 1px solid var(--color-border);
+    background: var(--color-border);
+}
+
+.project-cover-grid .project-cover {
+    margin: 0;
+    border: 0;
+}
+
 .project-tag {
     padding: 4px 8px;
     border-radius: 0;

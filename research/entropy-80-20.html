@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A large-scale audit of the 80/20 structure of reasoning-token uncertainty, its dependence on aggregation, and its relationship with frequency.">
+    <title>Entropy Is Not Frequency | Junjie Nian</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Newsreader:opsz,wght@6..72,500;6..72,600&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/shared.css">
+    <link rel="stylesheet" href="../assets/research.css">
+</head>
+<body>
+    <nav class="navbar" aria-label="Primary navigation">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-brand" aria-label="Junjie Nian — Home">JN<span>.</span></a>
+            <div class="nav-links">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="../academic.html" class="nav-link">Academic</a>
+                <a href="../projects.html" class="nav-link active" aria-current="page">Projects</a>
+                <a href="../experience.html" class="nav-link">Experience</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="research-page">
+        <a class="back-link" href="../projects.html">← All research projects</a>
+
+        <header class="research-hero reveal">
+            <p class="research-kicker">Reasoning uncertainty · 2026</p>
+            <h1>Entropy Is Not Frequency</h1>
+            <p class="research-deck">A large-scale audit of the minority high-entropy pattern in reasoning tokens—and of the statistical shortcuts that can turn a useful rank rule into an overstated universal law.</p>
+            <div class="research-actions">
+                <a class="primary-action" href="../assets/entropy-is-not-frequency.pdf" target="_blank" rel="noopener">Read the paper ↗</a>
+                <a class="secondary-action" href="https://github.com/JunjieNian/80-20-rule-analysis" target="_blank" rel="noopener">View code ↗</a>
+            </div>
+        </header>
+
+        <figure class="research-figure reveal">
+            <img src="../assets/80-20-rule-entropy.png" alt="Distributional analysis of entropy among reasoning tokens">
+            <figcaption>The audit separates token positions from token-type averages, aligns five uncertainty metrics by direction, and tests whether frequency can substitute for uncertainty.</figcaption>
+        </figure>
+
+        <section class="research-facts reveal" aria-label="Project highlights">
+            <div class="research-fact"><strong>1.116B</strong><span>cached token positions</span></div>
+            <div class="research-fact"><strong>539,466</strong><span>reasoning trajectories</span></div>
+            <div class="research-fact"><strong>43,529</strong><span>decoded token types</span></div>
+            <div class="research-fact"><strong>51</strong><span>uncertainty caches</span></div>
+        </section>
+
+        <div class="research-content">
+            <article class="research-copy">
+                <section id="question">
+                    <h2>What exactly follows an 80/20 rule?</h2>
+                    <p>The original <em>Beyond the 80/20 Rule</em> study connects a minority of high-entropy “forking tokens” to effective reinforcement learning. This project independently audits the observational distribution and asks which conclusions survive changes in model, benchmark, metric, and unit of aggregation.</p>
+                    <div class="finding-callout">
+                        <p>The minority high-entropy shape is robust. Its numerical threshold is not universal, and entropy cannot be replaced by token frequency.</p>
+                    </div>
+                </section>
+
+                <section id="estimands">
+                    <h2>Positions and types answer different questions</h2>
+                    <p>A position-level analysis asks which generated token occurrences fall in the uncertain tail. A token-type analysis first averages each metric over every occurrence of an ID, then asks which vocabulary items are usually uncertain. Common tokens can dominate position counts while retaining only moderate average entropy; rare types can show unstable extreme means.</p>
+                    <p>That distinction explains why the original position-level 80th-percentile threshold of 0.672 and this audit’s type-average threshold of <strong>1.219</strong> are not competing estimates of the same quantity.</p>
+                </section>
+
+                <section id="findings">
+                    <h2>Agreement without interchangeability</h2>
+                    <p>After orienting Entropy, Confidence, Gini, LogProb, and SelfCert so that larger ranks consistently mean greater uncertainty, their top-20% token-type sets have mean pairwise Jaccard overlap <strong>0.6932</strong>, with individual pairs ranging from <strong>0.5362 to 0.8636</strong>.</p>
+                    <p>Frequency remains only a weak proxy. Across 43,529 types, entropy has Pearson <strong>r = −0.0165</strong> with raw frequency, Spearman <strong>ρ = −0.2959</strong> with frequency rank, and Pearson <strong>r = −0.3464</strong> after log-transforming counts. Very frequent connectives—including <em>So</em>, <em>Let</em>, <em>Since</em>, and <em>Therefore</em>—can still occupy high-entropy roles.</p>
+                </section>
+
+                <section id="boundaries">
+                    <h2>What this audit does not reproduce</h2>
+                    <ul>
+                        <li>No reinforcement-learning experiment is run, so the project does not reproduce the original gradient-masking performance claim.</li>
+                        <li>A percentile specifies a selection budget, not a fixed natural threshold shared across all distributions.</li>
+                        <li>Decoded strings can merge distinct IDs, and token-type averages hide multimodal context dependence.</li>
+                        <li>The 51 caches span heterogeneous models and tasks rather than a balanced factorial design.</li>
+                        <li>The results are descriptive and do not establish that entropy causally makes a token important.</li>
+                    </ul>
+                </section>
+            </article>
+
+            <aside class="research-aside" aria-label="Project details">
+                <h2>Project details</h2>
+                <ul class="project-meta">
+                    <li><strong>Models</strong>4 configurations</li>
+                    <li><strong>Benchmarks</strong>7 math, science, and coding task families</li>
+                    <li><strong>Metrics</strong>Entropy, Confidence, Gini, LogProb, SelfCert</li>
+                    <li><strong>Estimands</strong>Token positions and token-type means</li>
+                    <li><strong>Scope</strong>Observational reproduction and extension</li>
+                    <li><strong>Artifacts</strong>Technical blog, code, reports, and preprint</li>
+                </ul>
+            </aside>
+        </div>
+
+        <nav class="research-next" aria-label="More research projects">
+            <a href="multilingual-neuron-analysis.html"><small>Previous project</small><strong>Reasoning Across Languages</strong></a>
+            <a href="tracegraph.html"><small>Next project</small><strong>TraceGraph</strong></a>
+        </nav>
+    </main>
+
+    <footer class="research-footer">
+        Junjie Nian · <a href="mailto:jjnian24@m.fudan.edu.cn">Email</a> · <a href="https://github.com/JunjieNian" target="_blank" rel="noopener">GitHub</a> · <a href="https://orcid.org/0009-0001-4407-6336" target="_blank" rel="noopener">ORCID</a>
+    </footer>
+    <script src="../assets/main.js"></script>
+</body>
+</html>

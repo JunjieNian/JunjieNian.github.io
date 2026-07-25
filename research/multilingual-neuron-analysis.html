@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="An audit of activation agreement and language-selection heuristics across 2,250 mathematical reasoning trajectories in 18 languages.">
+    <title>Reasoning Across Languages | Junjie Nian</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Newsreader:opsz,wght@6..72,500;6..72,600&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/shared.css">
+    <link rel="stylesheet" href="../assets/research.css">
+</head>
+<body>
+    <nav class="navbar" aria-label="Primary navigation">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-brand" aria-label="Junjie Nian — Home">JN<span>.</span></a>
+            <div class="nav-links">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="../academic.html" class="nav-link">Academic</a>
+                <a href="../projects.html" class="nav-link active" aria-current="page">Projects</a>
+                <a href="../experience.html" class="nav-link">Experience</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="research-page">
+        <a class="back-link" href="../projects.html">← All research projects</a>
+
+        <header class="research-hero reveal">
+            <p class="research-kicker">Multilingual reasoning · 2026</p>
+            <h1>Reasoning Across Languages</h1>
+            <p class="research-deck">Testing whether activation agreement can select better mathematical reasoning trajectories when the candidates solve the same problem in 18 different languages.</p>
+            <div class="research-actions">
+                <a class="primary-action" href="../assets/reasoning-across-languages.pdf" target="_blank" rel="noopener">Read the paper ↗</a>
+                <a class="secondary-action" href="https://github.com/JunjieNian/multilingual_neuron_analysis" target="_blank" rel="noopener">View code ↗</a>
+            </div>
+        </header>
+
+        <figure class="research-figure reveal">
+            <img src="../assets/language_neuron.png" alt="Multilingual reasoning trajectories compared through sparse neuron activation overlap">
+            <figcaption>Each problem contributes one candidate trajectory per language. Sparse activation overlap supports consensus and centrality selectors without assuming that a particular language is always best.</figcaption>
+        </figure>
+
+        <section class="research-facts reveal" aria-label="Project highlights">
+            <div class="research-fact"><strong>2,250</strong><span>reasoning trajectories</span></div>
+            <div class="research-fact"><strong>18</strong><span>languages</span></div>
+            <div class="research-fact"><strong>125</strong><span>PolyMath-Top problems</span></div>
+            <div class="research-fact"><strong>25.6%</strong><span>best selector accuracy</span></div>
+        </section>
+
+        <div class="research-content">
+            <article class="research-copy">
+                <section id="question">
+                    <h2>A harder selection problem</h2>
+                    <p>Multilingual evaluation usually compares final-answer accuracy language by language. This project asks a different test-time question: given one trajectory in each of 18 languages for the same problem, can internal activation structure select a stronger answer without seeing correctness labels?</p>
+                    <div class="finding-callout">
+                        <p>Language identity is not a reliable default: English reaches 16.8% accuracy here, while individual-language accuracy ranges from 11.2% to 22.4%.</p>
+                    </div>
+                </section>
+
+                <section id="method">
+                    <h2>Selection through activation agreement</h2>
+                    <p>Sparse activated-neuron sets define pairwise Jaccard geometry among the 18 candidate trajectories for each problem. Thirteen selectors test different signals: activation count, medoid centrality, consensus, clustering, language diversity, cross-language consistency, entropy preferences, and language heuristics.</p>
+                    <p>The fixed-first baseline uses Arabic because it is the first candidate in the saved ordering; it solves 26 of 125 problems. The analysis reports selector accuracy at the problem level and separates directly auditable saved results from larger exploratory observations that require unavailable activation caches.</p>
+                </section>
+
+                <section id="findings">
+                    <h2>Agreement helps, but modestly</h2>
+                    <p><strong>ConsensusMin</strong> is the strongest observed selector, solving <strong>32 of 125 problems (25.6%)</strong>. Medoid centrality and language diversity each reach <strong>24.8%</strong>, compared with <strong>20.8%</strong> for the fixed-first baseline and <strong>22.4%</strong> for the best single language.</p>
+                    <p>Other intuitive heuristics are unreliable. Cross-language consistency reaches 16.0%, low-entropy preference 13.6%, and maximum activation count 12.0%. Auxiliary script-language analysis suggests an association between moderate output-language mixing and accuracy, but the diagnostic is not causal and is limited by script-level language detection.</p>
+                </section>
+
+                <section id="boundaries">
+                    <h2>Evidence tiers and limitations</h2>
+                    <ul>
+                        <li>The main selector table is backed by compact saved JSON; large activation caches are not redistributed.</li>
+                        <li>A legacy 99.8% quality-neuron universality claim lacks compact public per-neuron evidence, so it is treated as exploratory rather than a headline result.</li>
+                        <li>The 125-problem sample is small, and each language contributes only one sampled trajectory per problem.</li>
+                        <li>Activation agreement offers useful information, but the absolute gain is modest and does not make language identity, fluency, or monolinguality a correctness guarantee.</li>
+                    </ul>
+                </section>
+            </article>
+
+            <aside class="research-aside" aria-label="Project details">
+                <h2>Project details</h2>
+                <ul class="project-meta">
+                    <li><strong>Dataset</strong>PolyMath-Top</li>
+                    <li><strong>Unit</strong>Problem × language trajectory</li>
+                    <li><strong>Representation</strong>Sparse activated-neuron sets</li>
+                    <li><strong>Selectors</strong>13 label-free heuristics</li>
+                    <li><strong>Languages</strong>18 writing systems and language contexts</li>
+                    <li><strong>Artifacts</strong>Technical blog, code, and English preprint</li>
+                </ul>
+            </aside>
+        </div>
+
+        <nav class="research-next" aria-label="More research projects">
+            <a href="cot-folding.html"><small>Previous project</small><strong>CoT Folding</strong></a>
+            <a href="entropy-80-20.html"><small>Next project</small><strong>Entropy Is Not Frequency</strong></a>
+        </nav>
+    </main>
+
+    <footer class="research-footer">
+        Junjie Nian · <a href="mailto:jjnian24@m.fudan.edu.cn">Email</a> · <a href="https://github.com/JunjieNian" target="_blank" rel="noopener">GitHub</a> · <a href="https://orcid.org/0009-0001-4407-6336" target="_blank" rel="noopener">ORCID</a>
+    </footer>
+    <script src="../assets/main.js"></script>
+</body>
+</html>

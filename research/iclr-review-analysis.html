@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A claim-lifecycle analysis of AI-like peer reviews across author response, reviewer follow-up, and meta-review uptake at ICLR 2026.">
+    <title>From Fluency to Accountability | Junjie Nian</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Newsreader:opsz,wght@6..72,500;6..72,600&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/shared.css">
+    <link rel="stylesheet" href="../assets/research.css">
+</head>
+<body>
+    <nav class="navbar" aria-label="Primary navigation">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-brand" aria-label="Junjie Nian — Home">JN<span>.</span></a>
+            <div class="nav-links">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="../academic.html" class="nav-link">Academic</a>
+                <a href="../projects.html" class="nav-link active" aria-current="page">Projects</a>
+                <a href="../experience.html" class="nav-link">Experience</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="research-page">
+        <a class="back-link" href="../projects.html">← All research projects</a>
+
+        <header class="research-hero reveal">
+            <p class="research-kicker">Computational social science · 2026</p>
+            <h1>From Fluency to Accountability</h1>
+            <p class="research-deck">A claim-lifecycle analysis of how AI-like peer-review concerns move from review text into author response, reviewer follow-up, and the final institutional rationale.</p>
+            <div class="research-actions">
+                <a class="primary-action" href="../assets/from-fluency-to-accountability.pdf" target="_blank" rel="noopener">Read the paper ↗</a>
+                <a class="secondary-action" href="https://github.com/JunjieNian/ICLR26-review-analysis" target="_blank" rel="noopener">View code ↗</a>
+            </div>
+        </header>
+
+        <figure class="research-figure reveal">
+            <img src="../assets/iclr26-claim-lifecycle.svg" alt="Claim lifecycle from review text to author response, reviewer follow-up, and meta-review uptake">
+            <figcaption>The unit of analysis is an individual review claim and its downstream trace—not a binary label assigned to an entire reviewer or review.</figcaption>
+        </figure>
+
+        <section class="research-facts reveal" aria-label="Project highlights">
+            <div class="research-fact"><strong>53,463</strong><span>public official reviews</span></div>
+            <div class="research-fact"><strong>416,862</strong><span>extracted review claims</span></div>
+            <div class="research-fact"><strong>13,738</strong><span>accept/reject papers</span></div>
+            <div class="research-fact"><strong>3</strong><span>downstream lifecycle outcomes</span></div>
+        </section>
+
+        <div class="research-content">
+            <article class="research-copy">
+                <section id="question">
+                    <h2>Beyond AI-text detection</h2>
+                    <p>Most discussions of AI-assisted reviewing ask whether a review sounds generic, cites evidence, or changes a score. This project instead treats peer review as an accountability process: a criticism matters institutionally when participants can identify it, answer it, contest it, and carry it into a decision rationale.</p>
+                    <div class="finding-callout">
+                        <p>The project does not label reviews as AI-generated. It uses a continuous, unsupervised AI-likeness style proxy and studies observational associations.</p>
+                    </div>
+                </section>
+
+                <section id="design">
+                    <h2>Claim-level study design</h2>
+                    <p>The public ICLR 2026 process is represented as a sequence. Each official review is decomposed into claims; those claims are aligned with author-response units, reviewer follow-up, and meta-review text. The text layer measures specificity, factual support, within-paper redundancy, uniqueness, and marginal decision contribution.</p>
+                    <p>The process layer estimates within-paper fixed-effects linear probability models. Holding the paper fixed, it asks whether otherwise comparable claims with different AI-likeness scores remain visible later in deliberation.</p>
+                </section>
+
+                <section id="findings">
+                    <h2>Where the clearer difference appears</h2>
+                    <p>The evidence does not show a broad collapse in surface quality, grounding, originality, or marginal decision relevance for more AI-like reviews. The sharper pattern appears downstream.</p>
+                    <p>Across the full 0–1 AI-likeness range, the within-paper estimates associate higher AI-likeness with a <strong>6.63 percentage-point decrease</strong> in author-response coverage, a <strong>0.56 point increase</strong> in reviewer follow-up, and a <strong>1.67 point decrease</strong> in meta-review uptake, conditional on the included controls.</p>
+                    <p>Case studies suggest that focus may matter more than fluency: long, polished checklists can disperse attention, while a smaller set of consequential and answerable concerns is easier to track through the deliberation chain.</p>
+                </section>
+
+                <section id="boundaries">
+                    <h2>Interpretive boundaries</h2>
+                    <ul>
+                        <li>The AI-likeness score is a stylistic proxy, not proof that a reviewer used AI.</li>
+                        <li>Fixed effects remove stable paper-level differences, but the estimates remain observational rather than causal.</li>
+                        <li>Lexical alignment can miss implicit, merged, or heavily paraphrased responses and uptake.</li>
+                        <li>ICLR 2026 was an unusual conference year with a security incident and disrupted discussion; cross-year and cross-venue replication is necessary.</li>
+                        <li>Reviewer follow-up and explicit uptake have low base rates, so small absolute changes can be estimated precisely.</li>
+                    </ul>
+                </section>
+            </article>
+
+            <aside class="research-aside" aria-label="Project details">
+                <h2>Project details</h2>
+                <ul class="project-meta">
+                    <li><strong>Domain</strong>AI-assisted peer review</li>
+                    <li><strong>Data source</strong>Public ICLR 2026 OpenReview threads</li>
+                    <li><strong>Unit</strong>Review claim and lifecycle outcome</li>
+                    <li><strong>Estimation</strong>Within-paper fixed-effects models</li>
+                    <li><strong>Paper</strong>Standalone English preprint</li>
+                    <li><strong>Released</strong>July 2026</li>
+                </ul>
+            </aside>
+        </div>
+
+        <nav class="research-next" aria-label="More research projects">
+            <a href="slicegraph.html"><small>Previous project</small><strong>SliceGraph</strong></a>
+            <a href="cot-folding.html"><small>Next project</small><strong>CoT Folding</strong></a>
+        </nav>
+    </main>
+
+    <footer class="research-footer">
+        Junjie Nian · <a href="mailto:jjnian24@m.fudan.edu.cn">Email</a> · <a href="https://github.com/JunjieNian" target="_blank" rel="noopener">GitHub</a> · <a href="https://orcid.org/0009-0001-4407-6336" target="_blank" rel="noopener">ORCID</a>
+    </footer>
+    <script src="../assets/main.js"></script>
+</body>
+</html>

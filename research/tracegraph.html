@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="TraceGraph turns pooled agent trajectories into shared decision landscapes for diagnosing traps, recovery, and benchmark demands.">
+    <title>TraceGraph | Junjie Nian</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Newsreader:opsz,wght@6..72,500;6..72,600&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/shared.css">
+    <link rel="stylesheet" href="../assets/research.css">
+</head>
+<body>
+    <nav class="navbar" aria-label="Primary navigation">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-brand" aria-label="Junjie Nian — Home">JN<span>.</span></a>
+            <div class="nav-links">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="../academic.html" class="nav-link">Academic</a>
+                <a href="../projects.html" class="nav-link active" aria-current="page">Projects</a>
+                <a href="../experience.html" class="nav-link">Experience</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="research-page">
+        <a class="back-link" href="../projects.html">← All research projects</a>
+
+        <header class="research-hero reveal">
+            <p class="research-kicker">Agent trajectory analysis · 2026</p>
+            <h1>TraceGraph</h1>
+            <p class="research-deck">A shared decision landscape for seeing where software agents converge, encounter traps, and recover—before their trajectories are reduced to a single pass rate.</p>
+            <div class="research-actions">
+                <a class="primary-action" href="https://arxiv.org/abs/2605.31308" target="_blank" rel="noopener">Read the paper ↗</a>
+                <a class="secondary-action" href="https://github.com/JunjieNian/TraceGraph" target="_blank" rel="noopener">View code ↗</a>
+            </div>
+        </header>
+
+        <figure class="research-figure reveal">
+            <img src="../assets/tracegraph_pipeline.png" alt="TraceGraph pipeline from pooled trajectories to graph diagnosis and trap-aware recovery">
+            <figcaption>TraceGraph pools observable action–observation states, constructs a shared graph, overlays outcome information, and turns graph regions into process-level diagnostics and recovery signals.</figcaption>
+        </figure>
+
+        <section class="research-facts reveal" aria-label="Project highlights">
+            <div class="research-fact"><strong>5</strong><span>benchmark splits profiled</span></div>
+            <div class="research-fact"><strong>3</strong><span>rollout events: Access, Trap, Repair</span></div>
+            <div class="research-fact"><strong>40.4→43.5%</strong><span>resolved rate on provider-fired subsets</span></div>
+            <div class="research-fact"><strong>41.0→44.8%</strong><span>resolved rate on common-fired instances</span></div>
+        </section>
+
+        <div class="research-content">
+            <article class="research-copy">
+                <section id="question">
+                    <h2>The question</h2>
+                    <p>Agent benchmarks preserve rich sequences of actions and observations, yet evaluation usually collapses each rollout into success, failure, or a scalar reward. That makes two agents with the same score look equivalent even when one avoids difficult regions and the other repeatedly enters them before recovering.</p>
+                    <div class="finding-callout">
+                        <p>TraceGraph asks a process-level question: what does an agent encounter on the way to its outcome, and what does the benchmark require it to navigate?</p>
+                    </div>
+                </section>
+
+                <section id="method">
+                    <h2>From trajectories to a landscape</h2>
+                    <ol>
+                        <li><strong>Represent observable states.</strong> Each step becomes a sparse symbolic key set describing tool use, action intent, commands, file cues, observation patterns, temporal phase, and search behavior.</li>
+                        <li><strong>Pool before identifying models.</strong> States from multiple models are combined for each task, then connected using IDF-weighted Jaccard similarity and mutual nearest neighbors.</li>
+                        <li><strong>Recover process structure.</strong> Biconnected components form shared state regions; outcome diffusion adds productive cores, trap regions, failure basins, and recovery gates.</li>
+                        <li><strong>Profile complete rollouts.</strong> Access, Trap exposure, and Repair summarize what each model supplies and what each benchmark rewards.</li>
+                        <li><strong>Test a downstream use.</strong> On SWE-bench, graph-derived trap matches trigger lightweight continuation policies from the same prefix.</li>
+                    </ol>
+                </section>
+
+                <section id="findings">
+                    <h2>What the landscape reveals</h2>
+                    <p>The five evaluated benchmark splits do not reward the same navigation strategy. Some primarily reward avoiding trap regions; others distinguish agents that can repair after exposure. These differences are hidden by aggregate pass rates but become explicit in Access–Trap–Repair profiles.</p>
+                    <p>The recovery experiment provides a concrete use case. On states where the detector fires, the best pooled single-factor policy improves official resolved rate from <strong>40.4% to 43.5%</strong> on per-provider fired subsets and from <strong>41.0% to 44.8%</strong> on common-fired instances. Provider-specific active components suggest that a single generic recovery instruction is not always optimal.</p>
+                </section>
+
+                <section id="boundaries">
+                    <h2>Interpretive boundaries</h2>
+                    <ul>
+                        <li>The graph is a measurement of observable trajectory states, not a direct map of a model’s latent planning process.</li>
+                        <li>Productive cores and traps depend on the released rollout distribution and outcome overlay; they are not universal properties of a task.</li>
+                        <li>The intervention results apply to detector-fired subsets. They should not be read as an unconditional improvement across every SWE-bench instance.</li>
+                        <li>Symbolic signatures deliberately favor auditability, but may omit semantic distinctions that require richer representations.</li>
+                    </ul>
+                </section>
+            </article>
+
+            <aside class="research-aside" aria-label="Project details">
+                <h2>Project details</h2>
+                <ul class="project-meta">
+                    <li><strong>Role</strong>Co-first author</li>
+                    <li><strong>Collaborators</strong>Kang Chen, Ge Zhang, Yixin Cao, Yugang Jiang</li>
+                    <li><strong>Representation</strong>Sparse action–observation signatures</li>
+                    <li><strong>Graph</strong>Mutual-kNN with biconnected components</li>
+                    <li><strong>Application</strong>SWE-bench trap-aware recovery</li>
+                    <li><strong>Released</strong>May 2026 · arXiv:2605.31308</li>
+                </ul>
+            </aside>
+        </div>
+
+        <nav class="research-next" aria-label="More research projects">
+            <a href="entropy-80-20.html"><small>Previous project</small><strong>Entropy Is Not Frequency</strong></a>
+            <a href="slicegraph.html"><small>Next project</small><strong>SliceGraph</strong></a>
+        </nav>
+    </main>
+
+    <footer class="research-footer">
+        Junjie Nian · <a href="mailto:jjnian24@m.fudan.edu.cn">Email</a> · <a href="https://github.com/JunjieNian" target="_blank" rel="noopener">GitHub</a> · <a href="https://orcid.org/0009-0001-4407-6336" target="_blank" rel="noopener">ORCID</a>
+    </footer>
+    <script src="../assets/main.js"></script>
+</body>
+</html>

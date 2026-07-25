@@ -8,8 +8,9 @@ The site is organized as a small multi-page portfolio:
 
 - `index.html` – landing page with hero section and navigation cards
 - `academic.html` – publications, new papers, and honors
-- `projects.html` – research projects, technical work, and side explorations
-- `experience.html` – research experience and education background
+- `projects.html` — research projects, technical work, and side explorations
+- `research/*.html` — standalone technical stories for each research project
+- `experience.html` — research experience and education background
 
 ## Tech Stack
 
@@ -28,6 +29,8 @@ The site is organized as a small multi-page portfolio:
 ├── academic.html
 ├── projects.html
 ├── experience.html
+├── research/
+│   └── *.html
 └── assets/
     ├── avatar.jpg
     ├── cv.html
@@ -45,6 +48,7 @@ The site is organized as a small multi-page portfolio:
 - `assets/shared.css` contains shared styles used across all pages
 - `assets/landing.css` styles the homepage hero and navigation cards
 - `assets/pages.css` styles the internal content pages
+- `assets/research.css` styles the project detail and technical-story pages
 - `assets/landing.js` controls landing-page interactions
 - `assets/main.js` powers scroll/reveal behaviors on the content pages
 
@@ -93,6 +97,7 @@ Edit `projects.html` to maintain:
 - project descriptions
 - screenshots and media under `assets/`
 - tags and external links
+- links to the corresponding project stories under `research/`
 
 ### Update experience
 
