@@ -233,7 +233,7 @@ main,
 }
 
 .featured-image.featured-image-iclr img {
-    object-fit: cover;
+    object-fit: contain;
 }
 
 .featured-card:hover .featured-image img { transform: scale(1.02); }
