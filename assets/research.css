@@ -54,7 +54,8 @@
     margin-top: 28px;
 }
 
-.research-actions a {
+.research-actions a,
+.research-actions .disabled-action {
     display: inline-flex;
     align-items: center;
     min-height: 38px;
@@ -64,6 +65,13 @@
     font-weight: 700;
     letter-spacing: 0.06em;
     text-transform: uppercase;
+}
+
+.research-actions .disabled-action {
+    border-color: var(--color-border);
+    color: var(--color-text-muted);
+    background: var(--color-bg-raised);
+    cursor: default;
 }
 
 .research-actions .primary-action {

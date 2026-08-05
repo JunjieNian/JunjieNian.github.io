@@ -35,6 +35,25 @@
         <section class="page-section reveal">
             <h2>Research Projects</h2>
 
+            <div id="risa" class="project-card">
+                <a class="project-cover" href="research/risa.html" aria-label="Read the RISA project story">
+                    <img src="assets/risa_pipeline.png" alt="RISA routing-guided steering and final-patch arbitration pipeline">
+                </a>
+                <h3><a class="project-title-link" href="research/risa.html">Disagree to Explore, Agree to Commit: Routing-Guided Test-Time Scaling for Software Agents</a></h3>
+                <p>Introduces <strong>RISA</strong> (Routing-Informed Steering and Arbitration), a two-level controller that uses native sparse-MoE routing traces to coordinate software agents without an external judge, selection-time test execution, or weight updates. Within an attempt, routing encourages actions that differ from recent history during exploration and agreement among role-matched write proposals during commitment. Across four attempts, decision-token routing agreement selects the final patch. On SWE-bench Verified, RISA raises the <code>gpt-oss</code> macro-average resolved rate from 44.9% to 48.2% and transfers to <code>Qwen3.6-35B-A3B</code>, improving from 41.7% to 45.2%.</p>
+                <div class="project-tags">
+                    <span class="project-tag">Software Agents</span>
+                    <span class="project-tag">Test-Time Scaling</span>
+                    <span class="project-tag">MoE Routing</span>
+                    <span class="project-tag">SWE-bench</span>
+                </div>
+                <div class="project-links">
+                    <a href="research/risa.html">[Details]</a>
+                    <span class="coming-soon" aria-disabled="true">[arXiv forthcoming]</span>
+                    <a href="https://github.com/JunjieNian/RISA" target="_blank" rel="noopener">[Code]</a>
+                </div>
+            </div>
+
             <div id="tracegraph" class="project-card">
                 <a class="project-cover" href="research/tracegraph.html" aria-label="Read the TraceGraph project story">
                     <img src="assets/tracegraph_pipeline.png" alt="TraceGraph pipeline overview">

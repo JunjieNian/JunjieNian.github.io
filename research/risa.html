@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="RISA uses native sparse-MoE routing traces to steer software-agent exploration and commitment, then arbitrate among final patches.">
+    <title>RISA | Junjie Nian</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Newsreader:opsz,wght@6..72,500;6..72,600&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/shared.css">
+    <link rel="stylesheet" href="../assets/research.css">
+</head>
+<body>
+    <nav class="navbar" aria-label="Primary navigation">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-brand" aria-label="Junjie Nian — Home">JN<span>.</span></a>
+            <div class="nav-links">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="../academic.html" class="nav-link">Academic</a>
+                <a href="../projects.html" class="nav-link active" aria-current="page">Projects</a>
+                <a href="../experience.html" class="nav-link">Experience</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="research-page">
+        <a class="back-link" href="../projects.html">← All research projects</a>
+
+        <header class="research-hero reveal">
+            <p class="research-kicker">Software agents &middot; Test-time scaling &middot; 2026</p>
+            <h1>Disagree to Explore, Agree to Commit</h1>
+            <p class="research-deck">RISA turns native sparse-MoE routing traces into a two-level controller: it steers exploration and commitment within an agent attempt, then selects among independently developed final patches.</p>
+            <div class="research-actions">
+                <span class="disabled-action" aria-disabled="true">arXiv forthcoming</span>
+                <a class="secondary-action" href="https://github.com/JunjieNian/RISA" target="_blank" rel="noopener">View code ↗</a>
+            </div>
+        </header>
+
+        <figure class="research-figure reveal">
+            <img src="../assets/risa_pipeline.png" alt="RISA pipeline from sampled software-agent attempts through MoE routing fingerprints to routing-guided steering and final-patch selection">
+            <figcaption>RISA reuses one MoE routing representation at three decision-matched scales: recent executed history for exploration, role-matched write peers for commitment, and independently sampled attempts for final-patch arbitration.</figcaption>
+        </figure>
+
+        <section class="research-facts reveal" aria-label="Project highlights">
+            <div class="research-fact"><strong>2</strong><span>nested decisions: action steering and patch arbitration</span></div>
+            <div class="research-fact"><strong>K = 4</strong><span>independently sampled attempts per task</span></div>
+            <div class="research-fact"><strong>44.9→48.2%</strong><span>gpt-oss macro resolved rate</span></div>
+            <div class="research-fact"><strong>41.7→45.2%</strong><span>Qwen3.6 resolved rate</span></div>
+        </section>
+
+        <div class="research-content">
+            <article class="research-copy">
+                <section id="question">
+                    <h2>The coordination problem</h2>
+                    <p>Repository-level repair unfolds through long tool-use trajectories. More test-time compute creates two related but structurally different choices: which action to execute among siblings sampled from the same prefix, and which non-canonical patch to submit after several complete attempts.</p>
+                    <p>Text agreement alone is difficult to interpret across heterogeneous actions and independently developed patches. RISA asks whether the router traces already produced by sparse mixture-of-experts models can provide a shared computational coordinate for both decisions.</p>
+                    <div class="finding-callout">
+                        <p>The routing fingerprint supplies the coordinate; the comparison set supplies its decision meaning.</p>
+                    </div>
+                </section>
+
+                <section id="method">
+                    <h2>One signal, three comparisons</h2>
+                    <ol>
+                        <li><strong>Fingerprint each action.</strong> Gate-weighted expert assignments are aggregated into a layer-by-expert routing fingerprint over the proposed action span.</li>
+                        <li><strong>Disagree to explore.</strong> Outside a write cohort, RISA favors candidates least similar to the attempt’s recent executed history, discouraging computational revisitation.</li>
+                        <li><strong>Agree to commit.</strong> When several candidates propose writes, a routing role gate restricts comparison to that cohort and rewards broad peer-supported convergence.</li>
+                        <li><strong>Arbitrate across attempts.</strong> Each final diff is re-encoded once. Agreement at the least-probable quarter of patch tokens—the decision tokens—selects the routing medoid among the available patches.</li>
+                    </ol>
+                    <p>The controller requires no external judge, no model-weight updates, and no candidate test execution performed solely for selection.</p>
+                </section>
+
+                <section id="findings">
+                    <h2>What the evaluation shows</h2>
+                    <p>Across six <code>gpt-oss</code> model-and-effort conditions on SWE-bench Verified, RISA improves over uniform patch selection by <strong>2.3–5.7 percentage points</strong>. Its macro-average resolved rate rises from <strong>44.9% to 48.2%</strong>, slightly above the 48.0% achieved by text consensus on the same attempt pools.</p>
+                    <p>The same decision rules transfer to <code>Qwen3.6-35B-A3B</code> after refitting only architecture-dependent role centroids. RISA reaches <strong>45.2%</strong>, compared with 41.7% for Uniform and 45.0% for text consensus. The routing role gate agrees with the exact parsed action role on <strong>96.8%</strong> of actions.</p>
+                    <p>Supporting diagnostics separate the two gains: routing-guided steering improves the availability of submittable patches, while terminal routing agreement contributes independently when all selectors receive the same fixed attempt pool.</p>
+                </section>
+
+                <section id="boundaries">
+                    <h2>Interpretive boundaries</h2>
+                    <ul>
+                        <li>The current method assumes accessible sparse-MoE routing traces and repeated trajectories, so it is naturally a white-box technique.</li>
+                        <li>Terminal comparisons condition on tasks with at least two graded patches; they isolate selection quality rather than unconditional end-to-end success.</li>
+                        <li>Architecture-dependent role centroids are refit for a new MoE family, although the controller logic and comparison rules remain fixed.</li>
+                        <li>Routing agreement is reference-dependent: similarity to recent history, write peers, and independent attempts has different operational meaning.</li>
+                    </ul>
+                </section>
+            </article>
+
+            <aside class="research-aside" aria-label="Project details">
+                <h2>Project details</h2>
+                <ul class="project-meta">
+                    <li><strong>Role</strong>Co-first author</li>
+                    <li><strong>Collaborators</strong>Kang Chen, Yixin Cao, Yugang Jiang</li>
+                    <li><strong>Method</strong>Routing-Informed Steering and Arbitration</li>
+                    <li><strong>Signal</strong>Native sparse-MoE router traces</li>
+                    <li><strong>Benchmark</strong>SWE-bench Verified</li>
+                    <li><strong>Models</strong>gpt-oss-20b/120b and Qwen3.6-35B-A3B</li>
+                    <li><strong>Status</strong>Preprint &middot; arXiv forthcoming</li>
+                </ul>
+            </aside>
+        </div>
+
+        <nav class="research-next" aria-label="More research projects">
+            <a href="entropy-80-20.html"><small>Previous project</small><strong>Entropy Is Not Frequency</strong></a>
+            <a href="tracegraph.html"><small>Next project</small><strong>TraceGraph</strong></a>
+        </nav>
+    </main>
+
+    <footer class="research-footer">
+        Junjie Nian &middot; <a href="mailto:jjnian24@m.fudan.edu.cn">Email</a> &middot; <a href="https://github.com/JunjieNian" target="_blank" rel="noopener">GitHub</a> &middot; <a href="https://dblp.org/pid/419/2553.html" target="_blank" rel="noopener">DBLP</a> &middot; <a href="https://www.semanticscholar.org/author/Junjie-Nian/2403982720" target="_blank" rel="noopener">Semantic Scholar</a> &middot; <a href="https://orcid.org/0009-0001-4407-6336" target="_blank" rel="noopener">ORCID</a>
+    </footer>
+    <script src="../assets/main.js"></script>
+</body>
+</html>
