@@ -1,3 +1,5 @@
+document.documentElement.classList.add('js');
+
 /**
  * Navigation Highlighting & Scroll Reveal Animations
  * Supports both the academic page (section-based nav) and sub-pages (inter-page nav).

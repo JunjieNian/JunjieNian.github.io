@@ -17,7 +17,7 @@ The site is organized as a small multi-page portfolio:
 - **HTML5** for page structure
 - **CSS3** for layout, typography, and responsive design
 - **Vanilla JavaScript** for page interactions
-- **Google Fonts** (`Cormorant Garamond`, `Karla`) for typography
+- **Google Fonts** (`Newsreader`, `DM Sans`) for typography
 - **GitHub Pages** for deployment
 
 ## Repository Structure

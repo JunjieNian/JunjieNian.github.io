@@ -136,10 +136,17 @@ button, a { -webkit-tap-highlight-color: transparent; }
     transform-origin: left;
 }
 
+.nav-link-cv { color: var(--color-accent); }
+
 .reveal {
+    opacity: 1;
+    transform: none;
+    transition: opacity 650ms var(--ease-out), transform 650ms var(--ease-out);
+}
+
+html.js .reveal {
     opacity: 0;
     transform: translateY(18px);
-    transition: opacity 650ms var(--ease-out), transform 650ms var(--ease-out);
 }
 
 .reveal.revealed {
@@ -160,6 +167,10 @@ button, a { -webkit-tap-highlight-color: transparent; }
     .nav-links { gap: 16px; }
     .nav-link { padding: 20px 0 17px; font-size: 11.5px; }
     .nav-brand { font-size: 22px; }
+}
+
+@media (max-width: 430px) {
+    .nav-link-cv { display: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {

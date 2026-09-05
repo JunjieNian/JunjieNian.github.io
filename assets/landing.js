@@ -1,3 +1,5 @@
+document.documentElement.classList.add('js');
+
 document.addEventListener('DOMContentLoaded', function () {
     var revealElements = document.querySelectorAll('.reveal');
 

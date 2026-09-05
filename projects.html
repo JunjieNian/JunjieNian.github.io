@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Selected research and technical projects by Junjie Nian in AI reasoning, agents, interpretability, and robotics.">
     <title>Projects | Junjie Nian</title>
+    <link rel="canonical" href="https://junjienian.com/projects.html">
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Projects | Junjie Nian">
+    <meta property="og:description" content="Research projects and technical work by Junjie Nian.">
+    <meta property="og:url" content="https://junjienian.com/projects.html">
+    <meta property="og:image" content="https://junjienian.com/assets/avatar.jpg">
+    <meta name="twitter:card" content="summary_large_image">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Newsreader:opsz,wght@6..72,500;6..72,600&amp;display=swap" rel="stylesheet">
@@ -21,6 +29,7 @@
                 <a href="academic.html" class="nav-link">Academic</a>
                 <a href="projects.html" class="nav-link active" aria-current="page">Projects</a>
                 <a href="experience.html" class="nav-link">Experience</a>
+                <a href="assets/cv.pdf" class="nav-link nav-link-cv" target="_blank" rel="noopener">CV ↗</a>
             </div>
         </div>
     </nav>
@@ -33,7 +42,7 @@
         </header>
 
         <section class="page-section reveal">
-            <h2>Research Projects</h2>
+            <h2>Core Research Projects</h2>
 
             <div id="risa" class="project-card">
                 <a class="project-cover" href="research/risa.html" aria-label="Read the RISA project story">
@@ -59,7 +68,7 @@
                     <img src="assets/tracegraph_pipeline.png" alt="TraceGraph pipeline overview">
                 </a>
                 <h3><a class="project-title-link" href="research/tracegraph.html">TraceGraph: Shared Decision Landscapes for Diagnosing and Improving Agent Trajectories</a></h3>
-                <p>Introduces <a href="https://arxiv.org/abs/2605.31308" target="_blank"><em>TraceGraph</em></a>, a graph-based framework that turns multi-model agent trajectories into a shared decision landscape. It identifies productive cores, trap regions, and rollout-level events such as access, trap exposure, and repair, making it possible to compare how agents navigate the same task process and to design trap-aware recovery strategies for downstream improvement.</p>
+                <p>Introduces <a href="https://arxiv.org/abs/2605.31308" target="_blank" rel="noopener"><em>TraceGraph</em></a>, a graph-based framework that turns multi-model agent trajectories into a shared decision landscape. It identifies productive cores, trap regions, and rollout-level events such as access, trap exposure, and repair, making it possible to compare how agents navigate the same task process and to design trap-aware recovery strategies for downstream improvement.</p>
                 <div class="project-tags">
                     <span class="project-tag">Agents</span>
                     <span class="project-tag">Trajectory Analysis</span>
@@ -78,7 +87,7 @@
                     <img src="assets/slicegraph_pipeline.png" alt="SliceGraph pipeline overview">
                 </a>
                 <h3><a class="project-title-link" href="research/slicegraph.html">SliceGraph: Mapping Process Isomers in Multi-Run Chain-of-Thought Reasoning</a></h3>
-                <p>Introduces <a href="https://arxiv.org/abs/2605.14619" target="_blank"><em>SliceGraph</em></a>, a post-hoc graph view of multi-run Chain-of-Thought reasoning built from similarity between reasoning slices. The paper shows that even when multiple runs reach the same final answer, they often travel through distinct process families and shared intermediate reasoning states, revealing rich process geometry that final-answer aggregation misses.</p>
+                <p>Introduces <a href="https://arxiv.org/abs/2605.14619" target="_blank" rel="noopener"><em>SliceGraph</em></a>, a post-hoc graph view of multi-run Chain-of-Thought reasoning built from similarity between reasoning slices. The paper shows that even when multiple runs reach the same final answer, they often travel through distinct process families and shared intermediate reasoning states, revealing rich process geometry that final-answer aggregation misses.</p>
                 <div class="project-tags">
                     <span class="project-tag">Interpretability</span>
                     <span class="project-tag">Chain-of-Thought</span>
@@ -91,6 +100,11 @@
                     <a href="https://github.com/JunjieNian/SliceGraph" target="_blank" rel="noopener">[Code]</a>
                 </div>
             </div>
+
+        </section>
+
+        <section class="page-section reveal">
+            <h2>Related / Adjacent Research</h2>
 
             <div id="iclr26-review-analysis" class="project-card">
                 <a class="project-cover" href="research/iclr-review-analysis.html" aria-label="Read the From Fluency to Accountability project story">
@@ -108,6 +122,30 @@
                     <a href="research/iclr-review-analysis.html">[Details]</a>
                     <a href="assets/from-fluency-to-accountability.pdf" target="_blank" rel="noopener">[Paper]</a>
                     <a href="https://github.com/JunjieNian/ICLR26-review-analysis" target="_blank" rel="noopener">[Code]</a>
+                </div>
+            </div>
+
+            <div id="entropy-80-20" class="project-card">
+                <div class="project-cover-grid">
+                    <a class="project-cover" href="research/entropy-80-20.html" aria-label="Read the entropy audit project story">
+                        <img src="assets/80-20-rule-entropy.png" alt="Entropy distribution analysis">
+                    </a>
+                    <a class="project-cover" href="research/entropy-80-20.html" aria-label="Read the entropy audit project story">
+                        <img src="assets/80-20-rule-selfcert.png" alt="Self-certification metric analysis">
+                    </a>
+                </div>
+                <h3><a class="project-title-link" href="research/entropy-80-20.html">Entropy Is Not Frequency: Auditing the 80/20 Structure of Reasoning Tokens</a></h3>
+                <p>Independently audits the observational claims behind <a href="https://arxiv.org/abs/2506.01939" target="_blank" rel="noopener"><em>Beyond the 80/20 Rule</em></a> across 51 uncertainty caches, 539,466 trajectories, and 1.116 billion token positions. The minority high-entropy pattern is robust, but its numerical cutoff depends on the model, task, metric, and unit of aggregation. Five uncertainty metrics agree substantially rather than perfectly, and frequency remains only a weak proxy for entropy. This project does not reproduce the original reinforcement-learning intervention or claim a causal effect.</p>
+                <div class="project-tags">
+                    <span class="project-tag">Interpretability</span>
+                    <span class="project-tag">Entropy</span>
+                    <span class="project-tag">LLM Reasoning</span>
+                    <span class="project-tag">Python</span>
+                </div>
+                <div class="project-links">
+                    <a href="research/entropy-80-20.html">[Details]</a>
+                    <a href="assets/entropy-is-not-frequency.pdf" target="_blank" rel="noopener">[Paper]</a>
+                    <a href="https://github.com/JunjieNian/80-20-rule-analysis" target="_blank" rel="noopener">[Code]</a>
                 </div>
             </div>
 
@@ -149,31 +187,6 @@
                     <a href="https://github.com/JunjieNian/multilingual_neuron_analysis" target="_blank" rel="noopener">[Code]</a>
                 </div>
             </div>
-
-            <div id="entropy-80-20" class="project-card">
-                <div class="project-cover-grid">
-                    <a class="project-cover" href="research/entropy-80-20.html" aria-label="Read the entropy audit project story">
-                        <img src="assets/80-20-rule-entropy.png" alt="Entropy distribution analysis">
-                    </a>
-                    <a class="project-cover" href="research/entropy-80-20.html" aria-label="Read the entropy audit project story">
-                        <img src="assets/80-20-rule-selfcert.png" alt="Self-certification metric analysis">
-                    </a>
-                </div>
-                <h3><a class="project-title-link" href="research/entropy-80-20.html">Entropy Is Not Frequency: Auditing the 80/20 Structure of Reasoning Tokens</a></h3>
-                <p>Independently audits the observational claims behind <a href="https://arxiv.org/abs/2506.01939" target="_blank"><em>Beyond the 80/20 Rule</em></a> across 51 uncertainty caches, 539,466 trajectories, and 1.116 billion token positions. The minority high-entropy pattern is robust, but its numerical cutoff depends on the model, task, metric, and unit of aggregation. Five uncertainty metrics agree substantially rather than perfectly, and frequency remains only a weak proxy for entropy. This project does not reproduce the original reinforcement-learning intervention or claim a causal effect.</p>
-                <div class="project-tags">
-                    <span class="project-tag">Interpretability</span>
-                    <span class="project-tag">Entropy</span>
-                    <span class="project-tag">LLM Reasoning</span>
-                    <span class="project-tag">Python</span>
-                </div>
-                <div class="project-links">
-                    <a href="research/entropy-80-20.html">[Details]</a>
-                    <a href="assets/entropy-is-not-frequency.pdf" target="_blank" rel="noopener">[Paper]</a>
-                    <a href="https://github.com/JunjieNian/80-20-rule-analysis" target="_blank" rel="noopener">[Code]</a>
-                </div>
-            </div>
-
         </section>
 
         <section class="page-section reveal">
@@ -198,7 +211,7 @@
                 <img src="assets/zeroth_bot.jpg" alt="Zeroth Bot humanoid robot" class="project-img-portrait">
                 <div class="project-card-body">
                     <h3>Zeroth Bot: Humanoid Robot Assembly, Sim-to-Real Training &amp; Deployment</h3>
-                    <p>Built and deployed a <a href="https://docs.kscale.dev/category/zeroth-01" target="_blank">Zeroth-01</a> humanoid robot as part of the Tengfei Innovation Program (advised by Prof. Li Shang). Assembled the full hardware platform including 3D-printed chassis, servo motors, and embedded controller. Performed sim-to-real locomotion training using an <a href="https://github.com/BigJohnn/sim" target="_blank">open-source simulation framework</a>, then transferred the learned policy to the physical robot for real-world walking deployment.</p>
+                <p>Built and deployed a <a href="https://docs.kscale.dev/category/zeroth-01" target="_blank" rel="noopener">Zeroth-01</a> humanoid robot as part of the Tengfei Innovation Program (advised by Prof. Li Shang). Assembled the full hardware platform including 3D-printed chassis, servo motors, and embedded controller. Performed sim-to-real locomotion training using an <a href="https://github.com/BigJohnn/sim" target="_blank" rel="noopener">open-source simulation framework</a>, then transferred the learned policy to the physical robot for real-world walking deployment.</p>
                     <div class="project-tags">
                         <span class="project-tag">Embodied AI</span>
                         <span class="project-tag">Sim-to-Real</span>
@@ -213,7 +226,7 @@
         </section>
 
         <footer class="page-footer">
-            <p>Junjie Nian &middot; <a href="mailto:jjnian24@m.fudan.edu.cn">jjnian24@m.fudan.edu.cn</a> &middot; <a href="https://github.com/JunjieNian" target="_blank">GitHub</a> &middot; <a href="https://scholar.google.com/citations?user=APPKW8YAAAAJ" target="_blank">Google Scholar</a> &middot; <a href="https://dblp.org/pid/419/2553.html" target="_blank" rel="noopener">DBLP</a> &middot; <a href="https://www.semanticscholar.org/author/Junjie-Nian/2403982720" target="_blank" rel="noopener">Semantic Scholar</a> &middot; <a href="https://aclanthology.org/people/junjie-nian/" target="_blank" rel="noopener">ACL Anthology</a> &middot; <a href="https://orcid.org/0009-0001-4407-6336" target="_blank" rel="noopener">ORCID</a> &middot; <a href="assets/cv.pdf" download>CV</a></p>
+            <p>Junjie Nian &middot; <a href="mailto:jjnian24@m.fudan.edu.cn">jjnian24@m.fudan.edu.cn</a> &middot; <a href="https://github.com/JunjieNian" target="_blank" rel="noopener">GitHub</a> &middot; <a href="https://scholar.google.com/citations?user=APPKW8YAAAAJ" target="_blank" rel="noopener">Google Scholar</a> &middot; <a href="https://dblp.org/pid/419/2553.html" target="_blank" rel="noopener">DBLP</a> &middot; <a href="https://www.semanticscholar.org/author/Junjie-Nian/2403982720" target="_blank" rel="noopener">Semantic Scholar</a> &middot; <a href="https://aclanthology.org/people/junjie-nian/" target="_blank" rel="noopener">ACL Anthology</a> &middot; <a href="https://orcid.org/0009-0001-4407-6336" target="_blank" rel="noopener">ORCID</a> &middot; <a href="assets/cv.pdf" download>CV</a></p>
         </footer>
     </div>
 
