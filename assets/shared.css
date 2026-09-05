@@ -138,20 +138,11 @@ button, a { -webkit-tap-highlight-color: transparent; }
 
 .nav-link-cv { color: var(--color-accent); }
 
-.reveal {
-    opacity: 1;
-    transform: none;
-    transition: opacity 650ms var(--ease-out), transform 650ms var(--ease-out);
-}
-
-html.js .reveal {
-    opacity: 0;
-    transform: translateY(18px);
-}
-
+.reveal,
+html.js .reveal,
 .reveal.revealed {
     opacity: 1;
-    transform: translateY(0);
+    transform: none;
 }
 
 ::-webkit-scrollbar { width: 8px; }
