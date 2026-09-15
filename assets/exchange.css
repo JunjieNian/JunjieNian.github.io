@@ -4,53 +4,16 @@
     margin: 0 auto;
 }
 
-.exchange-masthead {
-    padding: 82px 0 54px;
-    display: flex;
-    justify-content: space-between;
-    gap: 52px;
-    align-items: end;
-    border-bottom: 1px solid var(--color-border);
-}
-
-.exchange-back,
-.exchange-source,
 .exchange-footer a {
     font-size: 12px;
     font-weight: 700;
     color: var(--color-text-secondary);
 }
 
-.exchange-back:hover,
-.exchange-source:hover,
 .exchange-footer a:hover { color: var(--color-accent); }
 
-.exchange-kicker {
-    margin: 42px 0 9px;
-    font-size: 11px;
-    line-height: 1.3;
-    font-weight: 700;
-    letter-spacing: 0.13em;
-    text-transform: uppercase;
-    color: var(--color-accent);
-}
-
-.exchange-intro {
-    max-width: 670px;
-    font-family: var(--font-display);
-    font-size: clamp(22px, 3vw, 30px);
-    line-height: 1.28;
-    letter-spacing: -0.02em;
-    color: var(--color-text-secondary);
-}
-
-.exchange-source {
-    margin-bottom: 5px;
-    white-space: nowrap;
-}
-
 .exchange-layout {
-    padding: 68px 0 104px;
+    padding: 86px 0 104px;
     display: grid;
     grid-template-columns: 190px minmax(0, 760px);
     justify-content: space-between;
@@ -208,10 +171,7 @@
 
 @media (max-width: 680px) {
     .exchange-main, .exchange-footer { width: min(1120px, calc(100% - 32px)); }
-    .exchange-masthead { padding: 56px 0 40px; align-items: start; flex-direction: column; gap: 22px; }
-    .exchange-kicker { margin-top: 34px; }
-    .exchange-source { white-space: normal; }
-    .exchange-layout { padding: 48px 0 76px; grid-template-columns: 1fr; gap: 46px; }
+    .exchange-layout { padding: 58px 0 76px; grid-template-columns: 1fr; gap: 46px; }
     .exchange-rail { position: static; display: grid; grid-template-columns: 98px 1fr; gap: 0 22px; }
     .exchange-stamp { width: 98px; grid-row: 1 / 3; margin: 0; padding: 12px; }
     .exchange-stamp span, .exchange-stamp strong { font-size: 18px; }
