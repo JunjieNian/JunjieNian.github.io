@@ -1,0 +1,233 @@
+.exchange-main,
+.exchange-footer {
+    width: min(1120px, calc(100% - 48px));
+    margin: 0 auto;
+}
+
+.exchange-masthead {
+    padding: 82px 0 54px;
+    display: flex;
+    justify-content: space-between;
+    gap: 52px;
+    align-items: end;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.exchange-back,
+.exchange-source,
+.exchange-footer a {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--color-text-secondary);
+}
+
+.exchange-back:hover,
+.exchange-source:hover,
+.exchange-footer a:hover { color: var(--color-accent); }
+
+.exchange-kicker {
+    margin: 42px 0 9px;
+    font-size: 11px;
+    line-height: 1.3;
+    font-weight: 700;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+}
+
+.exchange-intro {
+    max-width: 670px;
+    font-family: var(--font-display);
+    font-size: clamp(22px, 3vw, 30px);
+    line-height: 1.28;
+    letter-spacing: -0.02em;
+    color: var(--color-text-secondary);
+}
+
+.exchange-source {
+    margin-bottom: 5px;
+    white-space: nowrap;
+}
+
+.exchange-layout {
+    padding: 68px 0 104px;
+    display: grid;
+    grid-template-columns: 190px minmax(0, 760px);
+    justify-content: space-between;
+    gap: clamp(64px, 10vw, 150px);
+    align-items: start;
+}
+
+.exchange-rail {
+    position: sticky;
+    top: 94px;
+}
+
+.exchange-stamp {
+    width: 150px;
+    aspect-ratio: 1;
+    margin-bottom: 26px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: var(--color-text);
+    color: var(--color-bg-raised);
+}
+
+.exchange-stamp span,
+.exchange-stamp strong {
+    font-family: var(--font-display);
+    font-size: 27px;
+    font-weight: 600;
+    line-height: 0.9;
+    letter-spacing: -0.035em;
+}
+
+.exchange-stamp strong { margin-top: -30px; }
+.exchange-stamp small { font-size: 8.5px; font-weight: 700; letter-spacing: 0.11em; text-transform: uppercase; opacity: 0.72; }
+
+.exchange-rail > p {
+    margin-top: 15px;
+    font-size: 11px;
+    line-height: 1.65;
+    color: var(--color-text-muted);
+}
+
+.exchange-rail strong { color: var(--color-text-secondary); }
+.exchange-rail a { color: var(--color-accent); font-weight: 700; }
+
+.exchange-article {
+    min-width: 0;
+    font-size: 16px;
+    line-height: 1.85;
+    color: var(--color-text-secondary);
+}
+
+.exchange-article > h1:first-child {
+    margin: 0 0 28px;
+    font-family: var(--font-display);
+    font-size: clamp(48px, 6vw, 70px);
+    font-weight: 600;
+    line-height: 0.98;
+    letter-spacing: -0.045em;
+    color: var(--color-text);
+}
+
+.exchange-article h2 {
+    margin: 70px 0 23px;
+    padding-top: 19px;
+    border-top: 1px solid var(--color-border);
+    font-family: var(--font-display);
+    font-size: clamp(31px, 4vw, 43px);
+    font-weight: 600;
+    line-height: 1.12;
+    letter-spacing: -0.03em;
+    color: var(--color-text);
+}
+
+.exchange-article h3 {
+    margin: 39px 0 13px;
+    font-family: var(--font-display);
+    font-size: 25px;
+    font-weight: 600;
+    line-height: 1.25;
+    color: var(--color-text);
+}
+
+.exchange-article p { margin: 0 0 20px; }
+.exchange-article strong { color: var(--color-text); }
+.exchange-article a { color: var(--color-accent); text-decoration: underline; text-underline-offset: 3px; }
+.exchange-article a:hover { color: var(--color-accent-hover); }
+
+.exchange-article blockquote {
+    margin: 0 0 34px;
+    padding: 22px 25px;
+    border-left: 3px solid var(--color-accent);
+    background: var(--color-accent-soft);
+    color: var(--color-text-secondary);
+}
+
+.exchange-article blockquote p:last-child { margin-bottom: 0; }
+
+.exchange-article ul,
+.exchange-article ol {
+    margin: 0 0 24px;
+    padding-left: 1.35em;
+}
+
+.exchange-article li { margin: 9px 0; padding-left: 4px; }
+.exchange-article li::marker { color: var(--color-accent); font-weight: 700; }
+
+.exchange-article table {
+    width: 100%;
+    margin: 28px 0 38px;
+    display: block;
+    overflow-x: auto;
+    border-collapse: collapse;
+    font-size: 13px;
+    line-height: 1.55;
+}
+
+.exchange-article thead { background: var(--color-text); color: var(--color-bg-raised); }
+.exchange-article th { font-weight: 700; text-align: left; }
+.exchange-article th,
+.exchange-article td { min-width: 150px; padding: 12px 14px; border: 1px solid var(--color-border); vertical-align: top; }
+.exchange-article tbody tr:nth-child(even) { background: rgba(255, 254, 250, 0.62); }
+
+.exchange-article hr {
+    margin: 72px 0;
+    border: 0;
+    border-top: 1px solid var(--color-border);
+}
+
+.exchange-article code {
+    padding: 2px 5px;
+    background: var(--color-accent-soft);
+    font-size: 0.88em;
+    color: var(--color-text);
+}
+
+.exchange-footer {
+    padding: 34px 0 44px;
+    display: flex;
+    justify-content: space-between;
+    gap: 28px;
+    border-top: 1px solid var(--color-border);
+}
+
+.exchange-footer p { font-family: var(--font-display); font-size: 18px; font-weight: 600; }
+.exchange-footer p span { margin-left: 5px; font-family: var(--font-body); font-size: 9px; letter-spacing: 0.12em; color: var(--color-text-muted); }
+.exchange-footer div { display: flex; gap: 20px; }
+
+@media (max-width: 800px) {
+    .exchange-layout { grid-template-columns: 150px minmax(0, 1fr); gap: 42px; }
+    .exchange-stamp { width: 125px; padding: 16px; }
+    .exchange-stamp span, .exchange-stamp strong { font-size: 23px; }
+}
+
+@media (max-width: 680px) {
+    .exchange-main, .exchange-footer { width: min(1120px, calc(100% - 32px)); }
+    .exchange-masthead { padding: 56px 0 40px; align-items: start; flex-direction: column; gap: 22px; }
+    .exchange-kicker { margin-top: 34px; }
+    .exchange-source { white-space: normal; }
+    .exchange-layout { padding: 48px 0 76px; grid-template-columns: 1fr; gap: 46px; }
+    .exchange-rail { position: static; display: grid; grid-template-columns: 98px 1fr; gap: 0 22px; }
+    .exchange-stamp { width: 98px; grid-row: 1 / 3; margin: 0; padding: 12px; }
+    .exchange-stamp span, .exchange-stamp strong { font-size: 18px; }
+    .exchange-stamp strong { margin-top: -18px; }
+    .exchange-stamp small { font-size: 6.5px; }
+    .exchange-rail > p { margin-top: 0; }
+    .exchange-article { font-size: 15px; line-height: 1.8; }
+    .exchange-article > h1:first-child { font-size: clamp(43px, 13vw, 58px); }
+    .exchange-article h2 { margin-top: 58px; }
+    .exchange-article th, .exchange-article td { min-width: 135px; padding: 10px 12px; }
+    .exchange-footer { align-items: start; flex-direction: column; }
+}
+
+@media (max-width: 430px) {
+    .exchange-rail { grid-template-columns: 84px 1fr; gap: 0 18px; }
+    .exchange-stamp { width: 84px; }
+    .exchange-stamp span, .exchange-stamp strong { font-size: 15px; }
+    .exchange-stamp strong { margin-top: -14px; }
+}
