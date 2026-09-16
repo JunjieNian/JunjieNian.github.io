@@ -60,6 +60,26 @@
 .exchange-rail strong { color: var(--color-text-secondary); }
 .exchange-rail a { color: var(--color-accent); font-weight: 700; }
 
+.exchange-rail .exchange-updated {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 11px 0;
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.exchange-updated strong {
+    font-size: 9px;
+    letter-spacing: 0.12em;
+}
+
+.exchange-updated time {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--color-text-secondary);
+}
+
 .exchange-article {
     min-width: 0;
     font-size: 16px;

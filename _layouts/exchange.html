@@ -12,13 +12,14 @@
     <meta property="og:description" content="{{ page.description | escape }}">
     <meta property="og:url" content="https://junjienian.com/exchange/">
     <meta property="og:image" content="https://junjienian.com/assets/avatar.jpg">
+    {% if page.last_updated %}<meta property="article:modified_time" content="{{ page.last_updated }}">{% endif %}
     <meta name="twitter:card" content="summary_large_image">
     <title>{{ page.title | escape }}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Newsreader:opsz,wght@6..72,500;6..72,600&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/shared.css?v=20260905-2">
-    <link rel="stylesheet" href="/assets/exchange.css?v=20260915-2">
+    <link rel="stylesheet" href="/assets/exchange.css?v=20260916-1">
 </head>
 <body>
     <nav class="navbar" aria-label="Primary navigation">
@@ -43,6 +44,7 @@
                     <small>01 / Fall 2026</small>
                 </div>
                 <p><strong>Continuously updated.</strong> This page follows the canonical README in <a href="https://github.com/JunjieNian/myUCSDexchange" target="_blank" rel="noopener">myUCSDexchange</a>.</p>
+                {% if page.last_updated_display %}<p class="exchange-updated"><strong>最近更新</strong><time datetime="{{ page.last_updated }}">{{ page.last_updated_display }}</time></p>{% endif %}
                 <p>Personal experience only. Requirements and procedures may change; always check current official guidance.</p>
             </aside>
 
