@@ -252,8 +252,7 @@
     .exchange-stamp strong { margin-top: -18px; }
     .exchange-stamp small { font-size: 6.5px; }
     .exchange-rail > p { margin-top: 0; }
-    .exchange-chapter-nav,
-    .exchange-rail > p:last-child { grid-column: 1 / -1; }
+    .exchange-chapter-nav { grid-column: 1 / -1; }
     .exchange-article { font-size: 15px; line-height: 1.8; }
     .exchange-article > h1:first-child { font-size: clamp(43px, 13vw, 58px); }
     .exchange-article h2 { margin-top: 58px; }
