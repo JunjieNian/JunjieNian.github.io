@@ -26,6 +26,8 @@ jobs:
           ref: main
 
       - name: Fetch the canonical exchange record
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: python scripts/sync_exchange_notes.py
 
       - name: Commit the reading copy when it changed

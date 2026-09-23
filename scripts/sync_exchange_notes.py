@@ -78,13 +78,17 @@ def fetch_source() -> str:
 
 
 def fetch_last_updated() -> datetime:
+    headers = {
+        "Accept": "application/vnd.github+json",
+        "User-Agent": "JunjieNian.github.io exchange sync",
+        "X-GitHub-Api-Version": "2022-11-28",
+    }
+    token = os.environ.get("GH_TOKEN") or os.environ.get("GITHUB_TOKEN")
+    if token:
+        headers["Authorization"] = f"Bearer {token}"
     request = Request(
         SOURCE_COMMIT_API_URL,
-        headers={
-            "Accept": "application/vnd.github+json",
-            "User-Agent": "JunjieNian.github.io exchange sync",
-            "X-GitHub-Api-Version": "2022-11-28",
-        },
+        headers=headers,
     )
     with urlopen(request, timeout=30) as response:
         commits = json.load(response)
