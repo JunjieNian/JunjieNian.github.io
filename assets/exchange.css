@@ -80,6 +80,60 @@
     color: var(--color-text-secondary);
 }
 
+.exchange-chapter-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 22px;
+}
+
+.exchange-chapter-nav strong {
+    font-size: 9px;
+    letter-spacing: 0.12em;
+}
+
+.exchange-chapter-nav a {
+    padding: 7px 9px;
+    border-left: 2px solid var(--color-border);
+    color: var(--color-text-secondary);
+    font-size: 11px;
+    line-height: 1.45;
+}
+
+.exchange-chapter-nav a:hover,
+.exchange-chapter-nav a[aria-current="page"] {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+    background: var(--color-accent-soft);
+}
+
+.exchange-pagination {
+    display: flex;
+    justify-content: space-between;
+    gap: 18px;
+    margin-top: 70px;
+    padding-top: 20px;
+    border-top: 1px solid var(--color-border);
+}
+
+.exchange-pagination a {
+    display: flex;
+    flex-direction: column;
+    max-width: 48%;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.45;
+}
+
+.exchange-pagination a span {
+    margin-bottom: 5px;
+    color: var(--color-text-muted);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+}
+
+.exchange-pagination-next { margin-left: auto; text-align: right; }
+
 .exchange-article {
     min-width: 0;
     font-size: 16px;
@@ -198,6 +252,8 @@
     .exchange-stamp strong { margin-top: -18px; }
     .exchange-stamp small { font-size: 6.5px; }
     .exchange-rail > p { margin-top: 0; }
+    .exchange-chapter-nav,
+    .exchange-rail > p:last-child { grid-column: 1 / -1; }
     .exchange-article { font-size: 15px; line-height: 1.8; }
     .exchange-article > h1:first-child { font-size: clamp(43px, 13vw, 58px); }
     .exchange-article h2 { margin-top: 58px; }

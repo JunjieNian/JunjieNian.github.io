@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="{{ page.description | escape }}">
     <meta name="theme-color" content="#f7f5ef">
-    <link rel="canonical" href="https://junjienian.com/exchange/">
+    <link rel="canonical" href="https://junjienian.com{{ page.url }}">
     <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
     <meta property="og:type" content="article">
     <meta property="og:title" content="{{ page.title | escape }}">
     <meta property="og:description" content="{{ page.description | escape }}">
-    <meta property="og:url" content="https://junjienian.com/exchange/">
+    <meta property="og:url" content="https://junjienian.com{{ page.url }}">
     <meta property="og:image" content="https://junjienian.com/assets/avatar.jpg">
     {% if page.last_updated %}<meta property="article:modified_time" content="{{ page.last_updated }}">{% endif %}
     <meta name="twitter:card" content="summary_large_image">
@@ -19,7 +19,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Newsreader:opsz,wght@6..72,500;6..72,600&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/shared.css?v=20260905-2">
-    <link rel="stylesheet" href="/assets/exchange.css?v=20260916-1">
+    <link rel="stylesheet" href="/assets/exchange.css?v=20260922-1">
 </head>
 <body>
     <nav class="navbar" aria-label="Primary navigation">
@@ -45,11 +45,25 @@
                 </div>
                 <p><strong>Continuously updated.</strong> This page follows the canonical README in <a href="https://github.com/JunjieNian/myUCSDexchange" target="_blank" rel="noopener">myUCSDexchange</a>.</p>
                 {% if page.last_updated_display %}<p class="exchange-updated"><strong>最近更新</strong><time datetime="{{ page.last_updated }}">{{ page.last_updated_display }}</time></p>{% endif %}
+                <nav class="exchange-chapter-nav" aria-label="章节导航">
+                    <strong>章节</strong>
+                    {% for chapter in page.chapters %}
+                    <a href="{{ chapter.url }}" {% if chapter.number == page.chapter_number %}aria-current="page"{% endif %}>{{ chapter.title }}</a>
+                    {% endfor %}
+                </nav>
                 <p>Personal experience only. Requirements and procedures may change; always check current official guidance.</p>
             </aside>
 
             <article class="exchange-article">
                 {{ content }}
+                <nav class="exchange-pagination" aria-label="章节翻页">
+                    {% assign previous_number = page.chapter_number | minus: 1 %}
+                    {% assign next_number = page.chapter_number | plus: 1 %}
+                    {% for chapter in page.chapters %}
+                        {% if chapter.number == previous_number %}<a class="exchange-pagination-previous" href="{{ chapter.url }}"><span>上一章</span>{{ chapter.title }}</a>{% endif %}
+                        {% if chapter.number == next_number %}<a class="exchange-pagination-next" href="{{ chapter.url }}"><span>下一章</span>{{ chapter.title }} →</a>{% endif %}
+                    {% endfor %}
+                </nav>
             </article>
         </div>
     </main>
