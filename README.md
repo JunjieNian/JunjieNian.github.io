@@ -1,16 +1,18 @@
 # Junjie Nian Personal Homepage
 
-This repository contains the source code for Junjie Nian's personal academic homepage. It is a fully static website built with plain HTML, CSS, and vanilla JavaScript, and is designed to be hosted directly on GitHub Pages without any build step.
+Source for [Junjie Nian's academic homepage](https://junjienian.com), built with HTML, CSS, and vanilla JavaScript and published through GitHub Pages. The academic pages are plain static HTML; GitHub Pages uses Jekyll to render the synchronized exchange journal from Markdown.
 
 ## Overview
 
 The site is organized as a small multi-page portfolio:
 
-- `index.html` – landing page with hero section and navigation cards
-- `academic.html` – publications, new papers, and honors
-- `projects.html` — research projects, technical work, and side explorations
-- `research/*.html` — standalone technical stories for each research project
+- `index.html` — biography and research focus, News, selected research, and exchange notes
+- `academic.html` — complete publication list, honors, and awards
+- `projects.html` — core research, related / adjacent research, and technical work
+- `research/*.html` — project questions, methods, results, and paper / source links
 - `experience.html` — research experience and education background
+- `assets/cv.html` and `assets/cv.pdf` — browser and downloadable CV
+- `exchange.md` and `exchange-pages/*.md` — generated journal chapters at `/exchange/` and `/exchange/N/`
 
 ## Tech Stack
 
@@ -18,7 +20,8 @@ The site is organized as a small multi-page portfolio:
 - **CSS3** for layout, typography, and responsive design
 - **Vanilla JavaScript** for page interactions
 - **Google Fonts** (`Newsreader`, `DM Sans`) for typography
-- **GitHub Pages** for deployment
+- **GitHub Pages / Jekyll** for publication and journal rendering
+- **GitHub Actions / Python** for exchange-journal synchronization
 
 ## Repository Structure
 
@@ -29,6 +32,13 @@ The site is organized as a small multi-page portfolio:
 ├── academic.html
 ├── projects.html
 ├── experience.html
+├── exchange.md
+├── exchange-pages/
+├── _layouts/
+│   └── exchange.html
+├── _config.yml
+├── scripts/
+│   └── sync_exchange_notes.py
 ├── research/
 │   └── *.html
 └── assets/
@@ -39,6 +49,8 @@ The site is organized as a small multi-page portfolio:
     ├── landing.js
     ├── main.js
     ├── pages.css
+    ├── research.css
+    ├── exchange.css
     ├── shared.css
     └── *.png / *.jpg / *.gif
 ```
@@ -46,17 +58,18 @@ The site is organized as a small multi-page portfolio:
 ## Styling and Behavior
 
 - `assets/shared.css` contains shared styles used across all pages
-- `assets/landing.css` styles the homepage hero and navigation cards
+- `assets/landing.css` styles the homepage biography, News, selected research, and exchange note
 - `assets/pages.css` styles the internal content pages
 - `assets/research.css` styles the project detail and technical-story pages
-- `assets/landing.js` controls landing-page interactions
-- `assets/main.js` powers scroll/reveal behaviors on the content pages
+- `assets/exchange.css` styles the chapter navigation and journal reading layout
+- The homepage uses native HTML navigation and an expandable News archive; it does not require JavaScript
+- `assets/main.js` enables content-page reveal states and keyboard-accessible project image previews
 
-In addition, `projects.html` includes a small inline lightbox script for enlarging project images.
+The site uses an ivory background, burgundy accents, Newsreader headings, and DM Sans body text. Primary navigation is shared across pages; internal pages also provide section links and a skip-to-content link.
 
 ## Local Preview
 
-Because the site is fully static, you can preview it with any simple local server.
+Use any simple local server to preview the plain HTML pages.
 
 ### Python
 
@@ -65,6 +78,8 @@ python -m http.server 8000
 ```
 
 Then open `http://localhost:8000`.
+
+This previews the academic pages and assets. It does not render the Markdown journal or Jekyll permalinks. Preview those with a Jekyll environment, or verify the generated pages after GitHub Pages builds them.
 
 ### VS Code
 
@@ -79,16 +94,19 @@ Edit `index.html` to update:
 - name and Chinese name
 - affiliation and short bio
 - contact links such as GitHub, email, and CV
-- hero text and homepage entry points
+- research focus, selected research summaries, and paper / source links
+- News and its expandable archive
+- the compact exchange-journal entry point
 
 ### Update academic content
 
 Edit `academic.html` to maintain:
 
-- new papers
 - honors and awards
 - publication list
 - advisor and lab information
+
+Keep publication titles, author order, contribution marks, dates, and venue/status information consistent with their sources. News belongs on the homepage; do not duplicate it as a separate “New Papers” list. The homepage selects work for orientation, while the Academic page keeps the complete publication record.
 
 ### Update projects
 
@@ -99,6 +117,8 @@ Edit `projects.html` to maintain:
 - tags and external links
 - links to the corresponding project stories under `research/`
 
+Keep the distinction between core research, related / adjacent research, and technical work. The core research entries link directly to their papers and source repositories; detail pages provide the fuller account of each project.
+
 ### Update experience
 
 Edit `experience.html` to maintain:
@@ -106,6 +126,14 @@ Edit `experience.html` to maintain:
 - research experience
 - education timeline
 - cross-links to publications and projects
+
+### Update the exchange journal
+
+Edit the canonical [`myUCSDexchange/README.md`](https://github.com/JunjieNian/myUCSDexchange/blob/main/README.md). Do not maintain a second copy in this repository's generated chapter files.
+
+`scripts/sync_exchange_notes.py` splits the source at numbered `## 第N章：...` headings, writes the first chapter to `exchange.md`, and writes later chapters to `exchange-pages/`. The displayed update time comes from the source README's latest commit.
+
+The `Sync UCSD exchange notes` workflow runs on the `exchange-notes-updated` repository event, on a six-hour fallback schedule, and by manual dispatch. When generated content changes, it commits the reading copy and requests a GitHub Pages rebuild.
 
 ### Update images and files
 
@@ -126,11 +154,11 @@ This repository is suitable for direct deployment on GitHub Pages:
 4. Set the source to **Deploy from a branch**
 5. Select the default branch and the repository root
 
-No bundler, package manager, or static-site generator is required.
+No JavaScript bundler or npm build is required. Leave Jekyll enabled for the journal's Markdown, `_layouts/exchange.html`, and permalink generation. The `CNAME` file records the custom domain.
 
 ## Customization Notes
 
-- Keep all asset references relative so the site works correctly on GitHub Pages
+- Use paths appropriate to page depth: relative paths in standalone HTML and root-relative paths in the journal layout
 - If you rename files in `assets/`, update every related reference in the HTML files
 - Shared layout changes should usually go into `assets/shared.css`
 - Page-specific tweaks should stay in `assets/landing.css` or `assets/pages.css`
@@ -151,9 +179,10 @@ No bundler, package manager, or static-site generator is required.
 
 ### GitHub Pages not updating
 
-- Make sure the latest changes are pushed to the published branch
-- Check **Settings** → **Pages** for the deployment status
-- Wait a minute or two for GitHub Pages to finish rebuilding
+- Confirm the latest changes reached the published branch
+- Check the GitHub Pages build and deployment status
+- Verify the published page after deployment finishes
+- For journal changes, check the source README commit, synchronization workflow, generated chapter commit, and Pages build in that order
 
 ## License
 

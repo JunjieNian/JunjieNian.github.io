@@ -11,15 +11,16 @@
     <meta property="og:title" content="Projects | Junjie Nian">
     <meta property="og:description" content="Research projects and technical work by Junjie Nian.">
     <meta property="og:url" content="https://junjienian.com/projects.html">
-    <meta property="og:image" content="https://junjienian.com/assets/avatar.jpg">
+    <meta property="og:image" content="https://junjienian.com/assets/me.jpg">
     <meta name="twitter:card" content="summary_large_image">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Newsreader:opsz,wght@6..72,500;6..72,600&amp;display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/shared.css?v=20260905-2">
-    <link rel="stylesheet" href="assets/pages.css">
+    <link rel="stylesheet" href="assets/shared.css?v=20260924-1">
+    <link rel="stylesheet" href="assets/pages.css?v=20260924-1">
 </head>
 <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
     <!-- Navigation Bar -->
     <nav class="navbar" aria-label="Primary navigation">
         <div class="nav-container">
@@ -34,14 +35,19 @@
         </div>
     </nav>
 
-    <div class="page-container">
+    <main id="main-content" class="page-container" tabindex="-1">
         <header class="page-header">
             <p class="page-number">02 / Selected work</p>
             <h1>Projects</h1>
-            <p>Research projects and technical work.</p>
+            <p>Methods for understanding reasoning and agent behavior, alongside studies of evaluation and hands-on systems work.</p>
+            <nav class="page-section-nav" aria-label="Project sections">
+                <a href="#core-research">Core research</a>
+                <a href="#related-research">Related / adjacent research</a>
+                <a href="#technical-work">Technical work</a>
+            </nav>
         </header>
 
-        <section class="page-section reveal">
+        <section id="core-research" class="page-section reveal">
             <h2>Core Research Projects</h2>
 
             <div id="risa" class="project-card">
@@ -57,9 +63,9 @@
                     <span class="project-tag">SWE-bench</span>
                 </div>
                 <div class="project-links">
-                    <a href="research/risa.html">[Details]</a>
-                    <a href="https://arxiv.org/abs/2608.22191" target="_blank" rel="noopener">[Paper]</a>
-                    <a href="https://github.com/JunjieNian/RISA" target="_blank" rel="noopener">[Code]</a>
+                    <a href="research/risa.html">Project details</a>
+                    <a href="https://arxiv.org/abs/2608.22191" target="_blank" rel="noopener">Paper</a>
+                    <a href="https://github.com/JunjieNian/RISA" target="_blank" rel="noopener">Code</a>
                 </div>
             </div>
 
@@ -76,9 +82,9 @@
                     <span class="project-tag">Python</span>
                 </div>
                 <div class="project-links">
-                    <a href="research/tracegraph.html">[Details]</a>
-                    <a href="https://arxiv.org/abs/2605.31308" target="_blank" rel="noopener">[Paper]</a>
-                    <a href="https://github.com/JunjieNian/TraceGraph" target="_blank" rel="noopener">[Code]</a>
+                    <a href="research/tracegraph.html">Project details</a>
+                    <a href="https://arxiv.org/abs/2605.31308" target="_blank" rel="noopener">Paper</a>
+                    <a href="https://github.com/JunjieNian/TraceGraph" target="_blank" rel="noopener">Code</a>
                 </div>
             </div>
 
@@ -95,15 +101,15 @@
                     <span class="project-tag">Python</span>
                 </div>
                 <div class="project-links">
-                    <a href="research/slicegraph.html">[Details]</a>
-                    <a href="https://arxiv.org/abs/2605.14619" target="_blank" rel="noopener">[Paper]</a>
-                    <a href="https://github.com/JunjieNian/SliceGraph" target="_blank" rel="noopener">[Code]</a>
+                    <a href="research/slicegraph.html">Project details</a>
+                    <a href="https://arxiv.org/abs/2605.14619" target="_blank" rel="noopener">Paper</a>
+                    <a href="https://github.com/JunjieNian/SliceGraph" target="_blank" rel="noopener">Code</a>
                 </div>
             </div>
 
         </section>
 
-        <section class="page-section reveal">
+        <section id="related-research" class="page-section reveal">
             <h2>Related / Adjacent Research</h2>
 
             <div id="iclr26-review-analysis" class="project-card">
@@ -119,9 +125,9 @@
                     <span class="project-tag">Python</span>
                 </div>
                 <div class="project-links">
-                    <a href="research/iclr-review-analysis.html">[Details]</a>
-                    <a href="assets/from-fluency-to-accountability.pdf" target="_blank" rel="noopener">[Paper]</a>
-                    <a href="https://github.com/JunjieNian/ICLR26-review-analysis" target="_blank" rel="noopener">[Code]</a>
+                    <a href="research/iclr-review-analysis.html">Project details</a>
+                    <a href="assets/from-fluency-to-accountability.pdf" target="_blank" rel="noopener">Paper</a>
+                    <a href="https://github.com/JunjieNian/ICLR26-review-analysis" target="_blank" rel="noopener">Code</a>
                 </div>
             </div>
 
@@ -138,10 +144,10 @@
                     <span class="project-tag">Python</span>
                 </div>
                 <div class="project-links">
-                    <a href="research/cot-folding.html">[Details]</a>
-                    <a href="assets/cot-folding.pdf" target="_blank" rel="noopener">[Paper]</a>
-                    <a href="https://github.com/JunjieNian/cot_folding_demo" target="_blank" rel="noopener">[Code]</a>
-                    <a href="http://demo.cot-folding.top" target="_blank" rel="noopener">[Demo]</a>
+                    <a href="research/cot-folding.html">Project details</a>
+                    <a href="assets/cot-folding.pdf" target="_blank" rel="noopener">Paper</a>
+                    <a href="https://github.com/JunjieNian/cot_folding_demo" target="_blank" rel="noopener">Code</a>
+                    <a href="http://demo.cot-folding.top" target="_blank" rel="noopener">Demo</a>
                 </div>
             </div>
 
@@ -163,9 +169,9 @@
                     <span class="project-tag">Python</span>
                 </div>
                 <div class="project-links">
-                    <a href="research/entropy-80-20.html">[Details]</a>
-                    <a href="assets/entropy-is-not-frequency.pdf" target="_blank" rel="noopener">[Paper]</a>
-                    <a href="https://github.com/JunjieNian/80-20-rule-analysis" target="_blank" rel="noopener">[Code]</a>
+                    <a href="research/entropy-80-20.html">Project details</a>
+                    <a href="assets/entropy-is-not-frequency.pdf" target="_blank" rel="noopener">Paper</a>
+                    <a href="https://github.com/JunjieNian/80-20-rule-analysis" target="_blank" rel="noopener">Code</a>
                 </div>
             </div>
 
@@ -182,14 +188,14 @@
                     <span class="project-tag">Python</span>
                 </div>
                 <div class="project-links">
-                    <a href="research/multilingual-neuron-analysis.html">[Details]</a>
-                    <a href="assets/reasoning-across-languages.pdf" target="_blank" rel="noopener">[Paper]</a>
-                    <a href="https://github.com/JunjieNian/multilingual_neuron_analysis" target="_blank" rel="noopener">[Code]</a>
+                    <a href="research/multilingual-neuron-analysis.html">Project details</a>
+                    <a href="assets/reasoning-across-languages.pdf" target="_blank" rel="noopener">Paper</a>
+                    <a href="https://github.com/JunjieNian/multilingual_neuron_analysis" target="_blank" rel="noopener">Code</a>
                 </div>
             </div>
         </section>
 
-        <section class="page-section reveal">
+        <section id="technical-work" class="page-section reveal">
             <h2>Technical Work</h2>
 
             <div class="project-card">
@@ -203,7 +209,7 @@
                     <span class="project-tag">LLM</span>
                 </div>
                 <div class="project-links">
-                    <a href="https://github.com/JunjieNian/paper_assistant_system" target="_blank" rel="noopener">[Code]</a>
+                    <a href="https://github.com/JunjieNian/paper_assistant_system" target="_blank" rel="noopener">Code</a>
                 </div>
             </div>
 
@@ -219,7 +225,7 @@
                         <span class="project-tag">Python</span>
                     </div>
                     <div class="project-links">
-                        <a href="https://github.com/JunjieNian/zeroth_bot_sim2real" target="_blank" rel="noopener">[Code]</a>
+                        <a href="https://github.com/JunjieNian/zeroth_bot_sim2real" target="_blank" rel="noopener">Code</a>
                     </div>
                 </div>
             </div>
@@ -228,7 +234,7 @@
         <footer class="page-footer">
             <p>Junjie Nian &middot; <a href="mailto:junjienian8@gmail.com">junjienian8@gmail.com</a> &middot; <a href="https://github.com/JunjieNian" target="_blank" rel="noopener">GitHub</a> &middot; <a href="https://scholar.google.com/citations?user=APPKW8YAAAAJ" target="_blank" rel="noopener">Google Scholar</a> &middot; <a href="https://dblp.org/pid/419/2553.html" target="_blank" rel="noopener">DBLP</a> &middot; <a href="https://www.semanticscholar.org/author/Junjie-Nian/2403982720" target="_blank" rel="noopener">Semantic Scholar</a> &middot; <a href="https://aclanthology.org/people/junjie-nian/" target="_blank" rel="noopener">ACL Anthology</a> &middot; <a href="https://orcid.org/0009-0001-4407-6336" target="_blank" rel="noopener">ORCID</a> &middot; <a href="assets/cv.pdf" download>CV</a></p>
         </footer>
-    </div>
+    </main>
 
     <script src="assets/main.js?v=20260905-2"></script>
 </body>
