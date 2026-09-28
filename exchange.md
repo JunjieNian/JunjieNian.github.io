@@ -4,8 +4,8 @@ layout: exchange
 title: "我的 UCSD 交换经历 | Junjie Nian"
 description: "Junjie Nian 持续更新的 UCSD 交换经历：从申请、行前准备到校园生活，为后来的交换生提供个人经验参考。"
 permalink: "/exchange/"
-last_updated: "2026-09-28T13:16:10+08:00"
-last_updated_display: "2026 年 9 月 28 日 13:16"
+last_updated: "2026-09-28T13:42:08+08:00"
+last_updated_display: "2026 年 9 月 28 日 13:42"
 chapter_number: 1
 chapters:
   - number: 1
@@ -193,6 +193,6 @@ chapters:
 
 #### 一些提醒
 
-- 不要只比较保险价格，要先逐项确认能否满足当年 UC SHIP 的 waiver 标准。不不懂的可以问保险客服。
+- 不要只比较保险价格，要先逐项确认能否满足当年 UC SHIP 的 waiver 标准。不懂的可以问保险客服。
 - 学校账单不同付款方式的手续费差距很大。如果考虑 eCheck，最好提前确认自己或可以帮忙的人是否有可用的美国银行账户。
 - 签证状态、护照寄回、住宿付款和机票是连在一起的。我的经历比较极限，最好给其中任何一步出问题都留出缓冲时间。
