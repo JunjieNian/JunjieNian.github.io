@@ -181,6 +181,7 @@
    ======================================== */
 .project-img {
     width: 100%;
+    height: auto;
     border-radius: 8px;
     margin-bottom: 16px;
     border: 1px solid var(--color-border-light);
@@ -843,6 +844,7 @@
 }
 
 .project-img { margin-bottom: 22px; }
+#trajectory-lens { scroll-margin-top: 94px; }
 .project-card-horizontal { gap: 28px; }
 
 .project-cover {
