@@ -89,6 +89,18 @@
     background: var(--color-accent);
 }
 
+.research-tool-note {
+    max-width: 780px;
+    margin-top: 16px;
+    font-size: 13px;
+    line-height: 1.65;
+    color: var(--color-text-secondary);
+}
+
+.research-tool-note strong {
+    color: var(--color-text);
+}
+
 .research-figure {
     margin: 0 0 42px;
     border: 1px solid var(--color-border);
