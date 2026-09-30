@@ -10,7 +10,6 @@ The site is organized as a small multi-page portfolio:
 - `academic.html` — complete publication list, honors, and awards
 - `projects.html` — core research, related / adjacent research, and technical work
 - `research/*.html` — project questions, methods, results, and paper / source links
-- `tools/trajectory-lens/` — English / Chinese trajectory workspace with browser-local JSON / JSONL imports, path comparison, original evidence, exports, and released SliceGraph examples
 - `experience.html` — research experience and education background
 - `assets/cv.html` and `assets/cv.pdf` — browser and downloadable CV
 - `exchange.md` and `exchange-pages/*.md` — generated journal chapters at `/exchange/` and `/exchange/N/`
