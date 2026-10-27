@@ -4,8 +4,8 @@ layout: exchange
 title: "我的 UCSD 交换经历 | Junjie Nian"
 description: "Junjie Nian 持续更新的 UCSD 交换经历：从申请、行前准备到校园生活，为后来的交换生提供个人经验参考。"
 permalink: "/exchange/"
-last_updated: "2026-10-03T10:46:38+08:00"
-last_updated_display: "2026 年 10 月 3 日 10:46"
+last_updated: "2026-10-27T11:24:41+08:00"
+last_updated_display: "2026 年 10 月 27 日 11:24"
 chapter_number: 1
 chapters:
   - number: 1
@@ -14,6 +14,9 @@ chapters:
   - number: 2
     title: "第二章：抵达 UCSD"
     url: "/exchange/2/"
+  - number: 3
+    title: "第三章：旅行"
+    url: "/exchange/3/"
 ---
 
 # 我的 UCSD 交换经历
