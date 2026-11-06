@@ -193,7 +193,12 @@
     padding-left: 1.35em;
 }
 
-.exchange-article li { margin: 9px 0; padding-left: 4px; }
+.exchange-article li {
+    margin: 9px 0;
+    padding-left: 4px;
+    /* Preserve intentional line breaks from the source Markdown. */
+    white-space: pre-line;
+}
 .exchange-article li::marker { color: var(--color-accent); font-weight: 700; }
 
 .exchange-article table {
