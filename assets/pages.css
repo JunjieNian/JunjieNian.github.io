@@ -844,7 +844,7 @@
 }
 
 .project-img { margin-bottom: 22px; }
-#trajectory-lens { scroll-margin-top: 94px; }
+.project-card[id] { scroll-margin-top: 94px; }
 .project-card-horizontal { gap: 28px; }
 
 .project-cover {
@@ -908,7 +908,7 @@
 @media (max-width: 768px) {
     .page-container { padding: 54px 16px 70px; }
     .page-header { margin-bottom: 42px; padding-bottom: 28px; }
-    .page-header h1 { font-size: 48px; }
+    .page-header h1 { font-size: clamp(40px, 12.8vw, 48px); }
     .page-section { margin-bottom: 60px; }
     .page-section h2 { font-size: 27px; }
     .timeline-item { padding: 22px 0; }
