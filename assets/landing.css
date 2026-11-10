@@ -189,6 +189,10 @@ main,
     gap: 48px;
 }
 
+.visitors-section[hidden] {
+    display: none;
+}
+
 .visitors-intro {
     margin-top: 16px;
     font-size: 13px;
