@@ -1,4 +1,4 @@
-"""Build the site-local UCSD exchange reading page from its canonical README."""
+"""Build the site-local UCSD exchange journal from its canonical repository."""
 
 from __future__ import annotations
 
@@ -6,18 +6,18 @@ import json
 import os
 import re
 from datetime import datetime
-from pathlib import Path
+from io import BytesIO
+from pathlib import Path, PurePosixPath
 from urllib.request import Request, urlopen
+from zipfile import ZipFile
 from zoneinfo import ZoneInfo
 
 
-SOURCE_URL = os.environ.get(
-    "EXCHANGE_SOURCE_URL",
-    "https://raw.githubusercontent.com/JunjieNian/myUCSDexchange/main/README.md",
-)
+SOURCE_URL = os.environ.get("EXCHANGE_SOURCE_URL")
+SOURCE_REPO = "JunjieNian/myUCSDexchange"
 SOURCE_COMMIT_API_URL = os.environ.get(
     "EXCHANGE_SOURCE_COMMIT_API_URL",
-    "https://api.github.com/repos/JunjieNian/myUCSDexchange/commits?path=README.md&per_page=1",
+    f"https://api.github.com/repos/{SOURCE_REPO}/commits?sha=main&per_page=1",
 )
 OUTPUT_PATH = Path(os.environ.get("EXCHANGE_OUTPUT_PATH", "exchange.md"))
 CHAPTERS_DIR = Path(os.environ.get("EXCHANGE_CHAPTERS_DIR", "exchange-pages"))
@@ -26,6 +26,11 @@ CHAPTER_HEADING = re.compile(
     r"^##[ \t]+(第[一二三四五六七八九十百零\d]+章[：:].+)$", re.MULTILINE
 )
 GENERATED_MARKER = "generated_by: sync_exchange_notes.py"
+MAP_LINK = re.compile(r"^.*<!-- sd-travel-map -->[ \t]*$", re.MULTILINE)
+MAP_ASSET_URL = "/exchange-pages/sd-map/"
+MAP_FILES = {"embed.html", "map.css", "map.js", "places.json", "transit.json"}
+PHOTO_EXTENSIONS = {".jpg", ".jpeg", ".png", ".webp", ".avif"}
+USER_AGENT = "JunjieNian.github.io exchange sync"
 
 
 def build_front_matter(
@@ -66,8 +71,9 @@ chapters:
 """
 
 
-def fetch_source() -> str:
-    request = Request(SOURCE_URL, headers={"User-Agent": "JunjieNian.github.io exchange sync"})
+def fetch_source(revision: str) -> str:
+    url = SOURCE_URL or f"https://raw.githubusercontent.com/{SOURCE_REPO}/{revision}/README.md"
+    request = Request(url, headers={"User-Agent": USER_AGENT})
     with urlopen(request, timeout=30) as response:
         body = response.read().decode("utf-8")
 
@@ -77,10 +83,10 @@ def fetch_source() -> str:
     return normalized
 
 
-def fetch_last_updated() -> datetime:
+def fetch_source_commit() -> tuple[str, datetime]:
     headers = {
         "Accept": "application/vnd.github+json",
-        "User-Agent": "JunjieNian.github.io exchange sync",
+        "User-Agent": USER_AGENT,
         "X-GitHub-Api-Version": "2022-11-28",
     }
     token = os.environ.get("GH_TOKEN") or os.environ.get("GITHUB_TOKEN")
@@ -94,12 +100,56 @@ def fetch_last_updated() -> datetime:
         commits = json.load(response)
 
     if not commits:
-        raise RuntimeError("GitHub returned no commits for the canonical exchange record.")
+        raise RuntimeError("GitHub returned no commits for the canonical exchange repository.")
 
-    committed_at = commits[0]["commit"]["committer"]["date"]
-    return datetime.fromisoformat(committed_at.replace("Z", "+00:00")).astimezone(
-        DISPLAY_TIME_ZONE
+    commit = commits[0]
+    committed_at = commit["commit"]["committer"]["date"]
+    updated = datetime.fromisoformat(committed_at.replace("Z", "+00:00"))
+    return commit["sha"], updated.astimezone(DISPLAY_TIME_ZONE)
+
+
+def is_map_photo(path: PurePosixPath) -> bool:
+    return (
+        len(path.parts) == 2
+        and path.parts[0] == "photos"
+        and path.suffix.lower() in PHOTO_EXTENSIONS
     )
+
+
+def fetch_map_files(revision: str) -> dict[str, bytes]:
+    url = f"https://codeload.github.com/{SOURCE_REPO}/zip/{revision}"
+    request = Request(url, headers={"User-Agent": USER_AGENT})
+    with urlopen(request, timeout=60) as response:
+        archive_bytes = response.read()
+
+    files = {}
+    with ZipFile(BytesIO(archive_bytes)) as archive:
+        for entry in archive.infolist():
+            parts = PurePosixPath(entry.filename).parts
+            if entry.is_dir() or len(parts) < 3 or parts[1] != "sd-map":
+                continue
+            relative = PurePosixPath(*parts[2:])
+            if relative.as_posix() in MAP_FILES or is_map_photo(relative):
+                files[relative.as_posix()] = archive.read(entry)
+
+    missing = MAP_FILES - files.keys()
+    if missing:
+        raise RuntimeError(f"The canonical SD map is missing {', '.join(sorted(missing))}.")
+    return files
+
+
+def sync_map_assets(files: dict[str, bytes]) -> None:
+    output = CHAPTERS_DIR / "sd-map"
+    for name, contents in files.items():
+        destination = output / name
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        destination.write_bytes(contents)
+
+    for path in [*output.glob("*"), *output.glob("photos/*")]:
+        relative = PurePosixPath(path.relative_to(output).as_posix())
+        if path.is_file() and (relative.as_posix() in MAP_FILES or is_map_photo(relative)):
+            if relative.as_posix() not in files:
+                path.unlink()
 
 
 def split_chapters(source: str) -> tuple[list[dict[str, str | int]], list[str]]:
@@ -124,8 +174,16 @@ def split_chapters(source: str) -> tuple[list[dict[str, str | int]], list[str]]:
 
 
 def main() -> None:
-    source = fetch_source()
-    last_updated = fetch_last_updated()
+    revision, last_updated = fetch_source_commit()
+    source = fetch_source(revision)
+    map_files = {}
+    if MAP_LINK.search(source):
+        map_files = fetch_map_files(revision)
+        embed = map_files.pop("embed.html").decode("utf-8").strip()
+        embed = embed.replace("__SD_MAP_ASSETS__", MAP_ASSET_URL)
+        embed = embed.replace("__SD_MAP_VERSION__", revision[:12])
+        source = MAP_LINK.sub(lambda _: embed, source, count=1)
+
     chapters, pages = split_chapters(source)
     OUTPUT_PATH.write_text(
         build_front_matter(last_updated, 1, chapters) + pages[0],
@@ -150,8 +208,10 @@ def main() -> None:
         ):
             path.unlink()
 
+    sync_map_assets(map_files)
     print(
-        f"Synchronized {len(source)} characters in {len(chapters)} chapters from {SOURCE_URL}; "
+        f"Synchronized {len(source)} characters in {len(chapters)} chapters from "
+        f"{SOURCE_REPO}@{revision[:12]}; "
         f"last updated {last_updated.isoformat(timespec='seconds')}"
     )
 
