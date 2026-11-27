@@ -9,8 +9,6 @@
     const pick = section.querySelector('select');
     const name = section.querySelector('#sd-map-place-name');
     const description = section.querySelector('.sd-map__description');
-    const photo = section.querySelector('.sd-map__photo');
-    const photoPlaceholder = photo.querySelector('span');
     const directions = section.querySelector('.sd-map__directions');
     const directionsLink = section.querySelector('.sd-map__directions-link');
     const steps = section.querySelector('.sd-map__steps');
@@ -20,7 +18,7 @@
     const canvas = section.querySelector('.sd-map__canvas');
     const initialDescription = description.textContent;
 
-    let selected;
+    const showPlacePhotos = createPhotoGallery();
 
     function walkingLine(layer, coordinates) {
         if (L.latLng(coordinates[0]).distanceTo(coordinates.at(-1)) < 22) return;
@@ -56,21 +54,86 @@
         return pin;
     }
 
-    function showPhoto(place) {
-        photo.replaceChildren(photoPlaceholder);
-        photo.hidden = !place;
-        photoPlaceholder.hidden = false;
-        if (!place?.photo) return;
+    function createPhotoGallery() {
+        const panel = section.querySelector('.sd-map__photo');
+        const empty = panel.querySelector('.sd-map__photo-empty');
+        const gallery = panel.querySelector('.sd-map__photo-gallery');
+        const preview = gallery.querySelector('.sd-map__photo-preview');
+        const dialog = section.querySelector('.sd-map__photo-dialog');
+        const title = dialog.querySelector('#sd-map-photo-title');
+        const close = dialog.querySelector('.sd-map__photo-close');
+        const [inlineView, enlargedView] = [gallery, dialog].map((container) => ({
+            image: container.querySelector('.sd-map__photo-image'),
+            nav: container.querySelector('.sd-map__photo-nav'),
+            count: container.querySelector('.sd-map__photo-count'),
+            previous: container.querySelector('.sd-map__photo-previous'),
+            next: container.querySelector('.sd-map__photo-next'),
+        }));
+        let photos = [];
+        let photoIndex = 0;
+        let placeName = '';
 
-        const image = new Image();
-        image.alt = place.photo.alt || place.name;
-        image.decoding = 'async';
-        image.addEventListener('load', () => {
-            if (selected !== place) return;
-            photoPlaceholder.hidden = true;
-            photo.append(image);
-        }, {once: true});
-        image.src = assetUrl(place.photo.src).href;
+        function renderPhoto(view) {
+            const entry = photos[photoIndex];
+            const image = new Image();
+            const status = document.createElement('span');
+            status.textContent = '照片加载中…';
+            status.setAttribute('role', 'status');
+            image.alt = entry.alt || placeName;
+            image.decoding = 'async';
+            image.hidden = true;
+            image.addEventListener('load', () => {
+                status.hidden = true;
+                image.hidden = false;
+            }, {once: true});
+            image.addEventListener('error', () => {
+                status.textContent = '照片暂时无法加载';
+            }, {once: true});
+            view.image.replaceChildren(status, image);
+            image.src = assetUrl(entry.src).href;
+            view.count.textContent = `${photoIndex + 1} / ${photos.length}`;
+            view.nav.hidden = photos.length < 2;
+        }
+
+        function changePhoto(step) {
+            if (photos.length < 2) return;
+            photoIndex = (photoIndex + step + photos.length) % photos.length;
+            renderPhoto(inlineView);
+            if (dialog.open) renderPhoto(enlargedView);
+        }
+
+        for (const view of [inlineView, enlargedView]) {
+            view.previous.addEventListener('click', () => changePhoto(-1));
+            view.next.addEventListener('click', () => changePhoto(1));
+        }
+        preview.addEventListener('click', () => {
+            title.textContent = placeName;
+            renderPhoto(enlargedView);
+            dialog.showModal();
+        });
+        close.addEventListener('click', () => dialog.close());
+        dialog.addEventListener('click', (event) => {
+            if (event.target === dialog) dialog.close();
+        });
+        dialog.addEventListener('keydown', (event) => {
+            if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
+            event.preventDefault();
+            changePhoto(event.key === 'ArrowLeft' ? -1 : 1);
+        });
+
+        return (place) => {
+            photos = place?.photos ?? (place?.photo ? [place.photo] : []);
+            photoIndex = 0;
+            placeName = place?.name ?? '';
+            panel.hidden = !place;
+            empty.hidden = photos.length > 0;
+            gallery.hidden = photos.length === 0;
+            if (photos.length) {
+                renderPhoto(inlineView);
+            } else {
+                inlineView.image.replaceChildren();
+            }
+        };
     }
 
     function addStep(label, detail, color) {
@@ -89,7 +152,7 @@
     function renderDetails(place, data) {
         name.textContent = place?.name ?? data.origin.name;
         description.textContent = place?.description ?? initialDescription;
-        showPhoto(place);
+        showPlacePhotos(place);
         directions.hidden = !place;
         if (!place) return;
 
@@ -205,7 +268,7 @@
         const bounds = [data.origin.coordinates, ...data.places.map((place) => place.coordinates)];
 
         function selectPlace(id) {
-            selected = byId.get(id);
+            const selected = byId.get(id);
             pick.value = selected?.id ?? '';
             renderDetails(selected, data);
             if (id === 'campus') description.textContent = data.origin.description;

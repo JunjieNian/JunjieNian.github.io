@@ -50,6 +50,10 @@
   "places": [
     {
       "id": "blacks-beach", "name": "Black’s Beach", "group": "海岸",
+      "photos": [
+        {"src": "photos/BlacksBeach1.jpg"},
+        {"src": "photos/BlacksBeach2.jpg"}
+      ],
       "coordinates": [32.8896, -117.2533],
       "description": "从校园走到悬崖边，再沿步道下到海滩。白天常能看见滑翔伞，晚上没有灯光，可以看星星。部分区域是可选择不穿衣物的沙滩。",
       "rides": [], "walk": "走到 Torrey Pines Gliderport，沿正式步道下到海滩。",
@@ -57,36 +61,54 @@
     },
     {
       "id": "la-jolla-shores", "name": "La Jolla Shores Beach", "group": "海岸",
+      "photos": [{"src": "photos/LaJollaShoresBeach.jpg"}],
       "coordinates": [32.85762, -117.25711],
       "description": "在 Black’s Beach 南边，中间隔着礁石。这边游客更多，设施也更齐全，适合找个地方坐下看海。",
       "rides": [["30", "gilman", "la-jolla-shores"]], "walk": "沿 Calle Frescota 走到海滩。"
     },
     {
       "id": "coronado-central-beach", "name": "Coronado Central Beach", "group": "海岸",
+      "photos": [{"src": "photos/CoronadoCentralBeach.jpg"}],
       "coordinates": [32.68165, -117.18117],
       "description": "Coronado 西侧一大片开阔的沙滩。连接 Coronado 和大陆的 Silver Strand 看着像是人工填出来的，其实是自然形成的。",
       "rides": [["510", "campus", "imperial"], ["901", "imperial-bus", "coronado"]], "walk": "从 Hotel del Coronado 一带走到 Central Beach。"
     },
     {
       "id": "pacific-beach", "name": "Pacific Beach", "group": "海岸",
+      "photos": [
+        {"src": "photos/PacificBeach1.jpg"},
+        {"src": "photos/PacificBeach2.jpg"}
+      ],
       "coordinates": [32.79643, -117.25728],
       "description": "Mission Bay 西侧的长条沙滩，从 Crystal Pier 一带可以沿海滨步道往南走到 Mission Beach。海边的房屋很有墨西哥热带风情。",
       "rides": [["30", "gilman", "felspar"]], "walk": "沿 Felspar St 走到海边。"
     },
     {
       "id": "mission-beach", "name": "Mission Beach", "group": "海岸",
+      "photos": [
+        {"src": "photos/MissionBeach1.jpg"},
+        {"src": "photos/MissionBeach2.jpg"}
+      ],
       "coordinates": [32.77124, -117.25306],
       "description": "Pacific Beach 往南就是 Mission Beach，外侧是太平洋，内侧是 Mission Bay。地图标在 Belmont Park 旁，沿海边可以一路往北走。",
       "rides": [["510", "campus", "old-town-rail"], ["8", "old-town-bus", "mission-beach"]], "walk": "从 Belmont Park 旁走到海滨步道。"
     },
     {
       "id": "ocean-beach", "name": "Ocean Beach", "group": "海岸",
+      "photos": [
+        {"src": "photos/OceanBeach1.jpg"},
+        {"src": "photos/OceanBeach2.jpg"}
+      ],
       "coordinates": [32.74924, -117.25247],
       "description": "棕榈树夹着街道一直延伸到海边，Newport Avenue 附近有吃的和卖小物件的店，适合走走停停。",
       "rides": [["510", "campus", "old-town-rail"], ["35", "old-town-bus", "ocean-beach"]], "walk": "沿 Newport Avenue 向西走到沙滩。"
     },
     {
       "id": "sunset-cliffs", "name": "Sunset Cliffs", "group": "海岸",
+      "photos": [
+        {"src": "photos/SunsetCliffs1.jpg"},
+        {"src": "photos/SunsetCliffs2.jpg"}
+      ],
       "coordinates": [32.72853, -117.25608],
       "description": "悬崖、海蚀拱和礁石挨着太平洋，和沙滩的景色很不一样。从 Ocean Beach 过来可以走 Sunset Cliffs Blvd 沿街步道。",
       "rides": [["510", "campus", "old-town-rail"], ["35", "old-town-bus", "ocean-beach"]], "walk": "从 Ocean Beach 沿 Sunset Cliffs Blvd 步行到观景区。",
@@ -94,12 +116,22 @@
     },
     {
       "id": "la-jolla-cove", "name": "La Jolla Cove", "group": "海岸",
+      "photos": [
+        {"src": "photos/LaJollaCove1.jpg"},
+        {"src": "photos/LaJollaCove2.jpg"},
+        {"src": "photos/LaJollaCove3.jpg"},
+        {"src": "photos/LaJollaCove4.jpg"}
+      ],
       "coordinates": [32.85042, -117.27227],
       "description": "礁石、浪花，还有趴在石头上的海豹和海鸟。沙滩很小，主要沿悬崖上的步道看海，也是这一带游客最多的地方之一。",
       "rides": [["30", "gilman", "silverado"]], "walk": "往 Prospect St 和 Coast Blvd 走到海湾。"
     },
     {
       "id": "point-loma", "name": "Point Loma · Cabrillo", "group": "公园与活动",
+      "photos": [
+        {"src": "photos/PointLoma1.jpg"},
+        {"src": "photos/PointLoma2.jpg"}
+      ],
       "coordinates": [32.67433, -117.23998],
       "description": "在 Cabrillo National Monument 可以逛老灯塔，从半岛尖端俯瞰 downtown 和 Coronado。朝太平洋走，会看见一层层被海水侵蚀出来的岩石。",
       "rides": [["510", "campus", "old-town-rail"], ["28", "old-town-bus", "shelter-island"], ["84", "shelter-island", "cabrillo"]],
@@ -107,6 +139,7 @@
     },
     {
       "id": "los-penasquitos-canyon", "name": "Los Peñasquitos Canyon", "group": "公园与活动",
+      "photos": [{"src": "photos/LosPenasquitosCanyon.jpg"}],
       "coordinates": [32.92983, -117.14412],
       "description": "看腻了海滩可以来峡谷徒步，这里能看到草地、湿地和溪流。地图标的是峡谷南侧、Camino Ruiz Park 的步道入口。",
       "rides": [["237", "gilman", "camino-ruiz"]],
@@ -114,30 +147,44 @@
     },
     {
       "id": "balboa-park", "name": "Balboa Park", "group": "公园与活动",
+      "photos": [
+        {"src": "photos/BalboaPark1.jpg"},
+        {"src": "photos/BalboaPark2.jpg"}
+      ],
       "coordinates": [32.73122, -117.14686],
       "description": "欧洲古典式建筑、植物园和大喷泉都在这里，挺适合拍照。沿 El Prado 可以走过好几座博物馆，圣诞节前还有活动。",
       "rides": [["510", "campus", "city-college"], ["7", "city-college-bus", "balboa-park"]], "walk": "走到 El Prado 的 Bea Evenson Fountain 一带。"
     },
     {
       "id": "san-diego-zoo", "name": "San Diego Zoo", "group": "公园与活动",
+      "photos": [
+        {"src": "photos/Zoo1.jpg"},
+        {"src": "photos/Zoo2.jpg"}
+      ],
       "coordinates": [32.73426, -117.14886],
       "description": "动物园就在 Balboa Park 旁边。能看熊猫、长颈鹿、企鹅和北极熊，也能坐缆车，适合挑一个工作日慢慢逛。",
       "rides": [["510", "campus", "city-college"], ["7", "city-college-bus", "zoo"]], "walk": "沿 Zoo Place 走到动物园正门。"
     },
     {
       "id": "mission-bay", "name": "Mission Bay", "group": "公园与活动",
+      "photos": [{"src": "photos/MissionBay.jpg"}],
       "coordinates": [32.78946, -117.20977],
       "description": "海湾有小岛、游艇和沿岸步道。地图标在东岸的 Visitor Center，可以从这里沿海湾散步。",
       "rides": [["510", "campus", "clairemont"]], "walk": "走 Clairemont Drive 的行人通道到海湾东岸。"
     },
     {
       "id": "fiesta-island", "name": "Fiesta Island", "group": "公园与活动",
+      "photos": [{"src": "photos/FiestaIsland.jpg"}],
       "coordinates": [32.76877, -117.20958],
       "description": "Mission Bay 里适合散步和徒步的小岛。地图标出从 Sea World Drive 走上岛的入口。",
       "rides": [["510", "campus", "tecolote"]], "walk": "沿 Tecolote Road 一带的行人通道到 Sea World Drive，再走到 Fiesta Island Road 入口。"
     },
     {
       "id": "seaworld", "name": "SeaWorld San Diego", "group": "公园与活动",
+      "photos": [
+        {"src": "photos/SeaWorld1.jpg"},
+        {"src": "photos/SeaWorld2.jpg"}
+      ],
       "coordinates": [32.76496, -117.22535],
       "description": "Mission Bay 南边的海洋公园，过山车很刺激，也有虎鲸、海豚和海狮表演。工作日人少时，适合待上一整天。",
       "rides": [["510", "campus", "old-town-rail"], ["9", "old-town-bus", "seaworld"]],
@@ -145,6 +192,7 @@
     },
     {
       "id": "legacy-whale-watch", "name": "Legacy Whale Watch", "group": "公园与活动",
+      "photos": [{"src": "photos/LegacyWhaleWatch.jpg"}],
       "coordinates": [32.7619, -117.238],
       "description": "从 Seaforth Landing 出发的三小时观鲸。我那次看见几条鲸鱼接连跃出水面，沿途还有海豚和飞鱼。报到地点在 1717 Quivira Road 的渔具店。",
       "rides": [["510", "campus", "old-town-rail"], ["8", "old-town-bus", "dana-landing"]], "walk": "沿 Quivira Road 步行到 Seaforth Landing。"
@@ -157,18 +205,21 @@
     },
     {
       "id": "little-italy", "name": "Little Italy", "group": "城区与商圈",
+      "photos": [{"src": "photos/LittleItaly.jpg"}],
       "coordinates": [32.72319, -117.16876],
       "description": "Blue Line 旁的小意大利，标记放在印度街附近的 Piazza della Famiglia。可以沿 India Street 看看意大利餐厅和街边店铺。",
       "rides": [["510", "campus", "county-center"]], "walk": "从 County Center/Little Italy 站走到 Piazza della Famiglia。"
     },
     {
       "id": "uss-midway", "name": "USS Midway Museum", "group": "城区与商圈",
+      "photos": [{"src": "photos/Midway.jpg"}],
       "coordinates": [32.71373, -117.17589],
       "description": "Santa Fe Depot 附近海港里的中途岛号航空母舰，现在是博物馆。船旁还有海滨步道和拥抱和平雕像。",
       "rides": [["510", "campus", "santa-fe"]], "walk": "往海边走，到 Navy Pier 的博物馆入口。"
     },
     {
       "id": "unconditional-surrender", "name": "Unconditional Surrender", "group": "城区与商圈",
+      "photos": [{"src": "photos/UnconditionalSurrender.jpg"}],
       "coordinates": [32.71284, -117.17532],
       "description": "中途岛号旁的拥抱和平雕像，描绘的是水手与护士相吻的画面。沿海边走时可以顺路看看。",
       "rides": [["510", "campus", "santa-fe"]], "walk": "沿海滨往南走到 Tuna Harbor Park。"
@@ -187,6 +238,7 @@
     },
     {
       "id": "san-ysidro", "name": "San Ysidro 美墨边境", "group": "城区与商圈",
+      "photos": [{"src": "photos/Border.jpg"}],
       "coordinates": [32.54446, -117.02948],
       "description": "Blue Line 往南的终点，出站就靠近美墨边境的 PedEast 步行口岸。这里标的是美国一侧的车站。",
       "rides": [["510", "campus", "san-ysidro"]]
