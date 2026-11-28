@@ -45,6 +45,7 @@
     "imperial": "12th & Imperial Station",
     "imperial-bus": "12th & Imperial Transit Center",
     "coronado": "Orange Av & Churchill Pl",
+    "iris-avenue": "Iris Avenue Station",
     "san-ysidro": "San Ysidro Station"
   },
   "places": [
@@ -196,6 +197,15 @@
       "coordinates": [32.7619, -117.238],
       "description": "从 Seaforth Landing 出发的三小时观鲸。我那次看见几条鲸鱼接连跃出水面，沿途还有海豚和飞鱼。报到地点在 1717 Quivira Road 的渔具店。",
       "rides": [["510", "campus", "old-town-rail"], ["8", "old-town-bus", "dana-landing"]], "walk": "沿 Quivira Road 步行到 Seaforth Landing。"
+    },
+    {
+      "id": "tijuana-river-valley", "name": "Tijuana River Valley Regional Park", "group": "公园与活动",
+      "photos": [{"src": "photos/TijuanaRiverValley.jpg", "alt": "Tijuana River Valley Regional Park 的山坡步道和远处的海岸"}],
+      "coordinates": [32.54895, -117.09058],
+      "description": "靠近边境的公园，从山坡上能看到墨西哥，也能远眺蒂华纳河湿地和边境沙滩。公园位置偏僻，从轻轨站走过去需要较长时间。",
+      "rides": [["510", "campus", "iris-avenue"]],
+      "walk": "从 Iris Avenue Station 下车后步行约 1 小时 30 分钟（游记耗时）。",
+      "note": "虚线仅示意步行区间。边境沙滩和边境墙附近有管制区域，请按现场标识行走。"
     },
     {
       "id": "old-town", "name": "Old Town San Diego", "group": "城区与商圈",
