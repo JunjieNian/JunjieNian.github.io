@@ -1,6 +1,6 @@
 ---
 generated_by: sync_exchange_notes.py
-layout: exchange
+layout: exchange-journal
 title: "我的 UCSD 交换经历 | Junjie Nian"
 description: "Junjie Nian 持续更新的 UCSD 交换经历：从申请、行前准备到校园生活，为后来的交换生提供个人经验参考。"
 permalink: "/exchange/"

@@ -57,7 +57,7 @@ def build_front_matter(
     )
     return f"""---
 {GENERATED_MARKER}
-layout: exchange
+layout: exchange-journal
 title: {json.dumps(page_title, ensure_ascii=False)}
 description: "Junjie Nian 持续更新的 UCSD 交换经历：从申请、行前准备到校园生活，为后来的交换生提供个人经验参考。"
 permalink: "{permalink}"

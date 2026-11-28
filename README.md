@@ -35,7 +35,7 @@ The site is organized as a small multi-page portfolio:
 ├── exchange.md
 ├── exchange-pages/
 ├── _layouts/
-│   └── exchange.html
+│   └── exchange-journal.html
 ├── _config.yml
 ├── scripts/
 │   └── sync_exchange_notes.py
@@ -154,7 +154,7 @@ This repository is suitable for direct deployment on GitHub Pages:
 4. Set the source to **Deploy from a branch**
 5. Select the default branch and the repository root
 
-No JavaScript bundler or npm build is required. Leave Jekyll enabled for the journal's Markdown, `_layouts/exchange.html`, and permalink generation. The `CNAME` file records the custom domain.
+No JavaScript bundler or npm build is required. Leave Jekyll enabled for the journal's Markdown, `_layouts/exchange-journal.html`, and permalink generation. The `CNAME` file records the custom domain.
 
 ## Customization Notes
 
